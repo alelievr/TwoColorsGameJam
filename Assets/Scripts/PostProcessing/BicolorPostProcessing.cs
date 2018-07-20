@@ -10,6 +10,8 @@ public sealed class Bicolor : PostProcessEffectSettings
 {
     [Range(0f, 1f), Tooltip("Spread")]
     public FloatParameter spread = new FloatParameter { value = 0.5f };
+	public ColorParameter mainColor = new ColorParameter { value = Color.white };
+	public ColorParameter backgroundColor = new ColorParameter { value = Color.black };
 }
  
 public sealed class GrayscaleRenderer : PostProcessEffectRenderer<Bicolor>
