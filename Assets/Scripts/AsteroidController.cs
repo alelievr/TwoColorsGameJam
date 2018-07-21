@@ -21,10 +21,12 @@ public class AsteroidController : MonoBehaviour {
 	CinemachineFramingTransposer vcamframing;
 
 	public PlayableDirector	director;
+	AudioSource audios;
 
 	// Use this for initialization
 	void Start ()
 	{
+		audios = GetComponent<AudioSource>();
 		rb = GetComponent<Rigidbody2D>();
 		cis = GetComponent<CinemachineImpulseSource>();
 		// vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
@@ -42,6 +44,8 @@ public class AsteroidController : MonoBehaviour {
 		director.Play();
 		float tmptime = timeboostins;
 		boostcdtmp = boostcd;
+		if (boostsound)
+			audios.PlayOneShot(boostsound);
 		cis.GenerateImpulse(rb.velocity);
 		// vcamframing.m_XDamping = 1.5f;
         // vcamframing.m_YDamping = 1.5f;
