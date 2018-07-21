@@ -26,7 +26,7 @@ public class AsteroidController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		//Debug.Log("hor" + Input.GetAxisRaw("Horizontal")+ "ver" + Input.GetAxisRaw("Vertical"));
-		Debug.Log(rb.velocity);
+		// Debug.Log(rb.velocity);
 		rb.AddForce(dir * speed * Time.fixedDeltaTime, ForceMode2D.Force);
 		if (rb.velocity.x > 100 || rb.velocity.y > 100)
 		{

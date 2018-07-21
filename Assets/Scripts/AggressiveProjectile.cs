@@ -11,14 +11,18 @@ public class AggressiveProjectile : MonoBehaviour {
 	public	float		speed = 10;
 
 	private Rigidbody2D	rb;
+	float basedistance = 0;
 	// Use this for initialization
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		// transform.rotation = Quaternion.LookRotation(target.transform.position);
-		rb.AddForce(((target.transform.position - transform.position) + new Vector3(Random.Range(-prec, prec), Random.Range(-prec, prec), 0)) * speed);
+		rb.AddForce((((target.transform.position - transform.position).normalized + new Vector3(Random.Range(-prec, prec), Random.Range(-prec, prec), 0).normalized)).normalized * speed);
+		basedistance = Vector3.Distance(transform.position, target.transform.position) * 2;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (Vector3.Distance(transform.position, target.transform.position) > basedistance)
+			GameObject.Destroy(gameObject);
 	}
 }

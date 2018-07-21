@@ -36,11 +36,11 @@ public class Kaboom : MonoBehaviour {
 
 	void die()
 	{
-		for (int i = 0; i < numbertoinvoc; i++)
-		{
-			GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
-		}
-		GameObject.Destroy(this);
+		// for (int i = 0; i < numbertoinvoc; i++)
+		// {
+		// 	GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
+		// }
+		GameObject.Destroy(gameObject);
 	}
 
     IEnumerator impactoEffect()

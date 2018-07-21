@@ -20,7 +20,7 @@ public class Aggressor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Random.Range(frequancy, 100) >= 99) {
-			projectile = (AggressiveProjectile)Instantiate(projectilePrefab, Random.insideUnitCircle.normalized * distance, Quaternion.identity);
+			projectile = (AggressiveProjectile)Instantiate(projectilePrefab, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * distance, Quaternion.identity);
 			projectile.target = target;
 		}
 	}
