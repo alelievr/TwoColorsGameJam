@@ -30,7 +30,8 @@ public class AsteroidController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		cis = GetComponent<CinemachineImpulseSource>();
 		// vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
-		vcamframing = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
+		if (vcam != null)
+			vcamframing = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
 	}
 	
 	Vector2 Directionator()
@@ -82,7 +83,6 @@ public class AsteroidController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		//Debug.Log("hor" + Input.GetAxisRaw("Horizontal")+ "ver" + Input.GetAxisRaw("Vertical"));
-		Debug.Log(rb.velocity.magnitude);
 		rb.AddForce(dir * speed * boostmult, ForceMode2D.Force);
 		if (Mathf.Abs(rb.velocity.magnitude) > maxSpeed * boostmult)
 		{
@@ -91,28 +91,5 @@ public class AsteroidController : MonoBehaviour {
 			rb.velocity = tmp;
 		}
 
-	}
-
-	void Grossissement()
-	{
-		Vector3 tmp = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-		tmp = tmp * 1.1f;
-		tmp.z = 1f;
-		transform.localScale = tmp;
-		rb.mass *= 1.1f;
-	}
-
-	/// <summary>
-	/// Sent when an incoming collider makes contact with this object's
-	/// collider (2D physics only).
-	/// </summary>
-	/// <param name="other">The Collision2D data associated with this collision.</param>
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.tag == "debrit")
-		{
-			Grossissement();
-			Destroy(other.gameObject);
-		}
 	}
 }
