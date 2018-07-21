@@ -15,14 +15,10 @@ Shader "Hidden/Jam/Bicolor"
         float4 Frag(VaryingsDefault i) : SV_Target
         {
             float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
-            float luminance = dot(color.rgb, float3(0.2126729, 0.7151522, 0.0721750));
 
 			float r = whiteNoise(i.texcoord);
 
-			if (r >= luminance * 5)
-				return float4(0, 0, 0, 1);
-			else
-				return float4(1, 1, 1, 1);
+            return step(color, r);
         }
 
     ENDHLSL
