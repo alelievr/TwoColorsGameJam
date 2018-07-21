@@ -250,7 +250,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -280,8 +280,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b9170c04b53948beb7c704c8c782856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bigList:
+    list:
+    - aggressiveProjectileList:
+      - {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495, type: 2}
+      - {fileID: 114195176548454736, guid: cd641d434a93843f1896fc636e708d79, type: 2}
+      - {fileID: 114195176548454736, guid: 7ad2abb0c2e384514b2e798b81aec9e2, type: 2}
+    - aggressiveProjectileList:
+      - {fileID: 114195176548454736, guid: c39be90446d074716ac212a03894e3f9, type: 2}
+      - {fileID: 114195176548454736, guid: 278e5e00e348d46a19606dc9afca7a9f, type: 2}
+      - {fileID: 114195176548454736, guid: 502c10dacd8754d1fbc5f6199b4597ee, type: 2}
+    - aggressiveProjectileList:
+      - {fileID: 114195176548454736, guid: 04cc429e1e95944cf97dae543d03dba1, type: 2}
+      - {fileID: 114195176548454736, guid: 04cc429e1e95944cf97dae543d03dba1, type: 2}
+      - {fileID: 114195176548454736, guid: 3df8486d2ac104de78bfb5ebcab32283, type: 2}
   projectilePrefab: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
     type: 2}
   target: {fileID: 818162960}
-  distance: 10
-  frequancy: 40
+  distance: 100
+  frequancy: 0.2
+  gameState: 2

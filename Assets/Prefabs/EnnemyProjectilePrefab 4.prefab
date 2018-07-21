@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114417516483437218}
   - component: {fileID: 114273268304804946}
   m_Layer: 0
-  m_Name: EnnemyProjectilePrefab
+  m_Name: EnnemyProjectilePrefab 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f571394c24ca340af8f414d007f3d258, type: 3}
-  m_Color: {r: 1, g: 0.36226243, b: 0, a: 1}
+  m_Color: {r: 0.24222136, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
