@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DebritController : MonoBehaviour
 {
-	public GameObject player;
-	Rigidbody2D rb;
-	Vector2 dir;
-	int index;
+	public GameObject	player;
 
 	[Header("Target reach settings")]
 	public float toVel = 2.5f;
@@ -15,11 +13,24 @@ public class DebritController : MonoBehaviour
 	public float maxForce = 40.0f;
 	public float gain = 5f;
 
-	DebritManager	manager;
+	public event Action< DebritController >	onLaserReceived;
+
+	Rigidbody2D			rb;
+	BoxCollider2D		boxCollider;
+	Vector2				dir;
+	int					index;
+	Collider2D[]		results = new Collider2D[16];
+	DebritManager		manager;
+	bool				agglomerationEnabled;
+
+	public int			integrity = 0;
+
+	List<DebritController>	touchingDebrits = new List<DebritController>();
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		boxCollider = GetComponent< BoxCollider2D >();
 		manager = DebritManager.instance;
 
 		if (manager != null)
@@ -40,6 +51,9 @@ public class DebritController : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
+		if (agglomerationEnabled)
+			return ;
+		
 		// Control the force to avoid overshooting the target:
 		Vector2 tgtVel = Vector2.ClampMagnitude(toVel * dir, maxVel);
 		// calculate the velocity error
@@ -58,5 +72,64 @@ public class DebritController : MonoBehaviour
 			// tmp.y = Mathf.Clamp(tmp.y, -100, 100);
 			rb.velocity = tmp;
 		}
+	}
+
+	public void Agglomerate(int integrity)
+	{
+		if (agglomerationEnabled)
+			return ;
+
+		this.integrity = integrity;
+		
+		Destroy(rb);
+
+		ContactFilter2D filter = new ContactFilter2D();
+		filter.layerMask = 1 << LayerMask.NameToLayer("Default");
+		int count = boxCollider.OverlapCollider(filter, results);
+
+		for (int i = 0; i < count; i++)
+		{
+			touchingDebrits.Add(results[i].GetComponent<DebritController>());
+		}
+
+		integrity = 0;
+
+		agglomerationEnabled = true;
+	}
+
+	public void CheckIntegryty(int newIntegrity)
+	{
+		if (newIntegrity == integrity)
+			return ;
+		
+		integrity = newIntegrity;
+
+		foreach (var touchingDebrit in touchingDebrits)
+		{
+			// Safety check
+			if (touchingDebrit != null)
+				touchingDebrit.CheckIntegryty(newIntegrity);
+		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+		if (!agglomerationEnabled)
+			return ;
+		
+		if (other.gameObject.tag == "debrit")
+			manager.AgglomerateDebrit(other.gameObject.GetComponent< DebritController >());
+	}
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Laser")
+			onLaserReceived(this);
+	}
+
+	private void OnDestroy()
+	{
+		foreach (var debrit in touchingDebrits)
+			debrit.touchingDebrits.Remove(this);
 	}
 }
