@@ -51,8 +51,11 @@ public class AudioController : MonoBehaviour
 		{
 			float ratio = (Time.time - t) / backgroundMusicResetTime;
 			mixer.SetFloat(backgroundVolume, LinearToDecibel(ratio));
+			float v;
+			mixer.GetFloat(backgroundVolume, out v);
+			Debug.Log("ratio: " + ratio + ", " + v);
 			foreach (var bossVolume in bossVolumes)
-				mixer.SetFloat(bossVolume, LinearToDecibel(1 - ratio));
+				mixer.SetFloat(bossVolume, LinearToDecibel(1.0f - ratio));
 			yield return null;
 		}
 	}
@@ -91,10 +94,11 @@ public class AudioController : MonoBehaviour
 
 	void StartBossMusic(BossZone zone)
 	{
-		bossAudioStart.clip = zone.startClip;
-		bossAudioLoop.clip = zone.loopClip;
 		bossAudioLoop.outputAudioMixerGroup = zone.audioGroup;
 		bossAudioStart.outputAudioMixerGroup = zone.audioGroup;
+
+		bossAudioStart.clip = zone.startClip;
+		bossAudioLoop.clip = zone.loopClip;
 
 		bossAudioStart.Play();
 	}
@@ -110,8 +114,6 @@ public class AudioController : MonoBehaviour
 				continue ;
 			
 			float bossDistance = (transform.position - boss.transform.position).magnitude - boss.radius;
-
-			Debug.Log("boss distance: " + bossDistance);
 
 			if (bossDistance < 0)
 			{
