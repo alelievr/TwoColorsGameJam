@@ -33,24 +33,21 @@ public class Kaboom : MonoBehaviour {
 			rbody.velocity = new Vector2((name == "blanc") ? 20 : -20, 0);
 	}
 
+    IEnumerator Destroyation()
+    {
+        yield return new WaitForSeconds(0.1f);
+		Destroy(gameObject);
+    }
+
 
 	void die()
 	{
-		// for (int i = 0; i < numbertoinvoc; i++)
-		// {
-		// 	GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
-		// }
-		GameObject.Destroy(gameObject);
+		for (int i = 0; i < numbertoinvoc; i++)
+		{
+			GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
+		}
+		StartCoroutine(Destroyation());
 	}
-
-    IEnumerator impactoEffect()
-    {
-        vcamperlin = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        vcamperlin.m_AmplitudeGain = 0.5f;
-        vcamperlin.m_FrequencyGain = 30;
-        yield return new WaitForSeconds(0.3f);
-        vcamperlin.m_AmplitudeGain = 0;
-    }
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
@@ -60,8 +57,8 @@ public class Kaboom : MonoBehaviour {
 		if ((impactant = other.gameObject.GetComponent<Kaboom>()) != null)
 		{
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
-			if (this.tag == "Player" && vcam != null)
-				StartCoroutine(impactoEffect());
+			// if (this.tag == "Player" && vcam != null)
+			// 	StartCoroutine(impactoEffect());
 			life -= realvelocity.magnitude;
 			if (life < 0)
 				die();
