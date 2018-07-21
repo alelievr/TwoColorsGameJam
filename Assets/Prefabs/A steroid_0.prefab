@@ -28,6 +28,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1228890878425656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4341348700250278}
+  - component: {fileID: 114129702051092032}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1500432766737952
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,6 +58,7 @@ GameObject:
   - component: {fileID: 58944698020339084}
   - component: {fileID: 114003666854274606}
   - component: {fileID: 114843282434689640}
+  - component: {fileID: 114081963311458972}
   m_Layer: 0
   m_Name: A steroid_0
   m_TagString: Player
@@ -60,8 +77,22 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4999242148495274}
+  - {fileID: 4341348700250278}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4341348700250278
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228890878425656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4016883314292418}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4999242148495274
 Transform:
@@ -128,6 +159,38 @@ MonoBehaviour:
   rbody: {fileID: 0}
   invoqueondead: {fileID: 0}
   numbertoinvoc: 15
+--- !u!114 &114081963311458972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500432766737952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9170c04b53948beb7c704c8c782856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
+    type: 2}
+  target: {fileID: 1500432766737952}
+  distance: 100
+  frequancy: 60
+--- !u!114 &114129702051092032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1228890878425656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3c3aff03b824d1f977cddaf8e84383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 50c76c5d1501a459db1225d996b62821, type: 2}
+  fadeDistance: 20
+  bosses: []
+  bossAudioStart: {fileID: 0}
+  bossAudioLoop: {fileID: 0}
 --- !u!114 &114765088154750426
 MonoBehaviour:
   m_ObjectHideFlags: 1
