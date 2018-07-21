@@ -12,12 +12,11 @@ public class Aggressor : MonoBehaviour {
 
 	private	AggressiveProjectile	projectile;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if (Random.Range(frequancy, 100) >= 99) {
 			projectile = (AggressiveProjectile)Instantiate(projectilePrefab, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * distance, Quaternion.identity);

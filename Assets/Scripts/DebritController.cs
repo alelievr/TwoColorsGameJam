@@ -7,7 +7,6 @@ public class DebritController : MonoBehaviour
 	public GameObject player;
 	Rigidbody2D rb;
 	Vector2 dir;
-	float speed = 5000;
 	int index;
 
 	[Header("Target reach settings")]
