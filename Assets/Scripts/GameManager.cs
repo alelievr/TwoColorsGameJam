@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-	public int gameState;
+	public int		gameState;
+	public bool 	isBossFight;
 
 	public static GameManager instance;
 
@@ -16,5 +17,11 @@ public class GameManager : MonoBehaviour
 	public void DefeatBoss()
 	{
 		gameState++;
+		isBossFight = false;
+	}
+
+	public void EnterBossFight()
+	{
+		isBossFight = true;
 	}
 }
