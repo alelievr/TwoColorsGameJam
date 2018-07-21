@@ -19,7 +19,7 @@ Shader "Hidden/Jam/Bicolor"
 
 			float r = whiteNoise(i.texcoord);
 
-			if (r >= luminance)
+			if (r >= luminance * 5)
 				return float4(0, 0, 0, 1);
 			else
 				return float4(1, 1, 1, 1);

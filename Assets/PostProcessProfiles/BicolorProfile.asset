@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
   - {fileID: 114653260761844044}
-  - {fileID: 114162755593589536}
+  - {fileID: 114529555782586448}
 --- !u!114 &114162755593589536
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -32,6 +32,30 @@ MonoBehaviour:
   spread:
     overrideState: 1
     value: 0.523
+--- !u!114 &114529555782586448
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Bicolor
+  m_EditorClassIdentifier: Assembly-CSharp::Bicolor
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  spread:
+    overrideState: 0
+    value: 0.5
+  mainColor:
+    overrideState: 0
+    value: {r: 1, g: 1, b: 1, a: 1}
+  backgroundColor:
+    overrideState: 0
+    value: {r: 0, g: 0, b: 0, a: 1}
 --- !u!114 &114653260761844044
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -77,3 +101,27 @@ MonoBehaviour:
   spread:
     overrideState: 1
     value: 0.5
+--- !u!114 &114846260299236262
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Bicolor
+  m_EditorClassIdentifier: Assembly-CSharp::Bicolor
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spread:
+    overrideState: 0
+    value: 0.5
+  mainColor:
+    overrideState: 1
+    value: {r: 1, g: 1, b: 1, a: 1}
+  backgroundColor:
+    overrideState: 1
+    value: {r: 0, g: 0, b: 0, a: 1}

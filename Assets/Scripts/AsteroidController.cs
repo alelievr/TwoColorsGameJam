@@ -5,11 +5,13 @@ using UnityEngine;
 public class AsteroidController : MonoBehaviour {
 
 	public float speed = 100;
+	public float maxSpeed = 100;
 	Vector2 dir;
 	Rigidbody2D rb;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		rb = GetComponent<Rigidbody2D>();
 	}
 	
@@ -27,14 +29,14 @@ public class AsteroidController : MonoBehaviour {
 	void FixedUpdate () {
 		//Debug.Log("hor" + Input.GetAxisRaw("Horizontal")+ "ver" + Input.GetAxisRaw("Vertical"));
 		Debug.Log(rb.velocity.magnitude);
-		rb.AddForce(dir * speed * Time.fixedDeltaTime, ForceMode2D.Force);
-		if (Mathf.Abs(rb.velocity.magnitude) > 100)
+		rb.AddForce(dir * speed, ForceMode2D.Force);
+		if (Mathf.Abs(rb.velocity.magnitude) > maxSpeed)
 		{
 			
 			Vector2 tmp = new Vector2(rb.velocity.x, rb.velocity.y);
 
 			// tmp.x = Mathf.Clamp(tmp.x, -100, 100);
-			tmp = tmp.normalized * 100;
+			tmp = tmp.normalized * maxSpeed;
 			// tmp.y = Mathf.Clamp(tmp.y, -100, 100);
 			rb.velocity = tmp;
 		}
