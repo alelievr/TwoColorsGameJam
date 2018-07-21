@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public class BossZone : MonoBehaviour
 {
-	public string		bossName;
-	public string		volumeControlName;
-	public AudioClip	startClip;
-	public AudioClip	loopClip;
-	public bool			dead;
+	public string			bossName;
+	public string			volumeControlName;
+	public AudioClip		startClip;
+	public AudioClip		loopClip;
+	public AudioMixerGroup	audioGroup;
+	public bool				dead;
 
 	CircleCollider2D	m_CircleCollider;
 	CircleCollider2D	circleCollider

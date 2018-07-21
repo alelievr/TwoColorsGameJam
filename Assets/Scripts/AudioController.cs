@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Linq;
 
 public class AudioController : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AudioController : MonoBehaviour
 
 	[Header("Audio fade settings")]
 	public float			fadeDistance = 40;
+	public float			backgroundMusicResetTime = 2;
 
 	[Header("Boss zones")]
 	public BossZone[]		bosses;
@@ -16,21 +18,88 @@ public class AudioController : MonoBehaviour
 	[Header("Audio sources")]
 	public AudioSource		bossAudioStart;
 	public AudioSource		bossAudioLoop;
+	public AudioSource		backgroundStart;
+	public AudioSource		backgroundLoop;
 
 	public static AudioController	instance;
 
 	const string			backgroundVolume = "BackgroundVolume";
+	string[]				bossVolumes;
+	BossZone				currentBoss;
+
+	bool					firstFrame = true;
 
 	private void Awake()
 	{
 		instance = this;
 	}
 
+	private void Start()
+	{
+		bossVolumes = bosses.Select(b => b.volumeControlName).ToArray();
+	}
+
 	public void StopBossMusic()
 	{
+		StartCoroutine(ResetBackgroundMusic());
+	}
+
+	IEnumerator ResetBackgroundMusic()
+	{
+		float t = Time.time;
+		while (Time.time - t < backgroundMusicResetTime)
+		{
+			float ratio = (Time.time - t) / backgroundMusicResetTime;
+			mixer.SetFloat(backgroundVolume, LinearToDecibel(ratio));
+			foreach (var bossVolume in bossVolumes)
+				mixer.SetFloat(bossVolume, LinearToDecibel(1 - ratio));
+			yield return null;
+		}
+	}
+
+	void UpdateSoundTransition()
+	{
+		if (!backgroundStart.isPlaying && !firstFrame && !backgroundLoop.isPlaying)
+			backgroundLoop.Play();
+		
+		if (!bossAudioStart.isPlaying && !bossAudioLoop.isPlaying && bossAudioLoop.clip != null)
+			bossAudioLoop.Play();
 	}
 
 	void Update ()
+	{
+		UpdateSoundTransition();
+		UpdateBossVolumes();
+
+		if (Input.GetKeyDown(KeyCode.Space))
+			StopBossMusic();
+
+		firstFrame = false;
+	}
+
+	private float LinearToDecibel(float linear)
+	{
+		float dB;
+
+		if (linear != 0)
+			dB = 20.0f * Mathf.Log10(linear);
+		else
+			dB = -144.0f;
+
+		return dB;
+	}
+
+	void StartBossMusic(BossZone zone)
+	{
+		bossAudioStart.clip = zone.startClip;
+		bossAudioLoop.clip = zone.loopClip;
+		bossAudioLoop.outputAudioMixerGroup = zone.audioGroup;
+		bossAudioStart.outputAudioMixerGroup = zone.audioGroup;
+
+		bossAudioStart.Play();
+	}
+
+	void UpdateBossVolumes()
 	{
 		float fadeFactor = 1;
 		string volumeController = null;
@@ -41,14 +110,28 @@ public class AudioController : MonoBehaviour
 				continue ;
 			
 			float bossDistance = (transform.position - boss.transform.position).magnitude - boss.radius;
+
+			Debug.Log("boss distance: " + bossDistance);
+
+			if (bossDistance < 0)
+			{
+				if (currentBoss != boss)
+					StartBossMusic(boss);
+				currentBoss = boss;
+			}
 			
-			if (bossDistance < fadeDistance)
+			if (bossDistance < fadeDistance && bossDistance > 0)
 			{
 				fadeFactor = bossDistance / fadeDistance;
 				volumeController = boss.volumeControlName;
 			}
 		}
 
-		mixer.SetFloat(backgroundVolume, fadeFactor);
+		if (volumeController == null)
+			return ;
+
+		mixer.SetFloat(volumeController, LinearToDecibel(1));
+
+		mixer.SetFloat(backgroundVolume, LinearToDecibel(fadeFactor));
 	}
 }
