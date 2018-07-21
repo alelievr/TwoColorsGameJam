@@ -28,6 +28,10 @@ public class Aggressor : MonoBehaviour {
 		get { return GameManager.instance.gameState; }
 	}
 
+	public	bool			isBossFight {
+		get { return GameManager.instance.isBossFight; }
+	}
+
 
 	private int			pickedProjectile;
 
@@ -39,7 +43,7 @@ public class Aggressor : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (Random.value >= frequancy)
+		if (!isBossFight && Random.value >= frequancy)
 			return;
 		
 		bigList.list.Take(gameState).ToList().ForEach(l => {
