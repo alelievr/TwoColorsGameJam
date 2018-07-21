@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114690814762290590}
   - component: {fileID: 82512991686752142}
   - component: {fileID: 114088537681335362}
+  - component: {fileID: 114314950859802700}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -317,6 +318,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3c3aff03b824d1f977cddaf8e84383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 0}
+  fadeDistance: 40
+  backgroundMusicResetTime: 2
+  bosses: []
+  bossAudioStart: {fileID: 0}
+  bossAudioLoop: {fileID: 0}
+  backgroundStart: {fileID: 0}
+  backgroundLoop: {fileID: 0}
 --- !u!114 &114113164050704516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,6 +387,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114314950859802700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1290501925135736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9170c04b53948beb7c704c8c782856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bigList:
+    list: []
+  projectilePrefab: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
+    type: 2}
+  target: {fileID: 0}
+  distance: 100
+  frequancy: 60
 --- !u!114 &114567624106346090
 MonoBehaviour:
   m_ObjectHideFlags: 1
