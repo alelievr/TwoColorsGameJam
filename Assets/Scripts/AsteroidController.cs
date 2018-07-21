@@ -42,7 +42,7 @@ public class AsteroidController : MonoBehaviour {
 		director.Play();
 		float tmptime = timeboostins;
 		boostcdtmp = boostcd;
-		// cis.GenerateImpulse(rb.velocity);
+		cis.GenerateImpulse(rb.velocity);
 		// vcamframing.m_XDamping = 1.5f;
         // vcamframing.m_YDamping = 1.5f;
         // vcamframing.m_ZDamping = 1.5f;
