@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114195176548454736}
   - component: {fileID: 58057944935385572}
   - component: {fileID: 114417516483437218}
+  - component: {fileID: 114273268304804946}
   m_Layer: 0
   m_Name: EnnemyProjectilePrefab
   m_TagString: Untagged
@@ -93,6 +94,53 @@ MonoBehaviour:
   target: {fileID: 0}
   prec: 5
   speed: 2000
+--- !u!114 &114273268304804946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1602861200206184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 0.2
+    m_FrequencyGain: 0.2
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.1
+      m_DecayTime: 0.3
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 50
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 10
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_UseImpactDirection: 1
+  m_ScaleImpactWithMass: 1
+  m_ScaleImpactWithSpeed: 1
 --- !u!114 &114417516483437218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,8 +156,9 @@ MonoBehaviour:
   resitimpact: 0
   life: 5
   rbody: {fileID: 0}
-  invoqueondead: {fileID: 0}
-  numbertoinvoc: 15
+  invoqueondead: {fileID: 1872534950737460, guid: dafd75bf74e764d22b3ac52e5f26b69b,
+    type: 2}
+  numbertoinvoc: 1
 --- !u!212 &212410509133338936
 SpriteRenderer:
   m_ObjectHideFlags: 1
