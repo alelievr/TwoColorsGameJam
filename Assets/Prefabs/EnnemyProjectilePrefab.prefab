@@ -126,8 +126,8 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
       m_AttackTime: 0
-      m_SustainTime: 0.1
-      m_DecayTime: 0.3
+      m_SustainTime: 0.07
+      m_DecayTime: 0.2
       m_ScaleWithImpact: 1
       m_HoldForever: 0
     m_ImpactRadius: 50
