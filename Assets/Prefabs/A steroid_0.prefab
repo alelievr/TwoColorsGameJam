@@ -608,9 +608,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poid: 1
-  resitimpact: 0
+  resitimpact: 0.6
   life: 1000
   rbody: {fileID: 0}
+  flickerCount: 4
+  flickerInterval: 0.1
   invoqueondead: {fileID: 1728399043022802, guid: 17b2a8d05c2a54e79bf07fd1860ba2ee,
     type: 2}
   numbertoinvoc: 15

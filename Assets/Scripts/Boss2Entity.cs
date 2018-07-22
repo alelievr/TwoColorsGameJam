@@ -38,7 +38,7 @@ public class Boss2Entity : EnemyEntity
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Proj" || other.tag == "debrit")
+		if (other.tag == "Proj"/* || other.tag == "debrit"*/)
 			Destroy(other.gameObject);
 	}
 }

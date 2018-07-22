@@ -63,7 +63,6 @@ public class Aggressor : MonoBehaviour {
 				return true;
 			})
 			.OrderBy((k) => Random.value)
-			.Take(1)
 			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
 			projectile.target = target;
 		});
