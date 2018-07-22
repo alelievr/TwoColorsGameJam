@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	public bool 	isBossFight;
 
 	public static GameManager instance;
+	public GameObject player;
 
 	private void Awake()
 	{

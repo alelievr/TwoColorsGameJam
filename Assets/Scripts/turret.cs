@@ -15,7 +15,7 @@ public class turret : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		delay += Random.Range(-deregulatorvalue, deregulatorvalue);
 	}
 	
 	
@@ -26,8 +26,11 @@ public class turret : MonoBehaviour {
 			delay -= Time.deltaTime;
 			return;
 		}
-		delay = nbshootfor10secorburst / 10;
+		delay = nbshootfor10secorburst / 10 + Random.Range(-deregulatorvalue, deregulatorvalue);
 		Laser lastmp = GameObject.Instantiate(las, transform.position, Quaternion.identity);
+		var rotation = transform.rotation;
+		transform.Rotate(transform.forward, Random.Range(-angleprecision / 2, angleprecision / 2));
 		lastmp.dir = transform.up;
+		transform.rotation = rotation;
 	}
 }
