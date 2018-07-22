@@ -63,18 +63,18 @@ public class Kaboom : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other)
 	{
 	//	Debug.Log("fdsf");
-		Kaboom impactant;
+		Kaboom impactant = other.gameObject.GetComponent<Kaboom>();
 
-		if ((impactant = other.gameObject.GetComponent<Kaboom>()) != null)
+		if (impactant != null)
 		{
-			Debug.Log(name);
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
+			Debug.Log("name=" + name + " othername=" + other.gameObject.name + realvelocity);
 			// if (this.tag == "Player" && vcam != null)
 			// 	StartCoroutine(impactoEffect());
-			if (resitimpact < 0.5f && invudegat < 0) //lol
+			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
 				StartCoroutine(Flicker());
-				life -= realvelocity.magnitude;
+				life -= Mathf.Clamp(realvelocity.magnitude, 0, 30);
 				invudegat = 0.2f;
 			}
 			if (life < 0)

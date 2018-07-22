@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
 	public void GetFleshNext()
 	{
-		Debug.Log("fleshe new di");
+		// Debug.Log("fleshe new di");
 		fleshsc.nextBossZone = bossZones[fleshnext].transform;
 		fleshnext++;
 	}
