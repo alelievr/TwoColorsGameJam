@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 58637096005029782}
   - component: {fileID: 50291125887484342}
   - component: {fileID: 114296356782557206}
+  - component: {fileID: 114200924071861866}
   m_Layer: 0
   m_Name: BOSS3XENON
   m_TagString: boss
@@ -894,7 +895,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1236386363044248}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -1045,6 +1046,25 @@ MonoBehaviour:
   alwaysshoot: 0
   deregulatorvalue: -0.15
   delay: 0.9230849
+--- !u!114 &114200924071861866
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1236386363044248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e70eb3da5c64d879130b354c5f87c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanfind: 0
+  cible: {fileID: 0}
+  speed: 800
+  maxspeed: 20
+  rotationspeed: 800
+  maxrotationspeed: 20
+  idealdistancetocible: 10
+  anim: {fileID: 0}
 --- !u!114 &114296356782557206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1056,9 +1076,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 643e39932b62a40808a7761e0021714b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poid: 1
+  poid: 50
   resitimpact: 1
-  life: 1000
+  life: 100
   rbody: {fileID: 50291125887484342}
   flickerCount: 4
   flickerInterval: 0.2
@@ -1204,7 +1224,7 @@ MonoBehaviour:
   audioGroup: {fileID: 243844368317572322, guid: 50c76c5d1501a459db1225d996b62821,
     type: 2}
   dead: 0
-  moucheSc: {fileID: 0}
+  moucheSc: {fileID: 114200924071861866}
 --- !u!114 &114498175694684060
 MonoBehaviour:
   m_ObjectHideFlags: 1

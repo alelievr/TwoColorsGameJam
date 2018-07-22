@@ -1944,9 +1944,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instanfind: 0
   cible: {fileID: 0}
-  speed: 30
+  speed: 800
   maxspeed: 20
-  rotationspeed: 30
+  rotationspeed: 800
   maxrotationspeed: 20
   idealdistancetocible: 10
   anim: {fileID: 0}
@@ -2435,7 +2435,7 @@ Prefab:
     - target: {fileID: 114296356782557206, guid: c7257b2184932494e987df01334828f1,
         type: 2}
       propertyPath: poid
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 50291125887484342, guid: c7257b2184932494e987df01334828f1,
         type: 2}
