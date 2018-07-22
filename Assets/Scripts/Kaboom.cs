@@ -25,6 +25,10 @@ public class Kaboom : MonoBehaviour {
 
 	public int debritCount = 2;
 	public GameObject debrit;
+
+	[Space]
+	public	float		recupTime;
+	public	bool		recup;
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
@@ -72,12 +76,19 @@ public class Kaboom : MonoBehaviour {
 		}
 	}
 
+	IEnumerator Recup()
+	{
+		recup = true;
+		yield return new WaitForSeconds(recupTime);
+		recup = false;
+	}
+
+
 	void OnCollisionEnter2D(Collision2D other)
 	{
-	//	Debug.Log("fdsf");
 		Kaboom impactant = other.gameObject.GetComponent<Kaboom>();
 
-		if (impactant != null)
+		if ((!recup) && (impactant != null))
 		{
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
 			// if (this.tag == "Player" && vcam != null)
@@ -86,6 +97,7 @@ public class Kaboom : MonoBehaviour {
 			{
 				Instantiate(damageSoundPrefab, transform.position, Quaternion.identity);
 				StartCoroutine(Flicker());
+				StartCoroutine(Recup());
 				life -= Mathf.Clamp(realvelocity.magnitude, 0, 30);
 				invudegat = 0.2f;
 			}
