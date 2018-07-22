@@ -17,6 +17,7 @@ public class DebritController : MonoBehaviour
 	public event Action< DebritController >	onDestroyed;
 
 	public GameObject	debritExplosionPrefab;
+	public GameObject	explosionPrefab;
 
 	Rigidbody2D			rb;
 	CircleCollider2D		circleCollider;
@@ -140,6 +141,7 @@ public class DebritController : MonoBehaviour
 	public void OnWillBeDestroyed()
 	{
 		Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
+		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 	}
 
 	private void OnDestroy()
