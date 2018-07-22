@@ -383,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poid: 1
   resitimpact: 1
-  life: 1000
+  life: 400
   rbody: {fileID: 0}
   flickerCount: 25
   flickerInterval: 0.1
