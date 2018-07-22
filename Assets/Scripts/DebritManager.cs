@@ -71,6 +71,8 @@ public class DebritManager : MonoBehaviour
 
 		integrity++;
 
+		Debug.Log("count: " + count);
+
 		for (int i = 0; i < count; i++)
 		{
 			var debrit = results[i].GetComponent<DebritController>();

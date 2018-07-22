@@ -51,12 +51,13 @@ public class Aggressor : MonoBehaviour {
 		// Debug.Log(rbTarget.velocity.magnitude);
 		if (/*!isBossFight &&*/ Random.value >= frequancy)
 			return;
-		
+
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			projectile = Instantiate(l.aggressiveProjectileList
 			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
 			.Take(1)
 			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
+			// Debug.Log("Instantite GO: " + projectile);
 			projectile.target = target;
 		});
 	}
