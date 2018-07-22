@@ -13,7 +13,9 @@ public class DebritManager : MonoBehaviour
 
 	List< DebritController > debrits = new List< DebritController >();
 
-	public int	debritCount;
+	public int			debritCount;
+	bool				needsIntegrityCheck;
+	DebritController	controller;
 
 	int integrity = 0;
 
@@ -54,28 +56,38 @@ public class DebritManager : MonoBehaviour
 	
 	public void AgglomerateDebrit(DebritController debrit)
 	{
+		debrits.Add(debrit);
 		debrit.Agglomerate(integrity);
-		debrit.onLaserReceived += OnLaserReceived;
+		debrit.onDestroyed += OnDebritDestroyed;
+		debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
 		debrit.transform.SetParent(transform);
 	}
 
-	void OnLaserReceived(DebritController controller)
+	void IntegrityCheck(DebritController controller)
 	{
-		ContactFilter2D filter = new ContactFilter2D();
-		filter.layerMask = 1 << LayerMask.NameToLayer("Default");
-		int count = circleCollider.OverlapCollider(filter, results);
+		int count = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius + 0.1f, results);
 
 		integrity++;
 
 		for (int i = 0; i < count; i++)
-			results[i].GetComponent<DebritController>().CheckIntegryty(integrity);
+		{
+			var debrit = results[i].GetComponent<DebritController>();
+
+			if (debrit == null)
+				continue ;
+
+			debrit.CheckIntegryty(integrity);
+		}
 		
 		// Iterate over each debrits
 		foreach (var debrit in debrits)
 			if (debrit.integrity != integrity)
-				Destroy(debrit);
+				Destroy(debrit.gameObject);
+	}
 
-		Debug.Log("Check integrity TODO !");
+	void OnDebritDestroyed(DebritController controller)
+	{
+		debrits.Remove(controller);
 	}
 
 	public int GetNewDebritIndex()
@@ -85,6 +97,7 @@ public class DebritManager : MonoBehaviour
 
 	private void Update()
 	{
-		
+		if (needsIntegrityCheck)
+			IntegrityCheck(controller);
 	}
 }
