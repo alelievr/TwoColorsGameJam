@@ -19,6 +19,7 @@ public class AggressiveProjectile : MonoBehaviour {
 		// transform.rotation = Quaternion.LookRotation(target.transform.position);
 		rb.AddForce((((target.transform.position - transform.position).normalized + new Vector3(Random.Range(-prec, prec), Random.Range(-prec, prec), 0).normalized * 0.1f)).normalized * speed);
 		basedistance = Vector3.Distance(transform.position, target.transform.position) * 2;
+		rb.AddForce(target.GetComponent<Rigidbody2D>().velocity, ForceMode2D.Impulse);
 	}
 	
 	// Update is called once per frame

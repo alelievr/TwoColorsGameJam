@@ -1054,6 +1054,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114250531875026920, guid: d1eaa895421e445ec9296cc323fb626c,
+        type: 2}
+      propertyPath: life
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
   m_IsPrefabParent: 0
@@ -1171,7 +1176,17 @@ Prefab:
       objectReference: {fileID: 500360866}
     - target: {fileID: 4149303279235964, guid: 1274075930cf84dc8ad56c24e8609c0f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.8919373
+      value: -5.661682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114130335709388010, guid: 1274075930cf84dc8ad56c24e8609c0f,
+        type: 2}
+      propertyPath: m_Gain
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114130335709388010, guid: 1274075930cf84dc8ad56c24e8609c0f,
+        type: 2}
+      propertyPath: m_ChannelMask
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1274075930cf84dc8ad56c24e8609c0f, type: 2}
@@ -2240,7 +2255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1386401760
 Transform:
   m_ObjectHideFlags: 0
@@ -2409,11 +2424,11 @@ Prefab:
       objectReference: {fileID: 519325093}
     - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 573.3693
+      value: 573.1128
       objectReference: {fileID: 0}
     - target: {fileID: 4518868553342148, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 573.3693
+      value: 573.1128
       objectReference: {fileID: 0}
     - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2966,7 +2981,17 @@ Prefab:
       objectReference: {fileID: 2007481775}
     - target: {fileID: 4383107977313462, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.891968
+      value: -5.661682
+      objectReference: {fileID: 0}
+    - target: {fileID: 114172505773346122, guid: 4c4b86ce3e1e548d08081dba5847f7ba,
+        type: 2}
+      propertyPath: m_Gain
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114172505773346122, guid: 4c4b86ce3e1e548d08081dba5847f7ba,
+        type: 2}
+      propertyPath: m_ChannelMask
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
