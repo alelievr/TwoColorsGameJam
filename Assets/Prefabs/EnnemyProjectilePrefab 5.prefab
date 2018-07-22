@@ -159,6 +159,8 @@ MonoBehaviour:
   invoqueondead: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af,
     type: 2}
   numbertoinvoc: 1
+  debritCount: 1
+  debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
 --- !u!212 &212410509133338936
 SpriteRenderer:
   m_ObjectHideFlags: 1

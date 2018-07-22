@@ -16,6 +16,8 @@ public class Kaboom : MonoBehaviour {
 	public GameObject	invoqueondead;
 	public int			numbertoinvoc = 15;
 
+	public int debritCount = 2;
+	public GameObject debrit;
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
@@ -45,6 +47,10 @@ public class Kaboom : MonoBehaviour {
 		for (int i = 0; i < numbertoinvoc; i++)
 		{
 			GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
+		}
+		for (int i = 0; i < debritCount; i++)
+		{
+			GameObject.Instantiate(debrit, transform.position, Quaternion.identity);
 		}
 		StartCoroutine(Destroyation());
 	}

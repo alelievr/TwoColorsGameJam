@@ -44,7 +44,6 @@ public class Aggressor : MonoBehaviour {
 	}
 	
 	void Update () {
-		Debug.Log(rbTarget.velocity.magnitude);
 		if (!isBossFight && Random.value >= frequancy)
 			return;
 		
