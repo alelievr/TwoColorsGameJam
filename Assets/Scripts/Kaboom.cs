@@ -58,7 +58,8 @@ public class Kaboom : MonoBehaviour {
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
 			// if (this.tag == "Player" && vcam != null)
 			// 	StartCoroutine(impactoEffect());
-			life -= realvelocity.magnitude;
+			if (resitimpact < 0.5f || other.gameObject.tag == "Player") //lol
+				life -= realvelocity.magnitude;
 			if (life < 0)
 				die();
 	//		Debug.Log("fdsf2" + life);
