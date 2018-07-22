@@ -12,18 +12,29 @@ public class Kaboom : MonoBehaviour {
 	[HideInInspector] public Rigidbody2D rbody;
 
 	public float		flickerCount = 4;
-	public float		flickerInterval = 0.2f;
+	public float		flickerInterval = 0.1f;
+
+	public GameObject	damageSoundPrefab;
 
 	CinemachineVirtualCamera vcam;
     CinemachineBasicMultiChannelPerlin vcamperlin;
 	public GameObject	invoqueondead;
 	public int			numbertoinvoc = 15;
 
+	new Renderer		renderer;
+
 	public int debritCount = 2;
 	public GameObject debrit;
+
+	[Space]
+	public	float		recupTime;
+	public	bool		recup;
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
+		renderer = GetComponentInChildren< Renderer >();
+		if (renderer == null)
+			renderer = GetComponent< Renderer >();
 		if (tag == "player")
 		{
 			vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
@@ -53,26 +64,43 @@ public class Kaboom : MonoBehaviour {
 		StartCoroutine(Destroyation());
 	}
 
+	float invudegat = 0.2f;
 	IEnumerator Flicker()
 	{
 		for (int i = 0; i < flickerCount; i++)
+		{
+			renderer.enabled = false;
 			yield return new WaitForSeconds(flickerInterval);
+			renderer.enabled = true;
+			yield return new WaitForSeconds(flickerInterval);
+		}
 	}
+
+	IEnumerator Recup()
+	{
+		recup = true;
+		yield return new WaitForSeconds(recupTime);
+		recup = false;
+	}
+
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-	//	Debug.Log("fdsf");
-		Kaboom impactant;
+		Kaboom impactant = other.gameObject.GetComponent<Kaboom>();
 
-		if ((impactant = other.gameObject.GetComponent<Kaboom>()) != null)
+		if ((!recup) && (impactant != null))
 		{
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
+			Debug.Log("name=" + name + " othername=" + other.gameObject.name + realvelocity);
 			// if (this.tag == "Player" && vcam != null)
 			// 	StartCoroutine(impactoEffect());
-			if (resitimpact < 0.5f || other.gameObject.tag == "Player") //lol
+			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
+				Instantiate(damageSoundPrefab, transform.position, Quaternion.identity);
 				StartCoroutine(Flicker());
-				life -= realvelocity.magnitude;
+				StartCoroutine(Recup());
+				life -= Mathf.Clamp(realvelocity.magnitude, 0, 30);
+				invudegat = 0.2f;
 			}
 			if (life < 0)
 				die();
@@ -82,4 +110,11 @@ public class Kaboom : MonoBehaviour {
 			// rbody.velocity += realvelocity;
 		}
 	}
+
+	private void Update()
+	{
+		if (invudegat >= 0)
+			invudegat -= Time.deltaTime;
+	}
 }
+
