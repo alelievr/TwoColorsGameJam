@@ -17,12 +17,11 @@ public class EnemyEntity : MonoBehaviour
 
 	protected Rigidbody2D rb;
 
-	void Start () {
+	protected void BaseStart () {
 		rb = GetComponent<Rigidbody2D>();
 		if (instanfind == true)
 			cible = GameManager.instance.player;
 	}
-
 
 	protected void BaseFixedUpdate () {
 		if (cible == null)
