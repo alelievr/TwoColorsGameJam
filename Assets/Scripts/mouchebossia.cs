@@ -12,6 +12,7 @@ public class mouchebossia : MonoBehaviour
 	public float maxrotationspeed = 20;
 	public float idealdistancetocible = 10;
 	public	Animator anim;
+	public bool isboss2 = false;
 	// Use this for initialization
 
 	Rigidbody2D rb;
@@ -27,6 +28,8 @@ public class mouchebossia : MonoBehaviour
 			anim.SetTrigger("hit"); 
 		}
 	}
+
+	float timetmp2 = 0;
 	
 	void FixedUpdate () {
 		if (cible == null)
@@ -58,5 +61,30 @@ public class mouchebossia : MonoBehaviour
         }
 		rb.AddTorque(rotationspeed * sideToTurnTo);
 		rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxrotationspeed, maxrotationspeed);
+
+		if (isboss2)
+		{
+			timetmp2 += Time.deltaTime;
+			if (timetmp2 < 6)
+			{
+				idealdistancetocible = 100;
+				speed = 30;
+				maxspeed = 20;
+			}
+			else if (timetmp2 < 8)
+			{
+				idealdistancetocible = 0;
+				speed = 60;
+				maxspeed = 40;
+			}
+			else if (timetmp2 < 10)
+			{
+				idealdistancetocible = 100;
+				speed = 10;
+				maxspeed = 5;
+			}
+			else
+				timetmp2 = 0;
+		}
 	}
 }

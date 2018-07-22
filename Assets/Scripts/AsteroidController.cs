@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class AsteroidController : MonoBehaviour {
 
@@ -79,6 +80,10 @@ public class AsteroidController : MonoBehaviour {
 		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)
 		|| Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
 			StartCoroutine(boost());
+		if (Input.GetKey(KeyCode.Q))
+			transform.Rotate(transform.forward, 5);
+		if (Input.GetKey(KeyCode.E))
+			transform.Rotate(transform.forward, -5);
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -97,7 +102,7 @@ public class AsteroidController : MonoBehaviour {
 	{
 		if (other.tag == "Laser")
 		{
-			Debug.Log("TODO: death");
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 	}
 }
