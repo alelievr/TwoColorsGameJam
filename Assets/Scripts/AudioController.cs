@@ -43,10 +43,12 @@ public class AudioController : MonoBehaviour
 	public void StopBossMusic()
 	{
 		StartCoroutine(ResetBackgroundMusic());
+		currentBoss.dead = true;
 	}
 
 	IEnumerator ResetBackgroundMusic()
 	{
+		Debug.Log("Reseting volume !!");
 		isTransitioning = true;
 		float t = Time.time;
 		while (Time.time - t < backgroundMusicResetTime)
@@ -64,6 +66,8 @@ public class AudioController : MonoBehaviour
 		bossAudioLoop.Stop();
 		bossAudioLoop.clip = null;
 		isTransitioning = false;
+
+		Debug.Log("finished to reset volume !");
 	}
 
 	void UpdateSoundTransition()
