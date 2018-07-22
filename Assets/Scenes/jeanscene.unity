@@ -460,6 +460,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1597402988}
+    - target: {fileID: 114530452101062728, guid: 4c4b86ce3e1e548d08081dba5847f7ba,
+        type: 2}
+      propertyPath: boss
+      value: 
+      objectReference: {fileID: 120848247}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
   m_IsPrefabParent: 0
