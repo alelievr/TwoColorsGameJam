@@ -98,6 +98,8 @@ MonoBehaviour:
     type: 2}
   explosionPrefab: {fileID: 1009393547592530, guid: 727e5e10fbcef4322aded11d5833e0a4,
     type: 2}
+  agglomeratePrefab: {fileID: 1009393547592530, guid: 22bfc7474af094469b46f485d2567cd2,
+    type: 2}
   integrity: 0
 --- !u!212 &212939710908963634
 SpriteRenderer:

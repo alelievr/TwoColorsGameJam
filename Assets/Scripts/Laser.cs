@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour {
 	public float speed;
 	public float lifetime = 5;
 	Rigidbody2D rb;
+
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 	}

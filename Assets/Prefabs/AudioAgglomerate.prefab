@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4672884347238806}
   - component: {fileID: 82607101994253594}
-  - component: {fileID: 114712482955835792}
+  - component: {fileID: 114097126251001712}
   m_Layer: 0
-  m_Name: AudioExplosion
+  m_Name: AudioAgglomerate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,9 +50,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 36627ab7031e346daa667d7cc25308ad, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -136,7 +136,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114712482955835792
+--- !u!114 &114097126251001712
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

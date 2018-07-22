@@ -18,6 +18,7 @@ public class DebritController : MonoBehaviour
 
 	public GameObject	debritExplosionPrefab;
 	public GameObject	explosionPrefab;
+	public GameObject	agglomeratePrefab;
 
 	Rigidbody2D			rb;
 	CircleCollider2D		circleCollider;
@@ -85,6 +86,8 @@ public class DebritController : MonoBehaviour
 	{
 		if (agglomerationEnabled)
 			return ;
+			
+		Instantiate(agglomeratePrefab, transform.position, Quaternion.identity);
 
 		this.integrity = integrity;
 		

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 82607101994253594}
   - component: {fileID: 114712482955835792}
   m_Layer: 0
-  m_Name: AudioExplosion
+  m_Name: AudioDeath
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
