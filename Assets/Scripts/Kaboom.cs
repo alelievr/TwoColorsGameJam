@@ -29,6 +29,9 @@ public class Kaboom : MonoBehaviour {
 	[Space]
 	public	float		recupTime;
 	public	bool		recup;
+
+	[Space]
+	public	AudioSource	damageSound;
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
@@ -83,6 +86,17 @@ public class Kaboom : MonoBehaviour {
 		recup = false;
 	}
 
+	IEnumerator HitSound()
+	{
+		Debug.Log("Hit Sound");
+		yield return new WaitForSeconds(0.05f);
+		damageSound.Play();
+		yield return new WaitForSeconds(0.05f);
+		damageSound.Play();
+		yield return new WaitForSeconds(0.05f);
+		damageSound.Play();
+	}	
+
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
@@ -98,6 +112,7 @@ public class Kaboom : MonoBehaviour {
 				Instantiate(damageSoundPrefab, transform.position, Quaternion.identity);
 				StartCoroutine(Flicker());
 				StartCoroutine(Recup());
+				StartCoroutine(HitSound());
 				life -= Mathf.Clamp(realvelocity.magnitude, 0, 30);
 				invudegat = 0.2f;
 			}
@@ -105,8 +120,6 @@ public class Kaboom : MonoBehaviour {
 				die();
 			if (other.gameObject.tag == "boss")
 				rbody.velocity += (Vector2)(other.transform.position - transform.position).normalized * 2000;
-	//		Debug.Log("fdsf2" + life);
-			// rbody.velocity += realvelocity;
 		}
 	}
 
