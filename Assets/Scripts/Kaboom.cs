@@ -105,7 +105,6 @@ public class Kaboom : MonoBehaviour {
 		if ((!recup) && (impactant != null))
 		{
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
-			Debug.Log("name=" + name + " othername=" + other.gameObject.name + realvelocity);
 			// if (this.tag == "Player" && vcam != null)
 			// 	StartCoroutine(impactoEffect());
 			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol

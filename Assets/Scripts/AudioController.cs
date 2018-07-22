@@ -26,6 +26,7 @@ public class AudioController : MonoBehaviour
 	const string			backgroundVolume = "BackgroundVolume";
 	string[]				bossVolumes;
 	BossZone				currentBoss;
+	bool					isTransitioning;
 
 	bool					firstFrame = true;
 
@@ -46,18 +47,23 @@ public class AudioController : MonoBehaviour
 
 	IEnumerator ResetBackgroundMusic()
 	{
+		isTransitioning = true;
 		float t = Time.time;
 		while (Time.time - t < backgroundMusicResetTime)
 		{
 			float ratio = (Time.time - t) / backgroundMusicResetTime;
 			mixer.SetFloat(backgroundVolume, LinearToDecibel(ratio));
-			float v;
-			mixer.GetFloat(backgroundVolume, out v);
-			Debug.Log("ratio: " + ratio + ", " + v);
 			foreach (var bossVolume in bossVolumes)
 				mixer.SetFloat(bossVolume, LinearToDecibel(1.0f - ratio));
 			yield return null;
 		}
+
+		// stop boss music audio sources
+		bossAudioStart.Stop();
+		bossAudioStart.clip = null;
+		bossAudioLoop.Stop();
+		bossAudioLoop.clip = null;
+		isTransitioning = false;
 	}
 
 	void UpdateSoundTransition()
@@ -73,9 +79,6 @@ public class AudioController : MonoBehaviour
 	{
 		UpdateSoundTransition();
 		UpdateBossVolumes();
-
-		if (Input.GetKeyDown(KeyCode.Space))
-			StopBossMusic();
 
 		firstFrame = false;
 	}
@@ -118,7 +121,10 @@ public class AudioController : MonoBehaviour
 			if (bossDistance < 0)
 			{
 				if (currentBoss != boss)
+				{
+					Debug.Log("start boss music !! " + ((boss != null) ? boss.name : "") + "  vs " + (currentBoss != null ? currentBoss.name : ""));
 					StartBossMusic(boss);
+				}
 				currentBoss = boss;
 			}
 			
@@ -129,7 +135,7 @@ public class AudioController : MonoBehaviour
 			}
 		}
 
-		if (volumeController == null)
+		if (volumeController == null || isTransitioning)
 			return ;
 
 		mixer.SetFloat(volumeController, LinearToDecibel(1));

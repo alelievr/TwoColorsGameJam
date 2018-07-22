@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class mouchebossia : EnemyEntity
 {
+	private void Start()
+	{
+		BaseStart();
+	}
 
 	void Update () {
-
 	}
 
 	void FixedUpdate () {

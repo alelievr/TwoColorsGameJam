@@ -54,7 +54,7 @@ public class Aggressor : MonoBehaviour {
 			return;
 
 		bigList.list.Take(gameState).ToList().ForEach(l => {
-			projectile = Instantiate(l.aggressiveProjectileList
+			var randomObject = l.aggressiveProjectileList
 			.Where(m => {
 				if (GameManager.instance.isBossFight)
 					return false;
@@ -63,8 +63,12 @@ public class Aggressor : MonoBehaviour {
 				return true;
 			})
 			.OrderBy((k) => Random.value)
-			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
-			projectile.target = target;
+			.FirstOrDefault();
+			if (randomObject != null)
+			{
+				projectile = Instantiate(randomObject, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
+				projectile.target = target;
+			}
 		});
 	}
 }

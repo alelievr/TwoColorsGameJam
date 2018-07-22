@@ -149,6 +149,10 @@ MonoBehaviour:
   resitimpact: 1
   life: 15
   rbody: {fileID: 0}
+  flickerCount: 4
+  flickerInterval: 0.2
+  damageSoundPrefab: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
+    type: 2}
   invoqueondead: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af,
     type: 2}
   numbertoinvoc: 2

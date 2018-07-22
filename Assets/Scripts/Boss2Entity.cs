@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Boss2Entity : EnemyEntity
 {
+	private void Start()
+	{
+		BaseStart();
+	}
 
 	float timetmp2 = 0;
 	
