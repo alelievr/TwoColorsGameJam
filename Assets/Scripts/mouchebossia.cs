@@ -10,12 +10,19 @@ public class mouchebossia : MonoBehaviour
 	public float rotationspeed = 30;
 	public float maxrotationspeed = 20;
 	public float idealdistancetocible = 10;
+	public	Animator anim;
 	// Use this for initialization
 
 	Rigidbody2D rb;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+	}
+
+	void Update () {
+		if (Input.GetKey(KeyCode.Space)) {
+			anim.SetTrigger("hit"); 
+		}
 	}
 	
 	void FixedUpdate () {
