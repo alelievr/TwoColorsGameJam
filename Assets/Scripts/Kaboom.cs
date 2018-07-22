@@ -50,7 +50,7 @@ public class Kaboom : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		Debug.Log("fdsf");
+	//	Debug.Log("fdsf");
 		Kaboom impactant;
 
 		if ((impactant = other.gameObject.GetComponent<Kaboom>()) != null)
@@ -61,7 +61,7 @@ public class Kaboom : MonoBehaviour {
 			life -= realvelocity.magnitude;
 			if (life < 0)
 				die();
-			Debug.Log("fdsf2" + life);
+	//		Debug.Log("fdsf2" + life);
 			// rbody.velocity += realvelocity;
 		}
 	}

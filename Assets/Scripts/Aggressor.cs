@@ -49,7 +49,7 @@ public class Aggressor : MonoBehaviour {
 	
 	void Update () {
 		// Debug.Log(rbTarget.velocity.magnitude);
-		if (!isBossFight && Random.value >= frequancy)
+		if (/*!isBossFight &&*/ Random.value >= frequancy)
 			return;
 		
 		bigList.list.Take(gameState).ToList().ForEach(l => {
