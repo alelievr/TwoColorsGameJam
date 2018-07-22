@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(CircleCollider2D))]
 public class BossZone : MonoBehaviour
 {
+	public int zoneNumber = 0;
 	public string			bossName;
 	public string			volumeControlName;
 	public AudioClip		startClip;
@@ -32,7 +33,7 @@ public class BossZone : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
-			GameManager.instance.EnterBossFight();
+			GameManager.instance.EnterBossFight(zoneNumber);
 	}
 
 }
