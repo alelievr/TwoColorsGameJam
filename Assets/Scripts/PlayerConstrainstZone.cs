@@ -45,7 +45,7 @@ public class PlayerConstrainstZone : MonoBehaviour
 		if (diff.magnitude > collider.radius - repulseRadius)
 		{
 			float inversePower = repulseRadius / (collider.radius - diff.magnitude);
-			bossRigidBody.AddForce(-diff.normalized * inversePower * 10, ForceMode2D.Impulse);
+			bossRigidBody.AddForce(-diff.normalized * inversePower * 10 * bossRigidBody.mass, ForceMode2D.Impulse);
 		}
 	}
 

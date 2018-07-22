@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 			gameState++;
 			isBossFight = false;
 			mainCamera.gameObject.SetActive(true);
-			Debug.Log("Boss fight camera: " + currentboss);
+			// Debug.Log("Boss fight camera: " + currentboss);
 			if (bossFightCamera[currentboss] && bossFightCamera[currentboss].gameObject)
 				bossFightCamera[currentboss].gameObject.SetActive(false);
 			if (bossZones[currentboss] && bossZones[currentboss].gameObject)

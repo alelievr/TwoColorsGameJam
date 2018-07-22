@@ -43,6 +43,7 @@ public class AudioController : MonoBehaviour
 	public void StopBossMusic()
 	{
 		StartCoroutine(ResetBackgroundMusic());
+		currentBoss.dead = true;
 	}
 
 	IEnumerator ResetBackgroundMusic()
@@ -121,10 +122,7 @@ public class AudioController : MonoBehaviour
 			if (bossDistance < 0)
 			{
 				if (currentBoss != boss)
-				{
-					Debug.Log("start boss music !! " + ((boss != null) ? boss.name : "") + "  vs " + (currentBoss != null ? currentBoss.name : ""));
 					StartBossMusic(boss);
-				}
 				currentBoss = boss;
 			}
 			
