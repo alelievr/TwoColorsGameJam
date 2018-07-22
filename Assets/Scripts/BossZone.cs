@@ -29,4 +29,10 @@ public class BossZone : MonoBehaviour
 		get { return circleCollider.radius; }
 	}
 
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Player")
+			GameManager.instance.EnterBossFight();
+	}
+
 }
