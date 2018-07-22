@@ -41,6 +41,7 @@ public class Aggressor : MonoBehaviour {
 
 	private	AggressiveProjectile	projectile;
 	private Rigidbody2D				rbTarget;
+	int countenemy = 10;
 
 	void Start ()
 	{
@@ -54,6 +55,11 @@ public class Aggressor : MonoBehaviour {
 
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			projectile = Instantiate(l.aggressiveProjectileList
+			.Where(m => {
+				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)						
+					return false;
+				return true;
+			})
 			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
 			.Take(1)
 			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
