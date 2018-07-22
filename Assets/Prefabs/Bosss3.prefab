@@ -649,7 +649,7 @@ Transform:
   m_GameObject: {fileID: 1236386363044248}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -403, y: 706, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 4775896495622534}
   - {fileID: 4972603495261226}
@@ -922,7 +922,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 250
+  m_Radius: 120
 --- !u!58 &58637096005029782
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -931,7 +931,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1236386363044248}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5489c90e62c14741a97ee2dbabf17ff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -946,7 +946,7 @@ EdgeCollider2D:
   m_GameObject: {fileID: 1048242604556812}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5489c90e62c14741a97ee2dbabf17ff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1217,11 +1217,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneNumber: 2
-  bossName: Boss 1
-  volumeControlName: Boss1Volume
-  startClip: {fileID: 8300000, guid: 06614c89e92384293a327a2370ec887a, type: 3}
-  loopClip: {fileID: 8300000, guid: 7211065b2a07346a88aadf28c6746b1b, type: 3}
-  audioGroup: {fileID: 243844368317572322, guid: 50c76c5d1501a459db1225d996b62821,
+  bossName: Boss 3
+  volumeControlName: Boss3Volume
+  startClip: {fileID: 8300000, guid: f06b7edfa1de7477092686ea8abb8cd7, type: 3}
+  loopClip: {fileID: 8300000, guid: f3cc1e108a60241ef971542e544bdd29, type: 3}
+  audioGroup: {fileID: 243125296326453110, guid: 50c76c5d1501a459db1225d996b62821,
     type: 2}
   dead: 0
   moucheSc: {fileID: 114200924071861866}
@@ -2220,7 +2220,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 252
+      value: 122
       mode: 0
       spread: 0
       speed:

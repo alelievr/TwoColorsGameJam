@@ -1059,11 +1059,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114250531875026920, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: life
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
   m_IsPrefabParent: 0
@@ -1926,30 +1921,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4357523799556784, guid: 3d302dc92545b479fa94dd59c4193d77,
     type: 2}
   m_PrefabInternal: {fileID: 1020126}
---- !u!1 &1104900492 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1236386363044248, guid: c7257b2184932494e987df01334828f1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1430737814}
---- !u!114 &1104900498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1104900492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e70eb3da5c64d879130b354c5f87c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instanfind: 0
-  cible: {fileID: 0}
-  speed: 800
-  maxspeed: 20
-  rotationspeed: 800
-  maxrotationspeed: 20
-  idealdistancetocible: 10
-  anim: {fileID: 0}
 --- !u!1001 &1112555159
 Prefab:
   m_ObjectHideFlags: 0
@@ -2427,31 +2398,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 519325085}
-    - target: {fileID: 114296356782557206, guid: c7257b2184932494e987df01334828f1,
-        type: 2}
-      propertyPath: life
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114296356782557206, guid: c7257b2184932494e987df01334828f1,
-        type: 2}
-      propertyPath: poid
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 50291125887484342, guid: c7257b2184932494e987df01334828f1,
-        type: 2}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 50291125887484342, guid: c7257b2184932494e987df01334828f1,
-        type: 2}
-      propertyPath: m_Simulated
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114497624954128406, guid: c7257b2184932494e987df01334828f1,
-        type: 2}
-      propertyPath: moucheSc
-      value: 
-      objectReference: {fileID: 1104900498}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c7257b2184932494e987df01334828f1, type: 2}
   m_IsPrefabParent: 0
