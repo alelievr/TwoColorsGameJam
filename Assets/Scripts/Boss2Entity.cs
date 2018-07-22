@@ -21,19 +21,19 @@ public class Boss2Entity : EnemyEntity
 		if (timetmp2 < 6)
 		{
 			idealdistancetocible = 100;
-			speed = 30;
+			speed = 7500;
 			maxspeed = 20;
 		}
 		else if (timetmp2 < 8)
 		{
 			idealdistancetocible = 0;
-			speed = 60;
+			speed = 15000;
 			maxspeed = 40;
 		}
 		else if (timetmp2 < 10)
 		{
 			idealdistancetocible = 100;
-			speed = 10;
+			speed = 2000;
 			maxspeed = 5;
 		}
 		else
