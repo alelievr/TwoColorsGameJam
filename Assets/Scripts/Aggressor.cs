@@ -28,28 +28,32 @@ public class Aggressor : MonoBehaviour {
 		get { return GameManager.instance.gameState; }
 	}
 
+	public	bool			isBossFight {
+		get { return GameManager.instance.isBossFight; }
+	}
+
 
 	private int			pickedProjectile;
 
 	private	AggressiveProjectile	projectile;
+	private Rigidbody2D				rbTarget;
 
 	void Start ()
 	{
-		
+		rbTarget = target.GetComponent<Rigidbody2D>();
 	}
 	
 	void Update () {
-		if (Random.value >= frequancy)
+		Debug.Log(rbTarget.velocity.magnitude);
+		if (!isBossFight && Random.value >= frequancy)
 			return;
 		
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			projectile = Instantiate(l.aggressiveProjectileList
 			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
 			.Take(1)
-			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * distance, Quaternion.identity);
+			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude), Quaternion.identity);
 			projectile.target = target;
 		});
-
-
 	}
 }
