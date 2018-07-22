@@ -6,6 +6,7 @@ TagManager:
   tags:
   - debrit
   - Laser
+  - boss
   layers:
   - Default
   - TransparentFX

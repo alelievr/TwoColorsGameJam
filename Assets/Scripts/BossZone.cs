@@ -13,6 +13,7 @@ public class BossZone : MonoBehaviour
 	public AudioClip		loopClip;
 	public AudioMixerGroup	audioGroup;
 	public bool				dead;
+	public mouchebossia     moucheSc;
 
 	CircleCollider2D	m_CircleCollider;
 	CircleCollider2D	circleCollider
@@ -33,7 +34,10 @@ public class BossZone : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
+		{
 			GameManager.instance.EnterBossFight(zoneNumber);
+			moucheSc.cible = other.gameObject;
+		}
 	}
 
 }
