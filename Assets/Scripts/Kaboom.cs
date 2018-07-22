@@ -50,6 +50,7 @@ public class Kaboom : MonoBehaviour {
 		StartCoroutine(Destroyation());
 	}
 
+	float invudegat = 0.2f;
 	void OnCollisionEnter2D(Collision2D other)
 	{
 	//	Debug.Log("fdsf");
@@ -57,11 +58,15 @@ public class Kaboom : MonoBehaviour {
 
 		if ((impactant = other.gameObject.GetComponent<Kaboom>()) != null)
 		{
+			Debug.Log(name);
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
 			// if (this.tag == "Player" && vcam != null)
 			// 	StartCoroutine(impactoEffect());
-			if (resitimpact < 0.5f || other.gameObject.tag == "Player") //lol
+			if (resitimpact < 0.5f && invudegat < 0) //lol
+			{
 				life -= realvelocity.magnitude;
+				invudegat = 0.2f;
+			}
 			if (life < 0)
 				die();
 			if (other.gameObject.tag == "boss")
@@ -70,4 +75,11 @@ public class Kaboom : MonoBehaviour {
 			// rbody.velocity += realvelocity;
 		}
 	}
+
+	private void Update()
+	{
+		if (invudegat >= 0)
+			invudegat -= Time.deltaTime;
+	}
 }
+
