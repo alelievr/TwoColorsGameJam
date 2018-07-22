@@ -56,10 +56,13 @@ public class Aggressor : MonoBehaviour {
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			var randomObject = l.aggressiveProjectileList
 			.Where(m => {
-				if (GameManager.instance.isBossFight)
-					return false;
-				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)
-					return false;
+				if (m.GetComponent<BasicEnemy>() != null)
+				{
+					if (GameManager.instance.enemylimit < 0)
+						return false;
+					if (GameManager.instance.isBossFight)
+						return false;
+				}
 				return true;
 			})
 			.OrderBy((k) => Random.value)
