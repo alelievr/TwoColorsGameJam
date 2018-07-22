@@ -496,11 +496,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1504135996}
-    - target: {fileID: 223482851735995836, guid: 32a66042a638447ac8df3a0da27a6399,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: -42647207
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 32a66042a638447ac8df3a0da27a6399, type: 2}
   m_IsPrefabParent: 0
@@ -1267,6 +1262,23 @@ Prefab:
       propertyPath: director
       value: 
       objectReference: {fileID: 270755918}
+    - target: {fileID: 4999242148495274, guid: c3aff91962f25406faa920f334c4037f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999242148495274, guid: c3aff91962f25406faa920f334c4037f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999242148495274, guid: c3aff91962f25406faa920f334c4037f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199773499916678722, guid: c3aff91962f25406faa920f334c4037f,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 20c79455ed4e14aa0b7f8ea7cbf71dd6, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3aff91962f25406faa920f334c4037f, type: 2}
   m_IsPrefabParent: 0
@@ -1654,7 +1666,7 @@ Transform:
   m_PrefabInternal: {fileID: 1503120817}
 --- !u!1 &879411766 stripped
 GameObject:
-  m_PrefabParentObject: {fileID: 1810065989300440, guid: 32a66042a638447ac8df3a0da27a6399,
+  m_PrefabParentObject: {fileID: 1771864397008702, guid: 32a66042a638447ac8df3a0da27a6399,
     type: 2}
   m_PrefabInternal: {fileID: 85829211}
 --- !u!1001 &899362536
@@ -1703,6 +1715,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &940916630 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1810065989300440, guid: 32a66042a638447ac8df3a0da27a6399,
+    type: 2}
+  m_PrefabInternal: {fileID: 85829211}
 --- !u!1001 &950763389
 Prefab:
   m_ObjectHideFlags: 0
@@ -3339,9 +3356,24 @@ Prefab:
       objectReference: {fileID: 805356755}
     - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
         type: 2}
+      propertyPath: bossFightCamera.Array.data[1]
+      value: 
+      objectReference: {fileID: 505049761}
+    - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
+        type: 2}
       propertyPath: bossZones.Array.data[0]
       value: 
       objectReference: {fileID: 1920317605}
+    - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
+        type: 2}
+      propertyPath: bossZones.Array.data[1]
+      value: 
+      objectReference: {fileID: 505049762}
+    - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
+        type: 2}
+      propertyPath: winPanel
+      value: 
+      objectReference: {fileID: 940916630}
     - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
         type: 2}
       propertyPath: player
@@ -3352,16 +3384,6 @@ Prefab:
       propertyPath: fleshsc
       value: 
       objectReference: {fileID: 1533122119}
-    - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
-        type: 2}
-      propertyPath: bossZones.Array.data[1]
-      value: 
-      objectReference: {fileID: 505049762}
-    - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
-        type: 2}
-      propertyPath: bossFightCamera.Array.data[1]
-      value: 
-      objectReference: {fileID: 505049761}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 339f2c799151c4e1b979b9b560be1ccb, type: 2}
   m_IsPrefabParent: 0

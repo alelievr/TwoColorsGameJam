@@ -62,6 +62,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  winPanel: {fileID: 0}
   player: {fileID: 0}
   playerSize: 0
   fleshsc: {fileID: 0}
