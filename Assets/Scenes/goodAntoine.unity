@@ -1210,11 +1210,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114129702051092032, guid: c3aff91962f25406faa920f334c4037f,
-        type: 2}
-      propertyPath: bosses.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4016883314292418, guid: c3aff91962f25406faa920f334c4037f, type: 2}
       propertyPath: m_LocalPosition.x
       value: 604
@@ -1252,6 +1247,11 @@ Prefab:
       propertyPath: bosses.Array.data[0]
       value: 
       objectReference: {fileID: 1920317606}
+    - target: {fileID: 114129702051092032, guid: c3aff91962f25406faa920f334c4037f,
+        type: 2}
+      propertyPath: bosses.Array.data[1]
+      value: 
+      objectReference: {fileID: 505049766}
     - target: {fileID: 114327533076770588, guid: c3aff91962f25406faa920f334c4037f,
         type: 2}
       propertyPath: deathScreen
@@ -1267,17 +1267,6 @@ Prefab:
       propertyPath: director
       value: 
       objectReference: {fileID: 270755918}
-    - target: {fileID: 114003666854274606, guid: c3aff91962f25406faa920f334c4037f,
-        type: 2}
-      propertyPath: damageSoundPrefab
-      value: 
-      objectReference: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
-        type: 2}
-    - target: {fileID: 114129702051092032, guid: c3aff91962f25406faa920f334c4037f,
-        type: 2}
-      propertyPath: bosses.Array.data[1]
-      value: 
-      objectReference: {fileID: 505049766}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3aff91962f25406faa920f334c4037f, type: 2}
   m_IsPrefabParent: 0
@@ -3095,6 +3084,16 @@ Prefab:
     - target: {fileID: 4560901755106716, guid: 0fc5146433bad42d2bc98dd50a7aa84e, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50715808522091486, guid: 0fc5146433bad42d2bc98dd50a7aa84e,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114212847538392192, guid: 0fc5146433bad42d2bc98dd50a7aa84e,
+        type: 2}
+      propertyPath: life
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fc5146433bad42d2bc98dd50a7aa84e, type: 2}

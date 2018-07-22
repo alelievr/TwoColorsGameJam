@@ -613,11 +613,15 @@ MonoBehaviour:
   rbody: {fileID: 0}
   flickerCount: 4
   flickerInterval: 0.1
+  damageSoundPrefab: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
+    type: 2}
   invoqueondead: {fileID: 1728399043022802, guid: 17b2a8d05c2a54e79bf07fd1860ba2ee,
     type: 2}
   numbertoinvoc: 15
   debritCount: 2
   debrit: {fileID: 0}
+  recupTime: 0
+  recup: 0
 --- !u!114 &114081963311458972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -674,8 +678,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 50c76c5d1501a459db1225d996b62821, type: 2}
   fadeDistance: 200
-  backgroundMusicResetTime: 2
+  backgroundMusicResetTime: 5
   bosses:
+  - {fileID: 0}
   - {fileID: 0}
   bossAudioStart: {fileID: 82241911627579680}
   bossAudioLoop: {fileID: 82109605751466418}

@@ -164,8 +164,8 @@ MonoBehaviour:
   zoneNumber: 1
   bossName: Boss 2
   volumeControlName: Boss1Volume
-  startClip: {fileID: 8300000, guid: 06614c89e92384293a327a2370ec887a, type: 3}
-  loopClip: {fileID: 8300000, guid: 7211065b2a07346a88aadf28c6746b1b, type: 3}
+  startClip: {fileID: 8300000, guid: b9172190898e042df83db99fbb478f9e, type: 3}
+  loopClip: {fileID: 8300000, guid: d3ab256beec444267bb2893587f6104e, type: 3}
   audioGroup: {fileID: 243844368317572322, guid: 50c76c5d1501a459db1225d996b62821,
     type: 2}
   dead: 0
