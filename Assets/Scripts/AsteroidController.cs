@@ -80,9 +80,9 @@ public class AsteroidController : MonoBehaviour {
 		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)
 		|| Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
 			StartCoroutine(boost());
-		if (Input.GetKeyDown(KeyCode.Q))
+		if (Input.GetKey(KeyCode.Q))
 			transform.Rotate(transform.forward, 5);
-		if (Input.GetKeyDown(KeyCode.E))
+		if (Input.GetKey(KeyCode.E))
 			transform.Rotate(transform.forward, -5);
 	}
 	// Update is called once per frame
