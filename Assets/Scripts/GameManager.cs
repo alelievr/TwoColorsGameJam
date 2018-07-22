@@ -68,5 +68,9 @@ public class GameManager : MonoBehaviour
 		currentboss = zoneNumber;
 		bossFightCamera[zoneNumber].gameObject.SetActive(true);
 		mainCamera.gameObject.SetActive(false);
+
+		// Destroy every basic enemies in the scene:
+		foreach (var enemy in GameManager.FindObjectsOfType< BasicEnemy >())
+			Destroy(enemy.gameObject);
 	}
 }

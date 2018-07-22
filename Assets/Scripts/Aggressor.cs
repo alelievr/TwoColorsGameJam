@@ -56,7 +56,9 @@ public class Aggressor : MonoBehaviour {
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			projectile = Instantiate(l.aggressiveProjectileList
 			.Where(m => {
-				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)						
+				if (GameManager.instance.isBossFight)
+					return false;
+				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)
 					return false;
 				return true;
 			})
