@@ -141,17 +141,15 @@ public class DebritController : MonoBehaviour
 		}
 	}
 
-<<<<<<< HEAD
 	IEnumerator Killme()
 	{
 		yield return new WaitForSeconds(10f);
 		Destroy(gameObject);
-=======
+	}
 	public void OnWillBeDestroyed()
 	{
 		Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
 		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
->>>>>>> 18fd2922ba016b29a40691323d830f31831559fc
 	}
 
 	private void OnDestroy()
