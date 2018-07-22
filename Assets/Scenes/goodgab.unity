@@ -383,31 +383,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1197434945881692, guid: c3aff91962f25406faa920f334c4037f,
     type: 2}
   m_PrefabInternal: {fileID: 522334057}
---- !u!1 &1404612736 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1270254668317916, guid: d1eaa895421e445ec9296cc323fb626c,
-    type: 2}
-  m_PrefabInternal: {fileID: 1521000271}
---- !u!114 &1404612737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1404612736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4e70eb3da5c64d879130b354c5f87c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  instanfind: 0
-  cible: {fileID: 0}
-  speed: 30
-  maxspeed: 20
-  rotationspeed: 50
-  maxrotationspeed: 40
-  idealdistancetocible: 100
-  anim: {fileID: 0}
-  isboss2: 1
 --- !u!1001 &1504135995
 Prefab:
   m_ObjectHideFlags: 0
@@ -540,11 +515,6 @@ Prefab:
       propertyPath: debrit
       value: 
       objectReference: {fileID: 522334058}
-    - target: {fileID: 114250531875026920, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: life
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
   m_IsPrefabParent: 0
