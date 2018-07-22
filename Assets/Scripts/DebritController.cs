@@ -14,9 +14,10 @@ public class DebritController : MonoBehaviour
 	public float gain = 5f;
 
 	public event Action< DebritController >	onLaserReceived;
+	public event Action< DebritController >	onDestroyed;
 
 	Rigidbody2D			rb;
-	BoxCollider2D		boxCollider;
+	CircleCollider2D		circleCollider;
 	Vector2				dir;
 	int					index;
 	Collider2D[]		results = new Collider2D[16];
@@ -30,7 +31,7 @@ public class DebritController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		boxCollider = GetComponent< BoxCollider2D >();
+		circleCollider = GetComponent< CircleCollider2D >();
 		manager = DebritManager.instance;
 
 		if (manager != null)
@@ -84,13 +85,10 @@ public class DebritController : MonoBehaviour
 		Destroy(rb);
 
 		ContactFilter2D filter = new ContactFilter2D();
-		filter.layerMask = 1 << LayerMask.NameToLayer("Default");
-		int count = boxCollider.OverlapCollider(filter, results);
+		int count = circleCollider.OverlapCollider(filter, results);
 
 		for (int i = 0; i < count; i++)
-		{
 			touchingDebrits.Add(results[i].GetComponent<DebritController>());
-		}
 
 		integrity = 0;
 
@@ -118,18 +116,33 @@ public class DebritController : MonoBehaviour
 			return ;
 		
 		if (other.gameObject.tag == "debrit")
-			manager.AgglomerateDebrit(other.gameObject.GetComponent< DebritController >());
+		{
+			var otherDebrit = other.gameObject.GetComponent< DebritController >();
+			manager.AgglomerateDebrit(otherDebrit);
+			touchingDebrits.Add(otherDebrit);
+		}
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Laser")
-			onLaserReceived(this);
+		{
+			if (agglomerationEnabled && onLaserReceived != null)
+				onLaserReceived(this);
+			Destroy(gameObject);
+			Destroy(other.gameObject);
+		}
 	}
 
 	private void OnDestroy()
 	{
 		foreach (var debrit in touchingDebrits)
-			debrit.touchingDebrits.Remove(this);
+		{
+			if (debrit != null)
+				debrit.touchingDebrits.Remove(this);
+		}
+
+		if (onDestroyed != null)
+			onDestroyed(this);
 	}
 }
