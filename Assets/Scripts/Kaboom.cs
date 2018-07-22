@@ -89,12 +89,12 @@ public class Kaboom : MonoBehaviour {
 	IEnumerator HitSound()
 	{
 		Debug.Log("Hit Sound");
-		yield return new WaitForSeconds(0.05f);
-		damageSound.Play();
-		yield return new WaitForSeconds(0.05f);
-		damageSound.Play();
-		yield return new WaitForSeconds(0.05f);
-		damageSound.Play();
+		yield return new WaitForSeconds(0.2f);
+		damageSound.PlayOneShot(damageSound.clip);
+		yield return new WaitForSeconds(0.2f);
+		damageSound.PlayOneShot(damageSound.clip);
+		yield return new WaitForSeconds(0.2f);
+		damageSound.PlayOneShot(damageSound.clip);
 	}	
 
 
