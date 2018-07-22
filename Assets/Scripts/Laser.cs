@@ -29,7 +29,7 @@ public class Laser : MonoBehaviour {
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.tag == "Player")
+		if (other.gameObject.tag == "Player")
 			Destroy(gameObject);
 	}
 }
