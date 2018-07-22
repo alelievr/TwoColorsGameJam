@@ -88,7 +88,9 @@ public class Kaboom : MonoBehaviour {
 
 	IEnumerator HitSound()
 	{
-		Debug.Log("Hit Sound");
+		if (damageSound == null)
+			yield break;
+
 		yield return new WaitForSeconds(0.2f);
 		damageSound.PlayOneShot(damageSound.clip);
 		yield return new WaitForSeconds(0.2f);
@@ -109,6 +111,7 @@ public class Kaboom : MonoBehaviour {
 			// 	StartCoroutine(impactoEffect());
 			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
+				Debug.Log(name + " take damage !");
 				Instantiate(damageSoundPrefab, transform.position, Quaternion.identity);
 				StartCoroutine(Flicker());
 				StartCoroutine(Recup());

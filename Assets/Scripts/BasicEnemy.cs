@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicEnemy : EnemyEntity
 {
+	public float destroyRange = 50;
+
 	private void Start()
 	{
 		BaseStart();
@@ -12,6 +14,13 @@ public class BasicEnemy : EnemyEntity
 	private void FixedUpdate()
 	{
 		BaseFixedUpdate();
+	}
+
+	private void Update()
+	{
+		if (GameManager.instance.player != null)
+			if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) > destroyRange)
+				Destroy(gameObject);
 	}
 
 	private void OnDestroy()

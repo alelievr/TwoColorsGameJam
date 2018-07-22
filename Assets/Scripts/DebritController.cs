@@ -89,6 +89,8 @@ public class DebritController : MonoBehaviour
 			
 		Instantiate(agglomeratePrefab, transform.position, Quaternion.identity);
 
+		tag = "Player";
+
 		this.integrity = integrity;
 		
 		Destroy(rb);

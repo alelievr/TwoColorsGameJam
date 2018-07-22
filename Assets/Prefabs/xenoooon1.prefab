@@ -147,7 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poid: 1
   resitimpact: 1
-  life: 15
+  life: 5
   rbody: {fileID: 0}
   flickerCount: 4
   flickerInterval: 0.2
@@ -158,6 +158,9 @@ MonoBehaviour:
   numbertoinvoc: 2
   debritCount: 8
   debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
+  recupTime: 0
+  recup: 0
+  damageSound: {fileID: 0}
 --- !u!114 &114626885894416686
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -683,6 +683,7 @@ MonoBehaviour:
   bosses:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   bossAudioStart: {fileID: 82241911627579680}
   bossAudioLoop: {fileID: 82109605751466418}
   backgroundStart: {fileID: 82978066867997626}

@@ -385,7 +385,7 @@ MonoBehaviour:
   resitimpact: 1
   life: 400
   rbody: {fileID: 0}
-  flickerCount: 25
+  flickerCount: 6
   flickerInterval: 0.1
   damageSoundPrefab: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
     type: 2}
