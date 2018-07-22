@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
 
 	private void Start()
 	{
+		foreach(GameObject i in bossFightCamera)
+		{
+			if (i != null)
+				i.SetActive(false);
+		}
 		GetFleshNext();
 	}
 

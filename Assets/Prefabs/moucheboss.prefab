@@ -70,9 +70,10 @@ GameObject:
   - component: {fileID: 114183463325825788}
   - component: {fileID: 50715808522091486}
   - component: {fileID: 60121927131372208}
+  - component: {fileID: 114212847538392192}
   m_Layer: 0
   m_Name: moucheboss
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,8 +124,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1907077674320918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1, y: 48.27, z: 0}
-  m_LocalScale: {x: 2.334719, y: 2.334719, z: 0.2334719}
+  m_LocalPosition: {x: 163.96649, y: -17.723999, z: 2.0585625}
+  m_LocalScale: {x: 6, y: 6, z: 0.2334719}
   m_Children:
   - {fileID: 4049210062945500}
   - {fileID: 4210202009032680}
@@ -143,11 +144,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5489c90e62c14741a97ee2dbabf17ff, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -160,7 +161,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 1907077674320918}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b5489c90e62c14741a97ee2dbabf17ff, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -204,12 +205,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e70eb3da5c64d879130b354c5f87c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instanfind: 0
   cible: {fileID: 0}
   speed: 30
   maxspeed: 20
-  rotationspeed: 50
-  maxrotationspeed: 40
+  rotationspeed: 200
+  maxrotationspeed: 400
   idealdistancetocible: 100
+  anim: {fileID: 0}
+--- !u!114 &114212847538392192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1907077674320918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 643e39932b62a40808a7761e0021714b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poid: 1
+  resitimpact: 1
+  life: 200
+  rbody: {fileID: 0}
+  invoqueondead: {fileID: 1270068923259804, guid: 8fde1ab8b7e4e409e8bbf00f10187332,
+    type: 2}
+  numbertoinvoc: 15
+  debritCount: 0
+  debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
 --- !u!114 &114629101888563522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,7 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 40
-  nbshootfor10secorburst: 20
+  nbshootfor10s: 10
+  nbofshotbyburst: 1
   porte: 0
   alwaysshoot: 1
   deregulatorvalue: 0.2
@@ -241,7 +265,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 40
-  nbshootfor10secorburst: 20
+  nbshootfor10s: 10
+  nbofshotbyburst: 1
   porte: 0
   alwaysshoot: 1
   deregulatorvalue: 0.2

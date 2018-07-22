@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114644133571297086}
   m_Layer: 0
   m_Name: BOSS2_0
-  m_TagString: Untagged
+  m_TagString: boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,8 +116,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270254668317916}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.1, y: 4.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 152.6, y: -32.4, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 4144131574617750}
   - {fileID: 4781163233866312}
@@ -176,7 +176,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -224,7 +224,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -286,10 +286,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poid: 1
-  resitimpact: 0
-  life: 100
+  resitimpact: 1
+  life: 1000
   rbody: {fileID: 0}
-  invoqueondead: {fileID: 0}
+  invoqueondead: {fileID: 1270068923259804, guid: 8fde1ab8b7e4e409e8bbf00f10187332,
+    type: 2}
   numbertoinvoc: 15
   debritCount: 0
   debrit: {fileID: 0}
@@ -304,7 +305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5273f232bf134b5d8ce2d64bd8e089e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  las: {fileID: 0}
+  las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 60
   nbshootfor10s: 4
   nbofshotbyburst: 10
@@ -331,7 +332,6 @@ MonoBehaviour:
   maxrotationspeed: 40
   idealdistancetocible: 100
   anim: {fileID: 0}
-  isboss2: 1
 --- !u!114 &114821598691991570
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5273f232bf134b5d8ce2d64bd8e089e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  las: {fileID: 0}
+  las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 60
   nbshootfor10s: 4
   nbofshotbyburst: 10

@@ -8,7 +8,6 @@ public class AsteroidDeath : MonoBehaviour
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("other: " + other);
 		if (other.tag == "Laser")
 		{
 			// Debug.Log("DEATH");

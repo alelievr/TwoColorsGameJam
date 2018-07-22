@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4180495104638470, guid: 6bc2fc339982e4d67b14030581fdabec, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6bc2fc339982e4d67b14030581fdabec, type: 2}
@@ -353,7 +353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4016883314292418, guid: c3aff91962f25406faa920f334c4037f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114129702051092032, guid: c3aff91962f25406faa920f334c4037f,
         type: 2}
@@ -420,7 +420,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4354037028833090, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalPosition.y
@@ -515,6 +515,11 @@ Prefab:
       propertyPath: debrit
       value: 
       objectReference: {fileID: 522334058}
+    - target: {fileID: 114644133571297086, guid: d1eaa895421e445ec9296cc323fb626c,
+        type: 2}
+      propertyPath: cible
+      value: 
+      objectReference: {fileID: 519325085}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
   m_IsPrefabParent: 0
@@ -576,7 +581,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4018225126978046, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114530452101062728, guid: 4c4b86ce3e1e548d08081dba5847f7ba,
         type: 2}
@@ -600,6 +605,14 @@ Prefab:
       propertyPath: boss
       value: 
       objectReference: {fileID: 519325085}
+    - target: {fileID: 4383107977313462, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.1985475
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383107977313462, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -63.508156
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c4b86ce3e1e548d08081dba5847f7ba, type: 2}
   m_IsPrefabParent: 0

@@ -54,5 +54,14 @@ MonoBehaviour:
   gameState: 1
   isBossFight: 0
   mainCamera: {fileID: 0}
-  bossFightCamera: {fileID: 0}
+  bossFightCamera:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  bossZones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   player: {fileID: 0}
+  playerSize: 0
+  fleshsc: {fileID: 0}

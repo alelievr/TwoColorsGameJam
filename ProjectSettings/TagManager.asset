@@ -7,6 +7,7 @@ TagManager:
   - debrit
   - Laser
   - boss
+  - Proj
   layers:
   - Default
   - TransparentFX
