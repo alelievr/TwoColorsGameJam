@@ -65,3 +65,4 @@ MonoBehaviour:
   player: {fileID: 0}
   playerSize: 0
   fleshsc: {fileID: 0}
+  enemylimit: 10

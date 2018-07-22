@@ -43,17 +43,21 @@ public class GameManager : MonoBehaviour
 
 	public void DefeatBoss()
 	{
-		AudioController.instance.StopBossMusic();
-		gameState++;
-		isBossFight = false;
-		mainCamera.gameObject.SetActive(true);
-		if (bossFightCamera[currentboss])
-			bossFightCamera[currentboss].gameObject.SetActive(false);
-		if (bossZones[currentboss])
-			bossZones[currentboss].gameObject.SetActive(false);		
-		currentboss = -1;
-		if (bossZones[fleshnext])
-			GetFleshNext();
+		if (currentboss != -1)
+		{
+			AudioController.instance.StopBossMusic();
+			gameState++;
+			isBossFight = false;
+			mainCamera.gameObject.SetActive(true);
+			// Debug.Log("Boss fight camera: " + currentboss);
+			if (bossFightCamera[currentboss] && bossFightCamera[currentboss].gameObject)
+				bossFightCamera[currentboss].gameObject.SetActive(false);
+			if (bossZones[currentboss] && bossZones[currentboss].gameObject)
+				bossZones[currentboss].gameObject.SetActive(false);		
+			currentboss = -1;
+			if (bossZones[fleshnext])
+				GetFleshNext();
+		}
 	}
 
 	public void GetFleshNext()
