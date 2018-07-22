@@ -77,9 +77,9 @@ public class AsteroidController : MonoBehaviour {
 		if (boostcdtmp >= 0)
 			boostcdtmp -= Time.deltaTime;
 		dir = Directionator().normalized;
-		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)
-		|| Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
-			StartCoroutine(boost());
+		// if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)
+		// || Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
+		// 	StartCoroutine(boost());
 		if (Input.GetKey(KeyCode.Q))
 			transform.Rotate(transform.forward, 5);
 		if (Input.GetKey(KeyCode.E))
@@ -98,11 +98,4 @@ public class AsteroidController : MonoBehaviour {
 
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Laser")
-		{
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		}
-	}
 }
