@@ -61,6 +61,8 @@ public class DebritManager : MonoBehaviour
 		debrit.onDestroyed += OnDebritDestroyed;
 		debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
 		debrit.transform.SetParent(transform);
+
+		UpdatePlayerSize();
 	}
 
 	void IntegrityCheck(DebritController controller)
@@ -82,7 +84,23 @@ public class DebritManager : MonoBehaviour
 		// Iterate over each debrits
 		foreach (var debrit in debrits)
 			if (debrit.integrity != integrity)
+			{
+				debrit.OnWillBeDestroyed();
 				Destroy(debrit.gameObject);
+			}
+			
+		UpdatePlayerSize();
+	}
+
+	void UpdatePlayerSize()
+	{
+		float size = 0;
+		foreach (var debrit in debrits)
+		{
+			size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
+		}
+
+		GameManager.instance.playerSize = size;
 	}
 
 	void OnDebritDestroyed(DebritController controller)

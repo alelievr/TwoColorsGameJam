@@ -11,19 +11,19 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	public GameObject player;
+	public float	playerSize;
+
+	private	Vector3		baseCamPosition;
 
 	private void Awake()
 	{
 		instance = this;
+		baseCamPosition = mainCamera.transform.position;
 	}
 
 	private void Update()
 	{
-		// if (Input.GetKeyDown(KeyCode.LeftArrow)) {
-		// 	DefeatBoss();
-		// } else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-		// 	EnterBossFight();
-		// }
+		mainCamera.transform.position = new Vector3(baseCamPosition.x, baseCamPosition.y, baseCamPosition.z + playerSize);
 	}
 
 	public void DefeatBoss()

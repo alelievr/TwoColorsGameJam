@@ -16,6 +16,9 @@ public class DebritController : MonoBehaviour
 	public event Action< DebritController >	onLaserReceived;
 	public event Action< DebritController >	onDestroyed;
 
+	public GameObject	debritExplosionPrefab;
+	public GameObject	explosionPrefab;
+
 	Rigidbody2D			rb;
 	CircleCollider2D		circleCollider;
 	Vector2				dir;
@@ -129,9 +132,16 @@ public class DebritController : MonoBehaviour
 		{
 			if (agglomerationEnabled && onLaserReceived != null)
 				onLaserReceived(this);
+			OnWillBeDestroyed();
 			Destroy(gameObject);
 			Destroy(other.gameObject);
 		}
+	}
+
+	public void OnWillBeDestroyed()
+	{
+		Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
+		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 	}
 
 	private void OnDestroy()
