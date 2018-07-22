@@ -671,7 +671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: 50c76c5d1501a459db1225d996b62821, type: 2}
-  fadeDistance: 100
+  fadeDistance: 200
   backgroundMusicResetTime: 2
   bosses:
   - {fileID: 0}
@@ -709,6 +709,7 @@ MonoBehaviour:
   speed: 1000
   maxSpeed: 50
   boostsound: {fileID: 0}
+  rotationSpeed: 60
   timeboostins: 0.3
   boostcd: 1
   vcam: {fileID: 0}

@@ -60,10 +60,9 @@ public class Aggressor : MonoBehaviour {
 					return false;
 				return true;
 			})
-			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
+			.OrderBy((k) => Random.value)
 			.Take(1)
 			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
-			// Debug.Log("Instantite GO: " + projectile);
 			projectile.target = target;
 		});
 	}
