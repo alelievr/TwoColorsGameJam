@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1381152346938830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69.83666, y: 162.52275, z: -68.491974}
+  m_LocalPosition: {x: 17.903091, y: -0.15193176, z: -68.491974}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,4 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114191f723b7c4dadb54ff60b7a3d98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameState: 0
+  gameState: 1
+  isBossFight: 0
+  mainCamera: {fileID: 0}
+  bossFightCamera: {fileID: 0}
+  player: {fileID: 0}

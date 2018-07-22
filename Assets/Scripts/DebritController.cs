@@ -39,6 +39,7 @@ public class DebritController : MonoBehaviour
 
 		if (manager != null)
 			index = manager.GetNewDebritIndex();
+		StartCoroutine("Killme");
 	}
 
 	Vector2 Directionator()
@@ -53,30 +54,32 @@ public class DebritController : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void FixedUpdate()
-	{
-		if (agglomerationEnabled)
-			return ;
+	// void FixedUpdate()
+	// {
+	// 	if (agglomerationEnabled)
+	// 		return ;
 		
-		// Control the force to avoid overshooting the target:
-		Vector2 tgtVel = Vector2.ClampMagnitude(toVel * dir, maxVel);
-		// calculate the velocity error
-		Vector2 error = tgtVel - rb.velocity;
-		// calc a force proportional to the error (clamped to maxForce)
-		Vector2 force = Vector2.ClampMagnitude(gain * error, maxForce);
-		rb.AddForce(force);
+	// 	// Control the force to avoid overshooting the target:
+	// 	Vector2 tgtVel = Vector2.ClampMagnitude(toVel * dir, maxVel);
+	// 	// calculate the velocity error
+	// 	Vector2 error = tgtVel - rb.velocity;
+	// 	// calc a force proportional to the error (clamped to maxForce)
+	// 	Vector2 force = Vector2.ClampMagnitude(gain * error, maxForce);
+	// 	//rb.AddForce(force);
 
-		if (Mathf.Abs(rb.velocity.magnitude) > 200)
-		{
+	// 	if (Mathf.Abs(rb.velocity.magnitude) > 200)
+	// 	{
 
-			Vector2 tmp = new Vector2(rb.velocity.x, rb.velocity.y);
+	// 		Vector2 tmp = new Vector2(rb.velocity.x, rb.velocity.y);
 
-			// tmp.x = Mathf.Clamp(tmp.x, -100, 100);
-			tmp = tmp.normalized * 200;
-			// tmp.y = Mathf.Clamp(tmp.y, -100, 100);
-			rb.velocity = tmp;
-		}
-	}
+	// 		// tmp.x = Mathf.Clamp(tmp.x, -100, 100);
+	// 		tmp = tmp.normalized * 200;
+	// 		// tmp.y = Mathf.Clamp(tmp.y, -100, 100);
+	// 		rb.velocity = tmp;
+	// 	}
+	// }
+
+
 
 	public void Agglomerate(int integrity)
 	{
@@ -94,7 +97,7 @@ public class DebritController : MonoBehaviour
 			touchingDebrits.Add(results[i].GetComponent<DebritController>());
 
 		integrity = 0;
-
+		StopCoroutine("Killme");
 		agglomerationEnabled = true;
 	}
 
@@ -138,10 +141,17 @@ public class DebritController : MonoBehaviour
 		}
 	}
 
+<<<<<<< HEAD
+	IEnumerator Killme()
+	{
+		yield return new WaitForSeconds(10f);
+		Destroy(gameObject);
+=======
 	public void OnWillBeDestroyed()
 	{
 		Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
 		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+>>>>>>> 18fd2922ba016b29a40691323d830f31831559fc
 	}
 
 	private void OnDestroy()
