@@ -32,6 +32,10 @@ public class Aggressor : MonoBehaviour {
 		get { return GameManager.instance.isBossFight; }
 	}
 
+	public	float			size {
+		get { return GameManager.instance.playerSize; }
+	}
+
 
 	private int			pickedProjectile;
 
@@ -52,7 +56,7 @@ public class Aggressor : MonoBehaviour {
 			projectile = Instantiate(l.aggressiveProjectileList
 			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
 			.Take(1)
-			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude), Quaternion.identity);
+			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
 			projectile.target = target;
 		});
 	}
