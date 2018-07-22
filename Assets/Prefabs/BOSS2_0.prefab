@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5273f232bf134b5d8ce2d64bd8e089e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  las: {fileID: 0}
+  las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 60
   nbshootfor10s: 4
   nbofshotbyburst: 10
@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5273f232bf134b5d8ce2d64bd8e089e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  las: {fileID: 0}
+  las: {fileID: 114348558710719748, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
   angleprecision: 60
   nbshootfor10s: 4
   nbofshotbyburst: 10
