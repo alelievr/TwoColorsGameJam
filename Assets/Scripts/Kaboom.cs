@@ -62,6 +62,8 @@ public class Kaboom : MonoBehaviour {
 				life -= realvelocity.magnitude;
 			if (life < 0)
 				die();
+			if (other.gameObject.tag == "boss")
+				rbody.velocity += (Vector2)(other.transform.position - transform.position).normalized * 2000;
 	//		Debug.Log("fdsf2" + life);
 			// rbody.velocity += realvelocity;
 		}
