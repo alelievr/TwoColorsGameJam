@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 	public	GameObject[]	bossFightCamera;
 	public	GameObject[]	bossZones;
 
+	public GameObject		winPanel;
+
 	public static GameManager instance;
 	public GameObject player;
 	public float	playerSize;
@@ -57,6 +59,11 @@ public class GameManager : MonoBehaviour
 			currentboss = -1;
 			if (bossZones[fleshnext])
 				GetFleshNext();
+		}
+
+		if (currentboss == 2)
+		{
+			winPanel.SetActive(true);
 		}
 	}
 
