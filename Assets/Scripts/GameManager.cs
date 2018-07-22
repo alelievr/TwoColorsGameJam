@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 	public FleshScrit fleshsc;
 	int fleshnext = 0;
 	int currentboss = -1;
+	public int enemylimit = 10;
 
 	private void Awake()
 	{

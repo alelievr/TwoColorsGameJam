@@ -14,12 +14,15 @@ public class AsteroidController : MonoBehaviour {
 	Rigidbody2D rb;
 	public AudioClip boostsound;
 
+	public float rotationSpeed = 60;
+
 	float boostmult = 1;
 	public float timeboostins = 0.3f;
 	public float boostcd = 1;
 	CinemachineImpulseSource cis;
 	public CinemachineVirtualCamera vcam;
 	CinemachineFramingTransposer vcamframing;
+	AsteroidDeath	deathController;
 
 	public PlayableDirector	director;
 	AudioSource audios;
@@ -30,6 +33,7 @@ public class AsteroidController : MonoBehaviour {
 		audios = GetComponent<AudioSource>();
 		rb = GetComponent<Rigidbody2D>();
 		cis = GetComponent<CinemachineImpulseSource>();
+		deathController = GetComponentInChildren< AsteroidDeath >();
 		// vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
 		if (vcam != null)
 			vcamframing = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
@@ -74,6 +78,8 @@ public class AsteroidController : MonoBehaviour {
 
 	private void Update()
 	{
+		if (deathController.dead)
+			return ;
 		if (boostcdtmp >= 0)
 			boostcdtmp -= Time.deltaTime;
 		dir = Directionator().normalized;
@@ -81,12 +87,14 @@ public class AsteroidController : MonoBehaviour {
 		// || Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
 		// 	StartCoroutine(boost());
 		if (Input.GetKey(KeyCode.Q))
-			transform.Rotate(transform.forward, 5);
+			transform.Rotate(transform.forward, rotationSpeed * Time.deltaTime);
 		if (Input.GetKey(KeyCode.E))
-			transform.Rotate(transform.forward, -5);
+			transform.Rotate(transform.forward, -rotationSpeed * Time.deltaTime);
 	}
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (deathController.dead)
+			return ;
 		//Debug.Log("hor" + Input.GetAxisRaw("Horizontal")+ "ver" + Input.GetAxisRaw("Vertical"));
 		rb.AddForce(dir * speed * boostmult, ForceMode2D.Force);
 		if (Mathf.Abs(rb.velocity.magnitude) > maxSpeed * boostmult)

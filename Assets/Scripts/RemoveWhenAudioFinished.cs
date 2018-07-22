@@ -2,15 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RemoveWhenAudioFinished : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+public class RemoveWhenAudioFinished : MonoBehaviour
+{
+	public float startTimeout = .5f;
+	bool checkEnd = false;
 
-	// Use this for initialization
-	void Start () {
-		
+	AudioSource source;
+
+	void Start ()
+	{
+		source = GetComponent<AudioSource>();
+		StartCoroutine(Timeout());
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+		if (!checkEnd)
+			return ;
 		
+		if (!source.isPlaying)
+			Destroy(gameObject);
+	}
+
+	IEnumerator Timeout()
+	{
+		yield return new WaitForSeconds(startTimeout);
+		checkEnd = true;
 	}
 }

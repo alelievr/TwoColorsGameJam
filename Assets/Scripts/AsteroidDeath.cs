@@ -2,16 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AsteroidDeath : MonoBehaviour
 {
-	
+	public bool dead = false;
+
+	public int				life = 3;
+
+	public GameObject		deathClip;
+	public GameObject		playerHit;
+	public GameObject		deathScreen;
+
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Laser")
 		{
-			// Debug.Log("DEATH");
-			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+			Instantiate(playerHit, transform.position, Quaternion.identity);
+			life--;
+			if (life == 0)
+				Die();
 		}
+	}
+
+	void Die()
+	{
+		deathScreen.SetActive(true);
+		dead = true;
+		Instantiate(deathClip, transform.position, Quaternion.identity);
+	}
+
+	private void Update()
+	{
+		if (!dead)
+			return ;
+
+		if (Input.GetKeyDown(KeyCode.Return)
+			|| Input.GetKeyDown(KeyCode.Space)
+			|| Input.GetKeyDown(KeyCode.KeypadEnter)
+			|| Input.GetMouseButtonDown(0))
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

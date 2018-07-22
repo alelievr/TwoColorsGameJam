@@ -123,8 +123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instanfind: 1
   cible: {fileID: 0}
-  speed: 60
-  maxspeed: 40
+  speed: 50
+  maxspeed: 30
   rotationspeed: 90
   maxrotationspeed: 60
   idealdistancetocible: 30

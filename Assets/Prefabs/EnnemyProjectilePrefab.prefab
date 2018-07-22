@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poid: 1
   resitimpact: 0
-  life: 5
+  life: 0.5
   rbody: {fileID: 0}
   invoqueondead: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af,
     type: 2}
