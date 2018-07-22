@@ -6,9 +6,7 @@ public class mouchebossia : EnemyEntity
 {
 
 	void Update () {
-		if (Input.GetKey(KeyCode.Space)) {
-			anim.SetTrigger("hit"); 
-		}
+
 	}
 
 	void FixedUpdate () {
