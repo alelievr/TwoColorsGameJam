@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	public GameObject player;
+	public float	playerSize;
 
 	private void Awake()
 	{

@@ -27,18 +27,11 @@ public class Kaboom : MonoBehaviour {
 		}
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey(KeyCode.Space))
-			rbody.velocity = new Vector2((name == "blanc") ? 20 : -20, 0);
-	}
-
     IEnumerator Destroyation()
     {
         yield return new WaitForSeconds(0.1f);
 		Destroy(gameObject);
     }
-
 
 	void die()
 	{
