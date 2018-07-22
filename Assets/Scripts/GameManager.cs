@@ -43,9 +43,11 @@ public class GameManager : MonoBehaviour
 
 	public void DefeatBoss()
 	{
+		AudioController.instance.StopBossMusic();
 		gameState++;
 		isBossFight = false;
 		mainCamera.gameObject.SetActive(true);
+		Debug.Log("Boss fight camera: " + currentboss);
 		if (bossFightCamera[currentboss])
 			bossFightCamera[currentboss].gameObject.SetActive(false);
 		if (bossZones[currentboss])

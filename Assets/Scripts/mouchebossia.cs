@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class mouchebossia : EnemyEntity
 {
+	private void Start()
+	{
+		BaseStart();
+	}
 
 	void Update () {
-		if (Input.GetKey(KeyCode.Space)) {
-			anim.SetTrigger("hit"); 
-		}
 	}
 
 	void FixedUpdate () {

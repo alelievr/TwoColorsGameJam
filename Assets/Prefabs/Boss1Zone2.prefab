@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoneNumber: 1
-  bossName: Boss 1
+  bossName: Boss 2
   volumeControlName: Boss1Volume
   startClip: {fileID: 8300000, guid: 06614c89e92384293a327a2370ec887a, type: 3}
   loopClip: {fileID: 8300000, guid: 7211065b2a07346a88aadf28c6746b1b, type: 3}
