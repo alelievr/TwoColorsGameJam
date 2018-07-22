@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1053,26 +1053,6 @@ Prefab:
     - target: {fileID: 4736285488904552, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114250531875026920, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: life
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114644133571297086, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: speed
-      value: 7500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114644133571297086, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: rotationspeed
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114644133571297086, guid: d1eaa895421e445ec9296cc323fb626c,
-        type: 2}
-      propertyPath: maxrotationspeed
-      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d1eaa895421e445ec9296cc323fb626c, type: 2}
