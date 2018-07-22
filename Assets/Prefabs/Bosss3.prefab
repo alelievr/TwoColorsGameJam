@@ -501,7 +501,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1220764088657262}
-  m_LocalRotation: {x: 0, y: 0, z: 0.5735764, w: 0.8191521}
+  m_LocalRotation: {x: -0, y: -0, z: 0.5735764, w: 0.8191521}
   m_LocalPosition: {x: -5.4900026, y: 3.8900025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -514,7 +514,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744940882167984}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9659259, w: -0.25881898}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9659259, w: -0.25881898}
   m_LocalPosition: {x: 4.7099977, y: -4.509998, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -527,7 +527,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177537365996056}
-  m_LocalRotation: {x: 0, y: 0, z: 0.34201887, w: 0.9396931}
+  m_LocalRotation: {x: -0, y: -0, z: 0.34201887, w: 0.9396931}
   m_LocalPosition: {x: 5.509998, y: 4.2900023, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -540,7 +540,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419940540811416}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9063079, w: -0.42261827}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9063079, w: -0.42261827}
   m_LocalPosition: {x: 6.509998, y: -2.9099977, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -568,7 +568,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1226355414297210}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9848078, w: -0.17364809}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9848078, w: -0.17364809}
   m_LocalPosition: {x: 3.3099976, y: -5.1099977, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -581,7 +581,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885949282368642}
-  m_LocalRotation: {x: 0, y: -0, z: 0.42261845, w: -0.9063077}
+  m_LocalRotation: {x: -0, y: -0, z: 0.42261845, w: -0.9063077}
   m_LocalPosition: {x: 4.509998, y: 5.4900026, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -594,7 +594,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1872649943815884}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
   m_LocalPosition: {x: -0.49000245, y: -6.3099976, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -607,7 +607,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1408886841685506}
-  m_LocalRotation: {x: 0, y: -0, z: 0.9961947, w: -0.08715578}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9961947, w: -0.08715578}
   m_LocalPosition: {x: 1.1099976, y: -5.9099975, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -633,7 +633,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762294958413742}
-  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
+  m_LocalRotation: {x: -0, y: -0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: -3.0900025, y: 6.4900026, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -682,7 +682,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1336249792196406}
-  m_LocalRotation: {x: 0, y: 0, z: 0.08715578, w: 0.9961947}
+  m_LocalRotation: {x: -0, y: -0, z: 0.08715578, w: 0.9961947}
   m_LocalPosition: {x: -1.0900024, y: 7.2900023, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -695,7 +695,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1900613116916478}
-  m_LocalRotation: {x: 0, y: -0, z: 0.08715596, w: -0.9961947}
+  m_LocalRotation: {x: -0, y: -0, z: 0.08715596, w: -0.9961947}
   m_LocalPosition: {x: 0.9099976, y: 7.0900025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -708,7 +708,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1313117934897528}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 7.3099976, y: -0.7099976, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -735,7 +735,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259494892475956}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.436096, y: 0, z: -500}
+  m_LocalPosition: {x: -11.18512, y: 0, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4024311432345664}
@@ -761,7 +761,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1545852693419238}
-  m_LocalRotation: {x: 0, y: 0, z: 0.42261827, w: 0.9063079}
+  m_LocalRotation: {x: -0, y: -0, z: 0.42261827, w: 0.9063079}
   m_LocalPosition: {x: -4.8900027, y: 5.0900025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -774,7 +774,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1599846610478550}
-  m_LocalRotation: {x: 0, y: 0, z: 0.3420201, w: 0.9396927}
+  m_LocalRotation: {x: -0, y: -0, z: 0.3420201, w: 0.9396927}
   m_LocalPosition: {x: -3.8900025, y: 6.0900025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -787,7 +787,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357017743689270}
-  m_LocalRotation: {x: 0, y: 0, z: 0.81915206, w: 0.57357645}
+  m_LocalRotation: {x: -0, y: -0, z: 0.81915206, w: 0.57357645}
   m_LocalPosition: {x: -6.0900025, y: 1.6900024, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -800,7 +800,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1774278060659184}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -5.6900024, y: 3.4900024, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -814,7 +814,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1619048853115336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 994, y: 988, z: 0}
+  m_LocalPosition: {x: 997, y: 1529, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4511176979262518}
@@ -828,7 +828,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462036817555606}
-  m_LocalRotation: {x: 0, y: 0, z: 0.76604444, w: 0.64278764}
+  m_LocalRotation: {x: -0, y: -0, z: 0.76604444, w: 0.64278764}
   m_LocalPosition: {x: -5.8900027, y: 2.4900024, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -854,7 +854,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1016483458135592}
-  m_LocalRotation: {x: 0, y: -0, z: 0.55919313, w: -0.8290375}
+  m_LocalRotation: {x: -0, y: -0, z: 0.55919313, w: -0.8290375}
   m_LocalPosition: {x: 6.7099977, y: 2.0900025, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -867,7 +867,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926220177056836}
-  m_LocalRotation: {x: 0, y: -0, z: 0.17364846, w: -0.9848077}
+  m_LocalRotation: {x: -0, y: -0, z: 0.17364846, w: -0.9848077}
   m_LocalPosition: {x: 2.7099977, y: 6.6900024, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
@@ -987,7 +987,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.3
-  delay: 1
+  delay: 0.79641443
 --- !u!114 &114037206925960264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.24
-  delay: 1
+  delay: 0.021066844
 --- !u!114 &114069733292166800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1025,7 +1025,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.12
-  delay: 1
+  delay: 0.043406963
 --- !u!114 &114183593131331754
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1044,7 +1044,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.15
-  delay: 1
+  delay: 0.9230849
 --- !u!114 &114296356782557206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1059,14 +1059,17 @@ MonoBehaviour:
   poid: 1
   resitimpact: 1
   life: 1000
-  rbody: {fileID: 0}
+  rbody: {fileID: 50291125887484342}
   flickerCount: 4
   flickerInterval: 0.2
+  damageSoundPrefab: {fileID: 0}
   invoqueondead: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af,
     type: 2}
   numbertoinvoc: 15
   debritCount: 0
   debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
+  recupTime: 0
+  recup: 0
 --- !u!114 &114370848444891232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1085,7 +1088,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.12
-  delay: 1
+  delay: 0.38259143
 --- !u!114 &114391225026763616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1104,7 +1107,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.36
-  delay: 1
+  delay: 0.6482535
 --- !u!114 &114395442681368264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1123,7 +1126,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.09
-  delay: 1
+  delay: 0.6005752
 --- !u!114 &114411694904928564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1142,7 +1145,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.03
-  delay: 1
+  delay: 0.6205577
 --- !u!114 &114431070323041036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1161,7 +1164,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.27
-  delay: 1
+  delay: 0.78258336
 --- !u!114 &114497468323773806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1180,7 +1183,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.09
-  delay: 1
+  delay: 0.5582489
 --- !u!114 &114497624954128406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1219,7 +1222,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.36
-  delay: 1
+  delay: 0.50956774
 --- !u!114 &114506463954101232
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1274,7 +1277,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 1
   deregulatorvalue: 0.1
-  delay: 1
+  delay: 0.8040224
 --- !u!114 &114580021109323626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1293,7 +1296,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -2.02
-  delay: 1
+  delay: 0.8604959
 --- !u!114 &114596977958895782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1312,7 +1315,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.55
-  delay: 1
+  delay: 0.9200064
 --- !u!114 &114673915759373804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1331,7 +1334,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.58
-  delay: 1
+  delay: 0.59821767
 --- !u!114 &114675006897528456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1350,7 +1353,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.99
-  delay: 1
+  delay: 0.5754378
 --- !u!114 &114709394888657272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1380,7 +1383,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.4
-  delay: 1
+  delay: 0.49506164
 --- !u!114 &114716326183219988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1399,7 +1402,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.25
-  delay: 1
+  delay: 0.686625
 --- !u!114 &114754208989436662
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1418,7 +1421,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -0.57
-  delay: 1
+  delay: 0.5061919
 --- !u!114 &114777757044617876
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1437,7 +1440,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: -1.27
-  delay: 1
+  delay: 0.7300601
 --- !u!114 &114778588547165762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1485,7 +1488,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.16
-  delay: 1
+  delay: 0.40819913
 --- !u!114 &114938827779846276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1543,7 +1546,7 @@ MonoBehaviour:
   porte: 0
   alwaysshoot: 0
   deregulatorvalue: 0.37
-  delay: 1
+  delay: 0.3259145
 --- !u!198 &198099586538301058
 ParticleSystem:
   m_ObjectHideFlags: 1
