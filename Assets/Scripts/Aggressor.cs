@@ -56,14 +56,15 @@ public class Aggressor : MonoBehaviour {
 		bigList.list.Take(gameState).ToList().ForEach(l => {
 			projectile = Instantiate(l.aggressiveProjectileList
 			.Where(m => {
-				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)						
+				if (GameManager.instance.isBossFight)
+					return false;
+				if (m.GetComponent<BasicEnemy>() != null && GameManager.instance.enemylimit < 0)
 					return false;
 				return true;
 			})
-			.Skip(Random.Range(0, l.aggressiveProjectileList.Count))
+			.OrderBy((k) => Random.value)
 			.Take(1)
 			.First(), (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
-			// Debug.Log("Instantite GO: " + projectile);
 			projectile.target = target;
 		});
 	}

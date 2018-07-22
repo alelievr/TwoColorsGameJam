@@ -11,6 +11,9 @@ public class Kaboom : MonoBehaviour {
 	public float life = 1000;
 	[HideInInspector] public Rigidbody2D rbody;
 
+	public float		flickerCount = 4;
+	public float		flickerInterval = 0.2f;
+
 	CinemachineVirtualCamera vcam;
     CinemachineBasicMultiChannelPerlin vcamperlin;
 	public GameObject	invoqueondead;
@@ -51,6 +54,12 @@ public class Kaboom : MonoBehaviour {
 	}
 
 	float invudegat = 0.2f;
+	IEnumerator Flicker()
+	{
+		for (int i = 0; i < flickerCount; i++)
+			yield return new WaitForSeconds(flickerInterval);
+	}
+
 	void OnCollisionEnter2D(Collision2D other)
 	{
 	//	Debug.Log("fdsf");
@@ -64,6 +73,7 @@ public class Kaboom : MonoBehaviour {
 			// 	StartCoroutine(impactoEffect());
 			if (resitimpact < 0.5f && invudegat < 0) //lol
 			{
+				StartCoroutine(Flicker());
 				life -= realvelocity.magnitude;
 				invudegat = 0.2f;
 			}
