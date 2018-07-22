@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mouchebossia : MonoBehaviour
 {
+	public bool instanfind = false;
 	public GameObject cible = null;
 	public float speed = 30;
 	public float maxspeed = 20;
@@ -17,6 +18,8 @@ public class mouchebossia : MonoBehaviour
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
+		if (instanfind == true)
+			cible = GameManager.instance.player;
 	}
 
 	void Update () {

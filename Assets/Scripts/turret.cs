@@ -6,7 +6,8 @@ public class turret : MonoBehaviour {
 
 	public Laser las;
 	public float angleprecision = 10;
-	public float nbshootfor10secorburst = 10;
+	public float nbshootfor10s = 10;
+	public float nbofshotbyburst = 1;
 	public float porte;
 	public bool alwaysshoot;
 
@@ -26,11 +27,15 @@ public class turret : MonoBehaviour {
 			delay -= Time.deltaTime;
 			return;
 		}
-		delay = 10 / nbshootfor10secorburst + Random.Range(-deregulatorvalue, deregulatorvalue);
-		Laser lastmp = GameObject.Instantiate(las, transform.position, Quaternion.identity);
-		var rotation = transform.rotation;
-		transform.Rotate(transform.forward, Random.Range(-angleprecision / 2, angleprecision / 2));
-		lastmp.dir = transform.up;
-		transform.rotation = rotation;
+		// if (alwaysshoot == false && cib)
+		delay = 10 / nbshootfor10s + Random.Range(-deregulatorvalue, deregulatorvalue);
+		for (int i = 0; i < nbofshotbyburst; i++)
+		{
+			Laser lastmp = GameObject.Instantiate(las, transform.position, Quaternion.identity);
+			var rotation = transform.rotation;
+			transform.Rotate(transform.forward, Random.Range(-angleprecision / 2, angleprecision / 2));
+			lastmp.dir = transform.up;
+			transform.rotation = rotation;
+		}
 	}
 }
