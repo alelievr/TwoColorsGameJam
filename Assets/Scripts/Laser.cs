@@ -21,12 +21,12 @@ public class Laser : MonoBehaviour {
 			rb.velocity = dir * speed;
 	}
 
-	private void OnTriggerEnter(Collider other)
+	private void OnTriggerEnter2D(Collider other)
 	{
 		Destroy(gameObject);
 	}
-	
-	private void OnCollisionEnter(Collision other)
+
+	private void OnCollisionEnter2D(Collision other)
 	{
 		Destroy(gameObject);
 	}
