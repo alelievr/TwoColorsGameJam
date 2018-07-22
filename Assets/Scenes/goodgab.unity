@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -310,7 +310,7 @@ MonoBehaviour:
   - {fileID: 1667449836847868, guid: 6bc2fc339982e4d67b14030581fdabec, type: 2}
   - {fileID: 1601341867966566, guid: 742703fcb98a44b76a9646b421e3542d, type: 2}
   frequancy: 0.005
-  distance: 10
+  distance: 100
 --- !u!4 &519325093 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4016883314292418, guid: c3aff91962f25406faa920f334c4037f,
