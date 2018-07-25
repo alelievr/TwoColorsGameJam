@@ -1,11 +1,15 @@
 {
   "dependencies": {
+    "com.unity.2d.spriteshape": "1.0.12-preview",
+    "com.unity.ads": "2.0.8",
+    "com.unity.analytics": "2.0.16",
     "com.unity.cinemachine": "2.2.6",
     "com.unity.incrementalcompiler": "0.0.42-preview.14",
     "com.unity.package-manager-ui": "1.9.11",
     "com.unity.progrids": "3.0.0",
-    "com.unity.render-pipelines.lightweight": "1.1.10-preview",
+    "com.unity.purchasing": "2.0.3",
     "com.unity.render-pipelines.core": "1.1.10-preview",
+    "com.unity.render-pipelines.lightweight": "1.1.10-preview",
     "com.unity.shadergraph": "1.1.9-preview",
     "com.unity.textmeshpro": "1.2.4",
     "com.unity.modules.ai": "1.0.0",
@@ -37,8 +41,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "com.unity.2d.spriteshape": "1.0.12-preview"
+    "com.unity.modules.xr": "1.0.0"
   },
   "registry": "https://staging-packages.unity.com"
 }

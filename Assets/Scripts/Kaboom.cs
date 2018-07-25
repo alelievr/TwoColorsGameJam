@@ -16,19 +16,18 @@ public class Kaboom : MonoBehaviour {
 
 	public GameObject	damageSoundPrefab;
 
-	CinemachineVirtualCamera vcam;
-    CinemachineBasicMultiChannelPerlin vcamperlin;
 	public GameObject	invoqueondead;
-	public int			numbertoinvoc = 15;
 
 	new Renderer		renderer;
 
-	public int debritCount = 2;
-	public GameObject debrit;
+	public int			debritCount = 2;
+	public GameObject	debrit;
 
 	[Space]
 	public	float		recupTime;
 	public	bool		recup;
+
+	bool				dead = false;
 
 	[Space]
 	public	AudioSource	damageSound;
@@ -38,12 +37,6 @@ public class Kaboom : MonoBehaviour {
 		renderer = GetComponentInChildren< Renderer >();
 		if (renderer == null)
 			renderer = GetComponent< Renderer >();
-		if (tag == "player")
-		{
-			vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
-			if (vcam)
-        	    vcamperlin = vcam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-		}
 	}
 	
     IEnumerator Destroyation()
@@ -52,16 +45,15 @@ public class Kaboom : MonoBehaviour {
 		Destroy(gameObject);
     }
 
-	void die()
+	void Die()
 	{
-		for (int i = 0; i < numbertoinvoc; i++)
-		{
-			GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
-		}
+		if (dead)
+			return ;
+		dead = true;
+
+		GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
 		for (int i = 0; i < debritCount; i++)
-		{
 			GameObject.Instantiate(debrit, transform.position, Quaternion.identity);
-		}
 		if (tag == "boss")
 			GameManager.instance.DefeatBoss();
 		StartCoroutine(Destroyation());
@@ -107,8 +99,7 @@ public class Kaboom : MonoBehaviour {
 		if ((!recup) && (impactant != null))
 		{
 			Vector2 realvelocity = impactant.rbody.velocity - rbody.velocity;
-			// if (this.tag == "Player" && vcam != null)
-			// 	StartCoroutine(impactoEffect());
+			
 			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
 				Debug.Log(name + " take damage !");
@@ -119,8 +110,8 @@ public class Kaboom : MonoBehaviour {
 				life -= Mathf.Clamp(realvelocity.magnitude, 0, 30);
 				invudegat = 0.2f;
 			}
-			if (life < 0)
-				die();
+			if (life < 0 && !dead)
+				Die();
 			if (other.gameObject.tag == "boss")
 				rbody.velocity += (Vector2)(other.transform.position - transform.position).normalized * 2000;
 		}

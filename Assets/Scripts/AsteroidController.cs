@@ -6,7 +6,8 @@ using UnityEngine.Timeline;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
-public class AsteroidController : MonoBehaviour {
+public class AsteroidController : MonoBehaviour
+{
 
 	public float speed = 100;
 	public float maxSpeed = 100;
@@ -14,14 +15,14 @@ public class AsteroidController : MonoBehaviour {
 	Rigidbody2D rb;
 	public AudioClip boostsound;
 
+	public SimpleTouchController movementController;
+	public SimpleTouchController rotationController;
+
 	public float rotationSpeed = 60;
 
 	float boostmult = 1;
 	public float timeboostins = 0.3f;
 	public float boostcd = 1;
-	CinemachineImpulseSource cis;
-	public CinemachineVirtualCamera vcam;
-	CinemachineFramingTransposer vcamframing;
 	AsteroidDeath	deathController;
 
 	public PlayableDirector	director;
@@ -32,17 +33,13 @@ public class AsteroidController : MonoBehaviour {
 	{
 		audios = GetComponent<AudioSource>();
 		rb = GetComponent<Rigidbody2D>();
-		cis = GetComponent<CinemachineImpulseSource>();
 		deathController = GetComponentInChildren< AsteroidDeath >();
-		// vcam = Camera.main.GetComponent<CinemachineBrain>().ActiveVirtualCamera as CinemachineVirtualCamera;
-		if (vcam != null)
-			vcamframing = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
 	}
 	
 	Vector2 Directionator()
 	{
-		Vector2 tmp = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		return tmp;
+		// return new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+		return movementController.GetTouchPosition();
 	}
 
 	IEnumerator boost()
@@ -52,25 +49,13 @@ public class AsteroidController : MonoBehaviour {
 		boostcdtmp = boostcd;
 		if (boostsound)
 			audios.PlayOneShot(boostsound);
-		// cis.GenerateImpulse(rb.velocity);
-		// vcamframing.m_XDamping = 1.5f;
-        // vcamframing.m_YDamping = 1.5f;
-        // vcamframing.m_ZDamping = 1.5f;
 		
 		boostmult = 2;
 		while (tmptime > 0)
 		{
 			tmptime -= Time.deltaTime;
-			// vcamframing.m_LookaheadTime = tmptime / timeboostins * 0.05f;
-			// vcamframing.m_XDamping = tmptime / timeboostins * 1.5f;
-			// vcamframing.m_YDamping = tmptime / timeboostins * 1.5f;
-			// vcamframing.m_ZDamping = tmptime / timeboostins * 1.5f;
 			yield return new WaitForEndOfFrame();
 		}
-		// vcamframing.m_LookaheadTime = 0.05f;
-		// vcamframing.m_XDamping = 0;
-        // vcamframing.m_YDamping = 0;
-        // vcamframing.m_ZDamping = 0;
 		boostmult = 1;
     }
 
@@ -82,15 +67,14 @@ public class AsteroidController : MonoBehaviour {
 			return ;
 		if (boostcdtmp >= 0)
 			boostcdtmp -= Time.deltaTime;
-		dir = Directionator().normalized;
+		dir = Directionator();
 		// if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(0)
 		// || Input.GetKeyDown(KeyCode.LeftAlt) || Input.GetKeyDown(KeyCode.LeftControl)) && boostcdtmp < 0)
 		// 	StartCoroutine(boost());
-		if (Input.GetKey(KeyCode.Q))
-			transform.Rotate(transform.forward, rotationSpeed * Time.deltaTime);
-		if (Input.GetKey(KeyCode.E))
-			transform.Rotate(transform.forward, -rotationSpeed * Time.deltaTime);
+		float r = rotationController.GetTouchPosition().x;
+		transform.Rotate(transform.forward, r * Time.deltaTime * rotationSpeed);
 	}
+	
 	// Update is called once per frame
 	void FixedUpdate () {
 		if (deathController.dead)

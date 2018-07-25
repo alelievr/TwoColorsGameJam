@@ -17,13 +17,15 @@ public class EnemyEntity : MonoBehaviour
 
 	protected Rigidbody2D rb;
 
-	protected void BaseStart () {
+	protected void BaseStart ()
+	{
 		rb = GetComponent<Rigidbody2D>();
 		if (instanfind == true)
 			cible = GameManager.instance.player;
 	}
 
-	protected void BaseFixedUpdate () {
+	protected void BaseFixedUpdate ()
+	{
 		if (cible == null)
 			return ;
 		Vector2 idealpostmp = transform.position + (cible.transform.position - transform.position).normalized * idealdistancetocible;
@@ -38,9 +40,6 @@ public class EnemyEntity : MonoBehaviour
        
         Vector3 angleToSpotRelativeToMe = cible.transform.position - transform.position;
        
-        //get the angle between transform's "forward" and target delta
-        float angleDiff = Vector3.Angle(transform.up, angleToSpotRelativeToMe);
- 
         // get its cross product, which is the axis of rotation to
         // get from one vector to the other
         Vector3 cross = Vector3.Cross(transform.up, angleToSpotRelativeToMe);

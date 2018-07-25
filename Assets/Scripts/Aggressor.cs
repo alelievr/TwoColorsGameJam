@@ -41,7 +41,6 @@ public class Aggressor : MonoBehaviour {
 
 	private	AggressiveProjectile	projectile;
 	private Rigidbody2D				rbTarget;
-	int countenemy = 10;
 
 	void Start ()
 	{

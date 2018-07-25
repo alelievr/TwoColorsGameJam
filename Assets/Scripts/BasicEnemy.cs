@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicEnemy : EnemyEntity
 {
-	public float destroyRange = 50;
+	public float destroyRange = 200;
 
 	private void Start()
 	{
