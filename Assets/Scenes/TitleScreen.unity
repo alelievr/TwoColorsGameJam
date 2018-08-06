@@ -90,7 +90,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -497,7 +497,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e9b4f6f7cac045bcb9ae4fde674da22, type: 2}
+  - {fileID: 2100000, guid: 8a32c1d0459ae9943ad6348647b2f980, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5277,7 +5277,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 3e9b4f6f7cac045bcb9ae4fde674da22, type: 2}
+  - {fileID: 2100000, guid: 8a32c1d0459ae9943ad6348647b2f980, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
