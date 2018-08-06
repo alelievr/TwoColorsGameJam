@@ -67,8 +67,9 @@ public class Aggressor : MonoBehaviour {
 							return false;
 						if (GameManager.instance.isBossFight)
 							return false;
+						return false;
 					}
-					return false;
+					return true;
 				})
 				.OrderBy((k) => Random.value)
 				.FirstOrDefault();
