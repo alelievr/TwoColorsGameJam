@@ -45,32 +45,39 @@ public class Aggressor : MonoBehaviour {
 	void Start ()
 	{
 		rbTarget = target.GetComponent<Rigidbody2D>();
-	}
-	
-	void Update () {
-		// Debug.Log(rbTarget.velocity.magnitude);
-		if (/*!isBossFight &&*/ Random.value >= frequancy)
-			return;
 
-		bigList.list.Take(gameState).ToList().ForEach(l => {
-			var randomObject = l.aggressiveProjectileList
-			.Where(m => {
-				if (m.GetComponent<BasicEnemy>() != null)
+		StartCoroutine(SpawnAggressors());
+	}
+
+	IEnumerator SpawnAggressors()
+	{
+		while (true)
+		{
+			yield return new WaitForFixedUpdate();
+
+			if (Random.value >= frequancy)
+				continue ;
+
+			bigList.list.Take(gameState).ToList().ForEach(l => {
+				var randomObject = l.aggressiveProjectileList
+				.Where(m => {
+					if (m.GetComponent<BasicEnemy>() != null)
+					{
+						if (GameManager.instance.enemylimit < 0)
+							return false;
+						if (GameManager.instance.isBossFight)
+							return false;
+					}
+					return true;
+				})
+				.OrderBy((k) => Random.value)
+				.FirstOrDefault();
+				if (randomObject != null)
 				{
-					if (GameManager.instance.enemylimit < 0)
-						return false;
-					if (GameManager.instance.isBossFight)
-						return false;
+					projectile = Instantiate(randomObject, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
+					projectile.target = target;
 				}
-				return true;
-			})
-			.OrderBy((k) => Random.value)
-			.FirstOrDefault();
-			if (randomObject != null)
-			{
-				projectile = Instantiate(randomObject, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
-				projectile.target = target;
-			}
-		});
+			});
+		}
 	}
 }

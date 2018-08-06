@@ -4,10 +4,10 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: A steroid_0
   externalObjects: {}
-  serializedVersion: 6
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -61,7 +61,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -72,7 +72,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -94,11 +94,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
-    maxTextureSize: 4096
+    maxTextureSize: 512
     resizeAlgorithm: 0
-    textureFormat: 34
-    textureCompression: 1
-    compressionQuality: 50
+    textureFormat: 47
+    textureCompression: 0
+    compressionQuality: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
@@ -116,7 +116,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 8192
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -132,31 +132,18 @@ TextureImporter:
       name: A steroid_0
       rect:
         serializedVersion: 2
-        x: 521
-        y: 237
-        width: 511
-        height: 475
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -73.5, y: 237.5}
-        - {x: -197.5, y: 213.5}
-        - {x: -255.5, y: 171.5}
-        - {x: -255.5, y: 79.5}
-        - {x: -237.5, y: -14.5}
-        - {x: -224.5, y: -103.5}
-        - {x: -159.5, y: -180.5}
-        - {x: 23.5, y: -237.5}
-        - {x: 154.5, y: -232.5}
-        - {x: 221.5, y: -178.5}
-        - {x: 255.5, y: -31.5}
-        - {x: 210.5, y: 121.5}
-        - {x: 142.5, y: 204.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 672c0cdcf2b9749a0bf87e1619c7657c
+      spriteID: fceb5bca510df1d42b098067f2577bc8
       vertices: []
       indices: 
       edges: []
@@ -170,6 +157,8 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

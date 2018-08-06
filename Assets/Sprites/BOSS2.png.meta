@@ -4,7 +4,7 @@ TextureImporter:
   fileIDToRecycleName:
     21300000: BOSS2_0
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -22,6 +22,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -94,9 +96,9 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 4096
     resizeAlgorithm: 0
-    textureFormat: 34
+    textureFormat: 47
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 0
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
@@ -130,59 +132,18 @@ TextureImporter:
       name: BOSS2_0
       rect:
         serializedVersion: 2
-        x: 371
-        y: 116
-        width: 761
-        height: 1269
+        x: 126
+        y: 39
+        width: 260
+        height: 434
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 233.5, y: 200.5}
-        - {x: 372.5, y: 88.5}
-        - {x: 327.5, y: 35.5}
-        - {x: 330.5, y: -41.5}
-        - {x: 380.5, y: -85.5}
-        - {x: 380.5, y: -162.5}
-        - {x: 336.5, y: -214.5}
-        - {x: 333.5, y: -278.5}
-        - {x: 162.5, y: -420.5}
-        - {x: 114.5, y: -409.5}
-        - {x: 109.5, y: -454.5}
-        - {x: 89.5, y: -530.5}
-        - {x: 76.5, y: -515.5}
-        - {x: 58.5, y: -584.5}
-        - {x: 39.5, y: -525.5}
-        - {x: 35.5, y: -581.5}
-        - {x: 23.5, y: -569.5}
-        - {x: 2.5, y: -634.5}
-        - {x: -6.5, y: -634.5}
-        - {x: -25.5, y: -568.5}
-        - {x: -36.5, y: -582.5}
-        - {x: -41.5, y: -526.5}
-        - {x: -61.5, y: -584.5}
-        - {x: -78.5, y: -515.5}
-        - {x: -91.5, y: -529.5}
-        - {x: -107.5, y: -455.5}
-        - {x: -113.5, y: -445.5}
-        - {x: -113.5, y: -409.5}
-        - {x: -167.5, y: -419.5}
-        - {x: -333.5, y: -276.5}
-        - {x: -335.5, y: -211.5}
-        - {x: -380.5, y: -153.5}
-        - {x: -380.5, y: -83.5}
-        - {x: -331.5, y: -38.5}
-        - {x: -330.5, y: 37.5}
-        - {x: -372.5, y: 89.5}
-        - {x: -235.5, y: 197.5}
-        - {x: -195.5, y: 148.5}
-        - {x: -18.5, y: 634.5}
-        - {x: 12.5, y: 634.5}
-        - {x: 192.5, y: 159.5}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcc483c2c11524f0db0b60a37d366d71
+      spriteID: 5a894736ea3399041bc78470fd03ce39
       vertices: []
       indices: 
       edges: []
@@ -196,6 +157,8 @@ TextureImporter:
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
