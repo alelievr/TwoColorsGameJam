@@ -21,7 +21,7 @@ public class DebritController : MonoBehaviour
 	public GameObject	agglomeratePrefab;
 
 	Rigidbody2D			rb;
-	CircleCollider2D		circleCollider;
+	CircleCollider2D	circleCollider;
 	Collider2D[]		results = new Collider2D[16];
 	DebritManager		manager;
 	bool				agglomerationEnabled;

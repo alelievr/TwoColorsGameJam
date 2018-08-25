@@ -8,6 +8,8 @@ public class AudioController : MonoBehaviour
 {
 	public AudioMixer		mixer;
 
+	public int				maxSimultaneousSound = 15;
+
 	[Header("Audio fade settings")]
 	public float			fadeDistance = 40;
 	public float			backgroundMusicResetTime = 2;
@@ -28,6 +30,8 @@ public class AudioController : MonoBehaviour
 	BossZone				currentBoss;
 	bool					isTransitioning;
 
+	List<AudioSource>		oneShotPlaySources;
+
 	bool					firstFrame = true;
 
 	private void Awake()
@@ -38,6 +42,8 @@ public class AudioController : MonoBehaviour
 	private void Start()
 	{
 		bossVolumes = bosses.Select(b => b.volumeControlName).ToArray();
+
+		oneShotPlaySources = Enumerable.Range(0, maxSimultaneousSound).Select(i => gameObject.AddComponent<AudioSource>()).ToList();
 	}
 
 	public void StopBossMusic()
@@ -46,8 +52,17 @@ public class AudioController : MonoBehaviour
 		currentBoss.dead = true;
 	}
 
-	public bool PlayOneShot(AudioClip clip)
+	public bool PlayOneShotOnPlayer(AudioClip clip, float volume = 1)
 	{
+		var audioSource = oneShotPlaySources.FirstOrDefault(a => !a.isPlaying);
+
+		if (audioSource == null)
+			return false;
+
+		audioSource.clip = clip;
+		audioSource.volume = volume;
+		audioSource.Play();
+
 		return true;
 	}
 

@@ -2,24 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour {
+public class Laser : MonoBehaviour
+{
+	public Vector2		dir;
+	public float		speed;
+	public float		lifetime = 5;
+	public AudioClip	spawnSound;
 
-	// Use this for initialization
-	public Vector2 dir;
-	public float speed;
-	public float lifetime = 5;
-	Rigidbody2D rb;
+	Rigidbody2D			rb;
 
-	void Start () {
+	void Start ()
+	{
 		rb = GetComponent<Rigidbody2D>();
+		// TODO: move this in the pool spawned callback
+		// TODO: do not use PlayOneShotOnPlayer it disable audio spatialization !
+		AudioController.instance.PlayOneShotOnPlayer(spawnSound);
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 		lifetime -= Time.fixedDeltaTime;
+
 		if (lifetime < 0)
 			GameObject.Destroy(gameObject);
-			rb.velocity = dir * speed;
+		rb.velocity = dir * speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)

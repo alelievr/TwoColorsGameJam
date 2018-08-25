@@ -5,15 +5,23 @@ using System.Linq;
 
 public class Aggressor : MonoBehaviour {
 
-[System.Serializable]
-	public class AggressiveProjectileList{
-		public List<AggressiveProjectile> aggressiveProjectileList;
+	[System.Serializable]
+	public class AggressiveProjectileInfo
+	{
+		public AggressiveProjectile	projectile;
+		public float				spawnRatio = 1;
+	}
+
+	[System.Serializable]
+	public class AggressiveProjectileInfoList
+	{
+		public List<AggressiveProjectileInfo> aggressiveProjectileInfoList;
 	}
 
 	[System.Serializable]
 	public class BigList
 	{
-		public List<AggressiveProjectileList> list;
+		public List<AggressiveProjectileInfoList> list;
 	}
 
 	[SerializeField]
@@ -59,23 +67,23 @@ public class Aggressor : MonoBehaviour {
 				continue ;
 
 			bigList.list.Take(gameState).ToList().ForEach(l => {
-				var randomObject = l.aggressiveProjectileList
+				var randomObject = l.aggressiveProjectileInfoList
 				.Where(m => {
-					if (m.GetComponent<BasicEnemy>() != null)
+					if (m.projectile.GetComponent<BasicEnemy>() != null)
 					{
 						if (GameManager.instance.enemylimit < 0)
 							return false;
 						if (GameManager.instance.isBossFight)
 							return false;
-						return false;
 					}
 					return true;
 				})
-				.OrderBy((k) => Random.value)
+				.OrderByDescending((p) => Random.value * p.spawnRatio)
 				.FirstOrDefault();
 				if (randomObject != null)
 				{
-					projectile = Instantiate(randomObject, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
+					Debug.Log("spawn: " + randomObject.projectile.name);
+					projectile = Instantiate(randomObject.projectile, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
 					projectile.target = target;
 				}
 			});

@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 	public float	playerSize;
 
 	private	Vector3		baseCamPosition;
-	public FleshScrit fleshsc;
+	public Arrow fleshsc;
 	int fleshnext = 0;
 	int currentboss = -1;
 	public int enemylimit = 10;

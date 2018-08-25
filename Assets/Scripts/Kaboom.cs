@@ -83,14 +83,14 @@ public class Kaboom : MonoBehaviour {
 		if (damageSound == null)
 			yield break;
 
+		// TODO: do not use PlayOneShotOnPlayer it disable audio spatialization !
 		yield return new WaitForSeconds(0.2f);
-		damageSound.PlayOneShot(damageSound.clip);
+		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
 		yield return new WaitForSeconds(0.2f);
-		damageSound.PlayOneShot(damageSound.clip);
+		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
 		yield return new WaitForSeconds(0.2f);
-		damageSound.PlayOneShot(damageSound.clip);
+		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
 	}	
-
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
