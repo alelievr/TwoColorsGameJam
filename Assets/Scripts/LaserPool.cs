@@ -20,12 +20,15 @@ public class LaserPool : GameObjectPool {
 	{
 		base.AllocPool();
 
+		poolLaser.Clear();// pas opti;
 		foreach(GameObject item in pool)
 			poolLaser.Enqueue(item.GetComponent<Laser>());
 	}
 
-	public void newLaser(Vector3 pos, Vector3 dir)
+	public void newLaser(Vector3 pos, Vector2 dir)
 	{
+		if (poolLaser.Count == 0)
+			AllocPool();
 		base.GetGameObject();
 		Laser las = poolLaser.Dequeue();
 

@@ -21,17 +21,18 @@ public class GameObjectPool : MonoBehaviour {
 			Debug.Log("Error rien a allocker 5655415");
 			return ;
 		}
+		prefab.SetActive(false);
 		for (int i = 0; i < PooloriginalSize; i++)
 		{
 			GameObject go;
 			pool.Enqueue(go = GameObject.Instantiate(prefab));
-			go.SetActive(false);
 		}
 	}
 
 	public virtual GameObject GetGameObject()
 	{
 		return (pool.Dequeue());
+		// Gizmos.DrawSphere(transform.position, 10);
 	}
 
 	public virtual void FreeGameObject(GameObject o)
