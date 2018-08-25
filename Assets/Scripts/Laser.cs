@@ -14,9 +14,6 @@ public class Laser : MonoBehaviour
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody2D>();
-		// TODO: move this in the pool spawned callback
-		// TODO: do not use PlayOneShotOnPlayer it disable audio spatialization !
-		AudioController.instance.PlayOneShotOnPlayer(spawnSound);
 	}
 	
 	void FixedUpdate ()
