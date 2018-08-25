@@ -46,6 +46,10 @@ public class AudioController : MonoBehaviour
 		currentBoss.dead = true;
 	}
 
+	public bool PlayOneShot(AudioClip clip)
+	{
+	}
+
 	IEnumerator ResetBackgroundMusic()
 	{
 		isTransitioning = true;
