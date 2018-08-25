@@ -19,18 +19,18 @@ public class Laser : MonoBehaviour {
 		lifetime -= Time.fixedDeltaTime;
 		if (lifetime < 0)
 			GameObject.Destroy(gameObject);
-			rb.velocity = dir * speed;
+		rb.velocity = dir * speed;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
-			Destroy(gameObject);
+			LaserPool.instance.FreeGameObject(this);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Player")
-			Destroy(gameObject);
+			LaserPool.instance.FreeGameObject(this);
 	}
 }

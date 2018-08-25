@@ -7,28 +7,35 @@ public class GameObjectPool : MonoBehaviour {
 	// Use this for initialization
 
 	public GameObject prefab;
-	public int PooloriginalSize = 100;
-	protected List<GameObject> pool = null;
+	public int PooloriginalSize = 1000;
+	protected Queue<GameObject> pool;
 
-	public virtual List<GameObject>AllocPool(GameObject prefab = null)
+	protected virtual void Awake()
 	{
-		if (this.prefab == null && prefab == null)
+		pool = new Queue<GameObject>();
+	}
+	public virtual void AllocPool()
+	{
+		if (prefab == null)
 		{
 			Debug.Log("Error rien a allocker 5655415");
-			return null;
-		}
-		else if (prefab != null)
-		{
-			if (this.prefab != null && this.prefab != prefab)
-			{
-				Debug.Log("Warning: pool changing prefab pour l'instant c est pas senser arriver");
-				pool.Clear();
-			}
-			this.prefab = prefab;
+			return ;
 		}
 		for (int i = 0; i < PooloriginalSize; i++)
-			pool.Add(GameObject.Instantiate(this.prefab));
-		return pool;
+		{
+			GameObject go;
+			pool.Enqueue(go = GameObject.Instantiate(prefab));
+			go.SetActive(false);
+		}
 	}
 
+	public virtual GameObject GetGameObject()
+	{
+		return (pool.Dequeue());
+	}
+
+	public virtual void FreeGameObject(GameObject o)
+	{
+		pool.Enqueue(o);
+	}
 }

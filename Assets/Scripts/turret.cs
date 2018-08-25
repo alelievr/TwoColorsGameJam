@@ -34,7 +34,7 @@ public class turret : MonoBehaviour {
 			Laser lastmp = GameObject.Instantiate(las, transform.position, Quaternion.identity);
 			var rotation = transform.rotation;
 			transform.Rotate(transform.forward, Random.Range(-angleprecision / 2, angleprecision / 2));
-			lastmp.dir = transform.up;
+				LaserPool.instance.newLaser(transform.position, las.dir);
 			transform.rotation = rotation;
 		}
 	}
