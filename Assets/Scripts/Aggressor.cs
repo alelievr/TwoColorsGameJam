@@ -82,7 +82,6 @@ public class Aggressor : MonoBehaviour {
 				.FirstOrDefault();
 				if (randomObject != null)
 				{
-					Debug.Log("spawn: " + randomObject.projectile.name);
 					projectile = Instantiate(randomObject.projectile, (Vector2)(target.transform.position) + Random.insideUnitCircle.normalized * (distance + rbTarget.velocity.magnitude + size), Quaternion.identity);
 					projectile.target = target;
 				}

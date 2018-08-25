@@ -37,13 +37,13 @@ public class AudioController : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
+
+		oneShotPlaySources = Enumerable.Range(0, maxSimultaneousSound).Select(i => gameObject.AddComponent<AudioSource>()).ToList();
 	}
 
 	private void Start()
 	{
 		bossVolumes = bosses.Select(b => b.volumeControlName).ToArray();
-
-		oneShotPlaySources = Enumerable.Range(0, maxSimultaneousSound).Select(i => gameObject.AddComponent<AudioSource>()).ToList();
 	}
 
 	public void StopBossMusic()
