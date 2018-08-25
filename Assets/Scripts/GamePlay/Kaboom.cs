@@ -14,8 +14,6 @@ public class Kaboom : MonoBehaviour {
 	public float		flickerCount = 4;
 	public float		flickerInterval = 0.1f;
 
-	public GameObject	damageSoundPrefab;
-
 	public GameObject	invoqueondead;
 
 	new Renderer		renderer;
@@ -29,8 +27,6 @@ public class Kaboom : MonoBehaviour {
 
 	bool				dead = false;
 
-	[Space]
-	public	AudioSource	damageSound;
 	// Use this for initialization
 	void Start () {
 		rbody = GetComponent<Rigidbody2D>();
@@ -80,16 +76,14 @@ public class Kaboom : MonoBehaviour {
 
 	IEnumerator HitSound()
 	{
-		if (damageSound == null)
-			yield break;
-
+		Debug.Log("HIT !");
 		// TODO: do not use PlayOneShotOnPlayer it disable audio spatialization !
 		yield return new WaitForSeconds(0.2f);
-		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
+		AudioController.instance.PlayDamageOnPlayer();
 		yield return new WaitForSeconds(0.2f);
-		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
+		AudioController.instance.PlayDamageOnPlayer();
 		yield return new WaitForSeconds(0.2f);
-		AudioController.instance.PlayOneShotOnPlayer(damageSound.clip);
+		AudioController.instance.PlayDamageOnPlayer();
 	}	
 
 	void OnCollisionEnter2D(Collision2D other)
@@ -103,7 +97,10 @@ public class Kaboom : MonoBehaviour {
 			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
 				Debug.Log(name + " take damage !");
-				Instantiate(damageSoundPrefab, transform.position, Quaternion.identity);
+
+				// TODO: don't use PlayOneShotOnPlayer it disables audio spacialization
+				AudioController.instance.PlayDamageOnPlayer();
+
 				StartCoroutine(Flicker());
 				StartCoroutine(Recup());
 				StartCoroutine(HitSound());

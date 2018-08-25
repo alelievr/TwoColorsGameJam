@@ -14,14 +14,24 @@ public class AudioController : MonoBehaviour
 	public float			fadeDistance = 40;
 	public float			backgroundMusicResetTime = 2;
 
-	[Header("Boss zones")]
+	[Space, Header("Boss zones")]
 	public BossZone[]		bosses;
 
-	[Header("Audio sources")]
+	[Space, Header("Audio sources")]
 	public AudioSource		bossAudioStart;
 	public AudioSource		bossAudioLoop;
 	public AudioSource		backgroundStart;
 	public AudioSource		backgroundLoop;
+
+	[Space, Header("Audio clips")]
+	public AudioClip		damageClip;
+	public AudioMixerGroup	damageMixerGroup;
+	public AudioClip		explosionClip;
+	public AudioMixerGroup	explosionMixerGroup;
+	public AudioClip		aggregateClip;
+	public AudioMixerGroup	aggregateMixerGroup;
+	public AudioClip		laserClip;
+	public AudioMixerGroup	laserMixerGroup;
 
 	public static AudioController	instance;
 
@@ -52,7 +62,7 @@ public class AudioController : MonoBehaviour
 		currentBoss.dead = true;
 	}
 
-	public bool PlayOneShotOnPlayer(AudioClip clip, float volume = 1)
+	public bool PlayOneShotOnPlayer(AudioClip clip, AudioMixerGroup mixerGroup, float volume = 1)
 	{
 		var audioSource = oneShotPlaySources.FirstOrDefault(a => !a.isPlaying);
 
@@ -60,11 +70,17 @@ public class AudioController : MonoBehaviour
 			return false;
 
 		audioSource.clip = clip;
+		audioSource.outputAudioMixerGroup = mixerGroup;
 		audioSource.volume = volume;
 		audioSource.Play();
 
 		return true;
 	}
+
+	public bool PlayExplosionOnPlayer(float volume = 1) { return PlayOneShotOnPlayer(explosionClip, explosionMixerGroup, volume); }
+	public bool PlayDamageOnPlayer(float volume = 1) { return PlayOneShotOnPlayer(damageClip, damageMixerGroup, volume); }
+	public bool PlayAggregateOnPlayer(float volume = 1) { return PlayOneShotOnPlayer(aggregateClip, aggregateMixerGroup, volume); }
+	public bool PlayLaserOnPlayer(float volume = 1) { return PlayOneShotOnPlayer(laserClip, laserMixerGroup, volume); }
 
 	IEnumerator ResetBackgroundMusic()
 	{

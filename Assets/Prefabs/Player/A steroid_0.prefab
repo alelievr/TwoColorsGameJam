@@ -613,15 +613,11 @@ MonoBehaviour:
   rbody: {fileID: 0}
   flickerCount: 4
   flickerInterval: 0.1
-  damageSoundPrefab: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
-    type: 2}
-  invoqueondead: {fileID: 1728399043022802, guid: 17b2a8d05c2a54e79bf07fd1860ba2ee,
-    type: 2}
+  invoqueondead: {fileID: 0}
   debritCount: 2
   debrit: {fileID: 0}
   recupTime: 0
   recup: 0
-  damageSound: {fileID: 0}
 --- !u!114 &114081963311458972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -681,6 +677,15 @@ MonoBehaviour:
   bossAudioLoop: {fileID: 82109605751466418}
   backgroundStart: {fileID: 82978066867997626}
   backgroundLoop: {fileID: 82058969322647700}
+  damageClip: {fileID: 8300000, guid: 78c7aae79290a48e5b44f20aaf8da809, type: 3}
+  damageMixerGroup: {fileID: 243891910853503866, guid: 50c76c5d1501a459db1225d996b62821,
+    type: 2}
+  explosionClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
+  explosionMixerGroup: {fileID: 243331880509427424, guid: 50c76c5d1501a459db1225d996b62821,
+    type: 2}
+  aggregateClip: {fileID: 8300000, guid: 36627ab7031e346daa667d7cc25308ad, type: 3}
+  aggregateMixerGroup: {fileID: 243103353832968676, guid: 50c76c5d1501a459db1225d996b62821,
+    type: 2}
 --- !u!114 &114327533076770588
 MonoBehaviour:
   m_ObjectHideFlags: 1

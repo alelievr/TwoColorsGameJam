@@ -10,7 +10,7 @@ public class AsteroidDeath : MonoBehaviour
 
 	public int				life = 3;
 
-	public GameObject		deathClip;
+	public AudioClip		deathClip;
 	public GameObject		playerHit;
 	public GameObject		deathScreen;
 
@@ -29,7 +29,7 @@ public class AsteroidDeath : MonoBehaviour
 	{
 		deathScreen.SetActive(true);
 		dead = true;
-		Instantiate(deathClip, transform.position, Quaternion.identity);
+		AudioController.instance.PlayOneShotOnPlayer(deathClip, null);
 	}
 
 	private void Update()

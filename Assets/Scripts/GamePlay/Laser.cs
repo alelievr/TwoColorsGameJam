@@ -7,7 +7,6 @@ public class Laser : MonoBehaviour
 	public Vector2		dir;
 	public float		speed;
 	public float		lifetime = 5;
-	public AudioClip	spawnSound;
 
 	Rigidbody2D			rb;
 
@@ -19,8 +18,7 @@ public class Laser : MonoBehaviour
 	private void OnEnable()
 	{
 		// TODO: do not use PlayOneShotOnPlayer it disable audio spatialization !
-		Debug.Log("spawn sound: " + spawnSound);
-		AudioController.instance.PlayOneShotOnPlayer(spawnSound);
+		AudioController.instance.PlayLaserOnPlayer();
 	}
 	
 	void FixedUpdate ()

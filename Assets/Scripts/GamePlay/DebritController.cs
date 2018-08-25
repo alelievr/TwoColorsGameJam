@@ -17,8 +17,6 @@ public class DebritController : MonoBehaviour
 	public event Action< DebritController >	onDestroyed;
 
 	public GameObject	debritExplosionPrefab;
-	public GameObject	explosionPrefab;
-	public GameObject	agglomeratePrefab;
 
 	Rigidbody2D			rb;
 	CircleCollider2D	circleCollider;
@@ -45,8 +43,8 @@ public class DebritController : MonoBehaviour
 	{
 		if (agglomerationEnabled)
 			return ;
-			
-		Instantiate(agglomeratePrefab, transform.position, Quaternion.identity);
+		
+		AudioController.instance.PlayAggregateOnPlayer();
 
 		tag = "Player";
 
@@ -118,7 +116,10 @@ public class DebritController : MonoBehaviour
 		
 		dead = true;
 		Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
-		Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+
+		// TODO: check if spatialization is important here ?
+		Debug.Log("explosion !");
+		AudioController.instance.PlayExplosionOnPlayer();
 	}
 
 	private void OnDestroy()

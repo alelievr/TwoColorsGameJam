@@ -96,10 +96,8 @@ MonoBehaviour:
   gain: 5
   debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,
     type: 2}
-  explosionPrefab: {fileID: 1009393547592530, guid: 727e5e10fbcef4322aded11d5833e0a4,
-    type: 2}
-  agglomeratePrefab: {fileID: 1009393547592530, guid: 22bfc7474af094469b46f485d2567cd2,
-    type: 2}
+  explosionClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
+  agglomerateClip: {fileID: 8300000, guid: 36627ab7031e346daa667d7cc25308ad, type: 3}
   integrity: 0
 --- !u!212 &212939710908963634
 SpriteRenderer:
