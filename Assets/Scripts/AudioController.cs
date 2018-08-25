@@ -48,6 +48,7 @@ public class AudioController : MonoBehaviour
 
 	public bool PlayOneShot(AudioClip clip)
 	{
+		return true;
 	}
 
 	IEnumerator ResetBackgroundMusic()
