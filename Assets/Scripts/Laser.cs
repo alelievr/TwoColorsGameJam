@@ -31,12 +31,12 @@ public class Laser : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player")
-			Destroy(gameObject);
+			LaserPool.instance.FreeGameObject(this);
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.tag == "Player")
-			Destroy(gameObject);
+			LaserPool.instance.FreeGameObject(this);
 	}
 }
