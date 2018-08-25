@@ -2385,6 +2385,14 @@ Prefab:
       propertyPath: playerTraansform
       value: 
       objectReference: {fileID: 519325093}
+    - target: {fileID: 4518868553342148, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 572.8753
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 572.8753
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
   m_IsPrefabAsset: 0
@@ -3897,3 +3905,21 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 339f2c799151c4e1b979b9b560be1ccb, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2112432009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1381152346938830, guid: 339f2c799151c4e1b979b9b560be1ccb,
+    type: 2}
+  m_PrefabInternal: {fileID: 2112432008}
+--- !u!114 &2112432010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112432009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d341ba7c9bf864f389bac5cf40e5ecff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1484787948666350, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
+  PooloriginalSize: 1000

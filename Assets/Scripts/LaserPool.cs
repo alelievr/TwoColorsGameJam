@@ -32,7 +32,6 @@ public class LaserPool : GameObjectPool {
 		las.gameObject.SetActive(true);
 		las.transform.position = pos;
 		las.dir = dir;
-		AudioController.instance.PlayOneShotOnPlayer(spawnSound);
 	}
 
 	public void FreeGameObject(Laser o)
