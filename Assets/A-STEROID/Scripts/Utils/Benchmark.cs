@@ -20,6 +20,13 @@ public class Benchmark : ScriptableObject
 		set { _maxSimultaneousLasers = Mathf.Max(_maxSimultaneousLasers, value); }
 	}
 
+	public int		_maxSimultaneousExplosions;
+	public int		maxSimultaneousExplosions
+	{
+		get { return _maxSimultaneousExplosions; }
+		set { _maxSimultaneousExplosions = Mathf.Max(_maxSimultaneousExplosions, value); }
+	}
+
 	private void OnEnable()
 	{
 		instance = this;
