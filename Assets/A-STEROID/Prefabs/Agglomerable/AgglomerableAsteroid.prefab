@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 114195176548454736}
   - component: {fileID: 58057944935385572}
   - component: {fileID: 114417516483437218}
-  - component: {fileID: 114273268304804946}
   m_Layer: 0
   m_Name: AgglomerableAsteroid
   m_TagString: Proj
@@ -94,53 +93,6 @@ MonoBehaviour:
   target: {fileID: 0}
   prec: 5
   speed: 2000
---- !u!114 &114273268304804946
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1602861200206184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ImpulseDefinition:
-    m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
-    m_AmplitudeGain: 0.1
-    m_FrequencyGain: 0.2
-    m_RepeatMode: 0
-    m_Randomize: 1
-    m_TimeEnvelope:
-      m_AttackShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_DecayShape:
-        serializedVersion: 2
-        m_Curve: []
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-        m_RotationOrder: 4
-      m_AttackTime: 0
-      m_SustainTime: 0.07
-      m_DecayTime: 0.2
-      m_ScaleWithImpact: 1
-      m_HoldForever: 0
-    m_ImpactRadius: 50
-    m_DirectionMode: 0
-    m_DissipationMode: 2
-    m_DissipationDistance: 10
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_IgnoreTag: 
-  m_UseImpactDirection: 1
-  m_ScaleImpactWithMass: 1
-  m_ScaleImpactWithSpeed: 1
 --- !u!114 &114417516483437218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,15 +110,12 @@ MonoBehaviour:
   rbody: {fileID: 0}
   flickerCount: 4
   flickerInterval: 0.2
-  damageSoundPrefab: {fileID: 1009393547592530, guid: 03ae43e514b2549d68177930fec40663,
-    type: 2}
   invoqueondead: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af,
     type: 2}
   debritCount: 1
   debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
   recupTime: 0
   recup: 0
-  damageSound: {fileID: 0}
 --- !u!212 &212410509133338936
 SpriteRenderer:
   m_ObjectHideFlags: 1

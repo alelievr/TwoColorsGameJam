@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Kaboom : MonoBehaviour
@@ -47,9 +46,11 @@ public class Kaboom : MonoBehaviour
 			return ;
 		dead = true;
 
-		GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
-		for (int i = 0; i < debritCount; i++)
-			DebrisPool.instance.NewDebris(transform.position);
+		// WARNING: this line cause android to crash when two asteroid collides, i have no idea why 🤔
+		// GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
+
+		// for (int i = 0; i < debritCount; i++)
+			// DebrisPool.instance.NewDebris(transform.position);
 		if (tag == "boss")
 			GameManager.instance.DefeatBoss();
 		StartCoroutine(Destroyation());
@@ -76,7 +77,6 @@ public class Kaboom : MonoBehaviour
 
 	IEnumerator HitSound()
 	{
-		yield return new WaitForSeconds(0.2f);
 		AudioController.instance.PlayDamageAtPosition(transform.position);
 		yield return new WaitForSeconds(0.2f);
 		AudioController.instance.PlayDamageAtPosition(transform.position);
@@ -94,8 +94,6 @@ public class Kaboom : MonoBehaviour
 			
 			if ((resitimpact < 0.5f || other.gameObject.tag == "Player") && invudegat < 0) //lol
 			{
-				AudioController.instance.PlayDamageAtPosition(transform.position);
-
 				StartCoroutine(Flicker());
 				StartCoroutine(Recup());
 				StartCoroutine(HitSound());

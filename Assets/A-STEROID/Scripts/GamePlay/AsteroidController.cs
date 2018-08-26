@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 using UnityEngine.Timeline;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -20,8 +19,6 @@ public class AsteroidController : MonoBehaviour
 	public float rotationSpeed = 60;
 
 	AsteroidDeath	deathController;
-
-	public PlayableDirector	director;
 
 	// Use this for initialization
 	void Start ()
