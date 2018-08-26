@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4298997127554050}
   - component: {fileID: 198375609414475204}
+  - component: {fileID: 114285689116970474}
   - component: {fileID: 199099960639859222}
   m_Layer: 0
   m_Name: Explosion
@@ -27,7 +28,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4298997127554050
 Transform:
   m_ObjectHideFlags: 1
@@ -41,6 +42,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114285689116970474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270068923259804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9eec57904df14ef49655cccae4d8007, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198375609414475204
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -53,7 +65,7 @@ ParticleSystem:
   stopAction: 0
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

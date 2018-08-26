@@ -2429,11 +2429,19 @@ Prefab:
       objectReference: {fileID: 519325093}
     - target: {fileID: 4518868553342148, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 571.97406
+      value: 572.2309
       objectReference: {fileID: 0}
     - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 571.97406
+      value: 572.2309
+      objectReference: {fileID: 0}
+    - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 541
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518868553342148, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 541
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
@@ -3054,12 +3062,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1533122119 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114767844599710192, guid: b9fe1ad5ce2254b34810a737df5e9f95,
-    type: 2}
-  m_PrefabInternal: {fileID: 1051993443}
-  m_Script: {fileID: 11500000, guid: 891b065d87bb9466a8a6e20f4da0594e, type: 3}
 --- !u!4 &1585656144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4357523799556784, guid: 3d302dc92545b479fa94dd59c4193d77,
@@ -3938,7 +3940,7 @@ Prefab:
         type: 2}
       propertyPath: fleshsc
       value: 
-      objectReference: {fileID: 1533122119}
+      objectReference: {fileID: 0}
     - target: {fileID: 114854993960244494, guid: 339f2c799151c4e1b979b9b560be1ccb,
         type: 2}
       propertyPath: winPanel
@@ -3969,4 +3971,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1484787948666350, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
-  PooloriginalSize: 50
+  poolOriginalSize: 100
+--- !u!114 &2112432015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2112432009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76bc5ddf234f4d05b9ac76cb9c256d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af, type: 2}
+  poolOriginalSize: 100

@@ -10,6 +10,11 @@ public class ExplosionAutoManager : MonoBehaviour
 	{
 		ps = GetComponent<ParticleSystem>();
 	}
+
+	private void OnEnable()
+	{
+		ps.Play();
+	}
 	
 	public void Update() 
 	{
