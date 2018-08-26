@@ -21,14 +21,14 @@ public class LaserPool : GameObjectPool
 		laserPool.Enqueue(go.GetComponent<Laser>());
 	}
 
-	public Laser NewLaser(Vector3 pos, Vector2 dir)
+	public Laser NewLaser(Vector3 pos, Quaternion rotation)
 	{
 		base.GetGameObject();
 
 		Laser laser = laserPool.Dequeue();
 
 		laser.transform.position = pos;
-		laser.dir = dir;
+		laser.transform.rotation = rotation;
 		
 		Benchmark.instance.maxSimultaneousLasers = allocatedObjectCount;
 		

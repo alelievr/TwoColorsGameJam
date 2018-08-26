@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-	public Vector2		dir;
 	public float		speed;
-	public float		lifetime = 5;
 
 	Rigidbody2D			rb;
+	bool				visible;
+	Vector2				forward;
 
 	void Start ()
 	{
@@ -18,20 +18,40 @@ public class Laser : MonoBehaviour
 	public void OnLaserSpawned()
 	{
 		AudioController.instance.PlayLaserAtPosition(transform.position);
+		visible = false;
+		forward = transform.right;
+
+		StartCoroutine(DestroyLaser());
+	}
+
+	IEnumerator DestroyLaser()
+	{
+		yield return new WaitForSeconds(1);
+
+		// If a mystical bug appear with laser (disapear / tp) look here
+
+		if (!visible)
+			LaserPool.instance.FreeLaser(this);
 	}
 	
 	void FixedUpdate ()
 	{
-		lifetime -= Time.fixedDeltaTime;
+		rb.velocity = forward * speed;
+	}
 
-		if (lifetime < 0)
-			GameObject.Destroy(gameObject);
-		rb.velocity = dir * speed;
+	void FreeLaser()
+	{
+		LaserPool.instance.FreeLaser(this);
+	}
+
+	private void OnBecameVisible()
+	{
+		visible = true;
 	}
 
 	private void OnBecameInvisible()
 	{
-		LaserPool.instance.FreeLaser(this);
+		FreeLaser();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)

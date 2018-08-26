@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1539596283147320, guid: e12263937a56047bfb6db0ff37f71449, type: 2}
-  poolOriginalSize: 30
+  poolOriginalSize: 10
 --- !u!114 &114852117328376108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1484787948666350, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
-  poolOriginalSize: 100
+  poolOriginalSize: 50
 --- !u!114 &114854993960244494
 MonoBehaviour:
   m_ObjectHideFlags: 1

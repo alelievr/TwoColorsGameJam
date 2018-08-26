@@ -14,14 +14,14 @@ public class turret : MonoBehaviour {
 	public float deregulatorvalue = 0;
 	public float delay = 1;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		delay += Random.Range(-deregulatorvalue, deregulatorvalue);
 	}
 	
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (delay > 0)
 		{
 			delay -= Time.deltaTime;
@@ -31,10 +31,7 @@ public class turret : MonoBehaviour {
 		delay = 10 / nbshootfor10s + Random.Range(-deregulatorvalue, deregulatorvalue);
 		for (int i = 0; i < nbofshotbyburst; i++)
 		{
-			var rotation = transform.rotation;
-			transform.Rotate(transform.forward, Random.Range(-angleprecision / 2, angleprecision / 2));
-				LaserPool.instance.NewLaser(transform.position, transform.up);
-			transform.rotation = rotation;
+			LaserPool.instance.NewLaser(transform.position, transform.rotation * Quaternion.Euler(Vector3.forward * 90));
 		}
 	}
 }

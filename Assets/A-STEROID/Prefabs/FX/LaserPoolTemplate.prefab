@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4939779107814226}
   - component: {fileID: 212572153718150470}
-  - component: {fileID: 58389900841344054}
   - component: {fileID: 50271291686988932}
   - component: {fileID: 114348558710719748}
+  - component: {fileID: 61802838841615522}
   m_Layer: 0
   m_Name: LaserPoolTemplate
   m_TagString: Laser
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484787948666350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.964, y: -40.685, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -11.83, y: -5.79, z: 0}
+  m_LocalScale: {x: 0.8036628, y: 0.2437338, z: 0.65874}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -57,14 +57,14 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58389900841344054
-CircleCollider2D:
+--- !u!61 &61802838841615522
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,8 +76,18 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 16, y: 9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 4.82, y: 2.48}
+  m_EdgeRadius: 0
 --- !u!114 &114348558710719748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0}
   speed: 50
-  lifetime: 5
 --- !u!212 &212572153718150470
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +136,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2efe74c11c9ca45ee8a789694f8a8289, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eedfaae0b89394d769c6c21d77cd50fe, type: 3}
   m_Color: {r: 0.37647063, g: 0.14117648, b: 0.9843138, a: 1}
   m_FlipX: 0
   m_FlipY: 0

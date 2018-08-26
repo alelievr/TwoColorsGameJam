@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1488218167206338}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.6, y: 16, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalPosition: {x: -16.876945, y: -3.582186, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -96,8 +96,6 @@ MonoBehaviour:
   gain: 5
   debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,
     type: 2}
-  explosionClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
-  agglomerateClip: {fileID: 8300000, guid: 36627ab7031e346daa667d7cc25308ad, type: 3}
   integrity: 0
 --- !u!212 &212939710908963634
 SpriteRenderer:
