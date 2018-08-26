@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114661612855594014}
   - component: {fileID: 114624346663900786}
   - component: {fileID: 114321901806746584}
+  - component: {fileID: 114901342925514032}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -122,3 +123,16 @@ MonoBehaviour:
   player: {fileID: 0}
   playerSize: 0
   enemylimit: 10
+--- !u!114 &114901342925514032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381152346938830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0363cc0ad3aeb4d7bb402b9057182135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
+  poolOriginalSize: 100

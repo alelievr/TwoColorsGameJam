@@ -85,7 +85,7 @@ public class DebritController : MonoBehaviour
 		
 		if (other.gameObject.tag == "debrit")
 		{
-			var otherDebrit = other.gameObject.GetComponent< DebritController >();
+			var otherDebrit = other.gameObject.GetComponent<DebritController>();
 			manager.AgglomerateDebrit(otherDebrit);
 			touchingDebrits.Add(otherDebrit);
 		}
@@ -98,15 +98,16 @@ public class DebritController : MonoBehaviour
 			if (agglomerationEnabled && onLaserReceived != null)
 				onLaserReceived(this);
 			OnWillBeDestroyed();
-			Destroy(gameObject);
-			Destroy(other.gameObject);
+			DebrisPool.instance.FreeDebris(this);
+			LaserPool.instance.FreeLaser(other.GetComponent<Laser>());
+
 		}
 	}
 
 	IEnumerator Killme()
 	{
 		yield return new WaitForSeconds(10f);
-		Destroy(gameObject);
+		DebrisPool.instance.FreeDebris(this);
 	}
 	
 	public void OnWillBeDestroyed()

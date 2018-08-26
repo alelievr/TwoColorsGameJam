@@ -49,7 +49,7 @@ public class Kaboom : MonoBehaviour
 
 		GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
 		for (int i = 0; i < debritCount; i++)
-			GameObject.Instantiate(debrit, transform.position, Quaternion.identity);
+			DebrisPool.instance.NewDebris(transform.position);
 		if (tag == "boss")
 			GameManager.instance.DefeatBoss();
 		StartCoroutine(Destroyation());

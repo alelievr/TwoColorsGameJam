@@ -21,7 +21,7 @@ public class ExplosionPool : GameObjectPool
 		explosionPool.Enqueue(go.GetComponent<ParticleSystem>());
 	}
 
-	public ParticleSystem NewExplosion(Vector3 pos, Vector2 dir)
+	public ParticleSystem NewExplosion(Vector3 pos)
 	{
 		base.GetGameObject();
 
