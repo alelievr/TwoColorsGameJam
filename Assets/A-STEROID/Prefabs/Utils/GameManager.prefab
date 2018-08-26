@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 114854993960244494}
   - component: {fileID: 114852117328376108}
   - component: {fileID: 114661612855594014}
+  - component: {fileID: 114624346663900786}
+  - component: {fileID: 114321901806746584}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -42,6 +44,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114321901806746584
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381152346938830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d76bc5ddf234f4d05b9ac76cb9c256d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1270068923259804, guid: 64ef7e0c054d14c1fb91adc11e1549af, type: 2}
+  poolOriginalSize: 100
+--- !u!114 &114624346663900786
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1381152346938830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d341ba7c9bf864f389bac5cf40e5ecff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1484787948666350, guid: e5a34ce3d392f479cb13b3acec70911b, type: 2}
+  poolOriginalSize: 100
 --- !u!114 &114661612855594014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,4 +121,4 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   player: {fileID: 0}
   playerSize: 0
-  enemylimit: 20
+  enemylimit: 0
