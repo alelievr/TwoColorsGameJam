@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4298997127554050}
   - component: {fileID: 198375609414475204}
   - component: {fileID: 199099960639859222}
-  - component: {fileID: 114559043387318812}
+  - component: {fileID: 114397770509296288}
   m_Layer: 0
   m_Name: DebrisExplosion
   m_TagString: Untagged
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114559043387318812
+--- !u!114 &114397770509296288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1270068923259804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7a80a848c5df44bf855dc0cd6333fd8, type: 3}
+  m_Script: {fileID: 11500000, guid: d9eec57904df14ef49655cccae4d8007, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198375609414475204
