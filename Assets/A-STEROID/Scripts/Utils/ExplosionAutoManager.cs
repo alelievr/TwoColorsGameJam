@@ -13,7 +13,8 @@ public class ExplosionAutoManager : MonoBehaviour
 
 	private void OnEnable()
 	{
-		ps.Play();
+		if (ps)
+			ps.Play();
 	}
 	
 	public void Update() 

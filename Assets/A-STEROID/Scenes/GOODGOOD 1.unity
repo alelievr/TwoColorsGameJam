@@ -3944,21 +3944,3 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 339f2c799151c4e1b979b9b560be1ccb, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &2112432009 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1381152346938830, guid: 339f2c799151c4e1b979b9b560be1ccb,
-    type: 2}
-  m_PrefabInternal: {fileID: 2112432008}
---- !u!114 &2112432016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2112432009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0363cc0ad3aeb4d7bb402b9057182135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
-  poolOriginalSize: 100
