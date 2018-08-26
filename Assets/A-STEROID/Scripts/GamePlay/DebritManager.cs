@@ -44,7 +44,7 @@ public class DebritManager : MonoBehaviour
 		debrit.Agglomerate(integrity);
 		debrit.onDestroyed += OnDebritDestroyed;
 		debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
-		debrit.transform.SetParent(transform);
+		debrit.transform.SetParent(transform, true);
 
 		UpdatePlayerSize();
 	}

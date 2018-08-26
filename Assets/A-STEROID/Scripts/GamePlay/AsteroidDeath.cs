@@ -19,6 +19,7 @@ public class AsteroidDeath : MonoBehaviour
 		if (other.tag == "Laser")
 		{
 			Instantiate(playerHit, transform.position, Quaternion.identity);
+			AudioController.instance.PlayDamageOnPlayer();
 			life--;
 			if (life == 0)
 				Die();

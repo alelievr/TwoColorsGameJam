@@ -5,7 +5,17 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Benchmark : ScriptableObject
 {
-	public static Benchmark	instance;
+	static Benchmark		_instance;
+	public static Benchmark	instance
+	{
+		get
+		{
+			if (_instance == null)
+				_instance = Resources.Load<Benchmark>("Benchmark");
+			return _instance;
+		}
+		set { _instance = value; }
+	}
 
 	public int		_maxSimultaneousAudioSources;
 	public int		maxSimultaneousAudioSources
