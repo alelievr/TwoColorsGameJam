@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(Collider2D))]
 public abstract class Projectile : MonoBehaviour
 {
 	protected Rigidbody2D	rb;
@@ -46,13 +46,13 @@ public abstract class Projectile : MonoBehaviour
 	
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.tag == "Player")
+		if (other.tag == "Player" || other.tag == "Proj")
 			DestroyProjectile();
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.gameObject.tag == "Player")
+		if (other.gameObject.tag == "Player" || other.gameObject.tag == "Proj")
 			DestroyProjectile();
 	}
 }

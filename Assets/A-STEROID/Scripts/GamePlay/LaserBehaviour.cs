@@ -61,5 +61,6 @@ public class LaserBehaviour : Projectile
 
 	protected override void DestroyProjectile()
 	{
+		LaserPool.instance.FreeLaser(this);
 	}
 }
