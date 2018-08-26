@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(LaserBehaviour))]
+// [CustomEditor(typeof(LaserBehaviour))]
 public class LaserBehaviourEditor : Editor
 {
 	LaserBehaviour	laserBehaviour;
@@ -14,6 +14,7 @@ public class LaserBehaviourEditor : Editor
 		laserBehaviour = target as LaserBehaviour;
 		laserBehaviourInspectors = new Dictionary<LaserBehaviourType, Action>
 		{
+			{LaserBehaviourType.Straight, StraightInspector},
 			{LaserBehaviourType.CircularLaser, CircularLaserInspector}
 		};
 	}
@@ -26,5 +27,10 @@ public class LaserBehaviourEditor : Editor
 	void CircularLaserInspector()
 	{
 		// EditorGUILayout.
+	}
+
+	void StraightInspector()
+	{
+
 	}
 }

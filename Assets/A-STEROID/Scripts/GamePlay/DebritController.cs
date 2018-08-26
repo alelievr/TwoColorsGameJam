@@ -99,7 +99,7 @@ public class DebritController : MonoBehaviour
 				onLaserReceived(this);
 			OnWillBeDestroyed();
 			DebrisPool.instance.FreeDebris(this);
-			LaserPool.instance.FreeLaser(other.GetComponent<Laser>());
+			LaserPool.instance.FreeLaser(other.GetComponent<LaserBehaviour>());
 
 		}
 	}

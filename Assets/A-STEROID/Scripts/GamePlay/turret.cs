@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turret : MonoBehaviour {
-
-	public Laser las;
+public class turret : MonoBehaviour
+{
+	public LaserBehaviour las;
 	public float angleprecision = 10;
 	public float nbshootfor10s = 10;
 	public float nbofshotbyburst = 1;
@@ -18,7 +18,6 @@ public class turret : MonoBehaviour {
 	{
 		delay += Random.Range(-deregulatorvalue, deregulatorvalue);
 	}
-	
 	
 	void Update ()
 	{

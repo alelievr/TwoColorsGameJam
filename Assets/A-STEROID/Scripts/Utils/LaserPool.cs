@@ -6,26 +6,26 @@ public class LaserPool : GameObjectPool
 {
 	public static LaserPool instance;
 
-	protected Queue<Laser> laserPool = null;
+	protected Queue<LaserBehaviour> laserPool = null;
 
 	protected override void Awake()
 	{
 		base.Awake();
-		laserPool = new Queue<Laser>();
+		laserPool = new Queue<LaserBehaviour>();
 		instance = this;
 		AllocPool();
 	}
 
 	protected override void OnNewObjectReserved(GameObject go)
 	{
-		laserPool.Enqueue(go.GetComponent<Laser>());
+		laserPool.Enqueue(go.GetComponent<LaserBehaviour>());
 	}
 
-	public Laser NewLaser(Vector3 pos, Quaternion rotation)
+	public LaserBehaviour NewLaser(Vector3 pos, Quaternion rotation)
 	{
 		base.GetGameObject();
 
-		Laser laser = laserPool.Dequeue();
+		LaserBehaviour laser = laserPool.Dequeue();
 
 		laser.transform.position = pos;
 		laser.transform.rotation = rotation;
@@ -37,7 +37,7 @@ public class LaserPool : GameObjectPool
 		return laser;
 	}
 
-	public void FreeLaser(Laser o)
+	public void FreeLaser(LaserBehaviour o)
 	{
 		FreeGameObject(o.gameObject);
 		laserPool.Enqueue(o);
