@@ -121,4 +121,4 @@ MonoBehaviour:
   winPanel: {fileID: 0}
   player: {fileID: 0}
   playerSize: 0
-  enemylimit: 0
+  enemylimit: 10
