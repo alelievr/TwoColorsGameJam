@@ -46,8 +46,7 @@ public class Kaboom : MonoBehaviour
 			return ;
 		dead = true;
 
-		// WARNING: this line cause android to crash when two asteroid collides, i have no idea why 🤔
-		// GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
+		GameObject.Instantiate(invoqueondead, transform.position, Quaternion.identity);
 
 		for (int i = 0; i < debritCount; i++)
 			DebrisPool.instance.NewDebris(transform.position);

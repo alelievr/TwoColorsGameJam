@@ -645,7 +645,7 @@ MonoBehaviour:
         spawnRatio: 1
       - projectile: {fileID: 114686182576643318, guid: 742703fcb98a44b76a9646b421e3542d,
           type: 2}
-        spawnRatio: 0.1
+        spawnRatio: 0.07
     - aggressiveProjectileInfoList:
       - projectile: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
           type: 2}
@@ -661,7 +661,7 @@ MonoBehaviour:
     type: 2}
   target: {fileID: 1500432766737952}
   distance: 100
-  frequancy: 0.05
+  frequancy: 0.5
 --- !u!114 &114129702051092032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,7 +729,6 @@ MonoBehaviour:
   movementController: {fileID: 0}
   rotationController: {fileID: 0}
   rotationSpeed: 60
-  director: {fileID: 0}
 --- !u!114 &114843282434689640
 MonoBehaviour:
   m_ObjectHideFlags: 1
