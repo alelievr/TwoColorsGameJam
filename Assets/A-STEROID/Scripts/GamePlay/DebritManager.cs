@@ -13,9 +13,11 @@ public class DebritManager : MonoBehaviour
 
 	List< DebritController > debrits = new List< DebritController >();
 
-	public int			debritCount;
-	bool				needsIntegrityCheck;
-	DebritController	controller;
+	public int				debritCount;
+	bool					needsIntegrityCheck;
+	DebritController		controller;
+	Queue<DebritController>	debritdistancelist;
+	Queue<float>			DistanceMaxOfAglo = new Queue<float>();
 
 	int integrity = 0;
 
@@ -40,6 +42,12 @@ public class DebritManager : MonoBehaviour
 	
 	public void AgglomerateDebrit(DebritController debrit)
 	{
+		float tmp;
+		if (tmp = Vector2.Distance(transform.position, other.position) > 0)
+		{
+			debritdistancelist.Enqueue(debrit);
+			DistanceMaxOfAglo = tmp;
+		}
 		debrits.Add(debrit);
 		debrit.Agglomerate(integrity);
 		debrit.onDestroyed += OnDebritDestroyed;
@@ -90,6 +98,13 @@ public class DebritManager : MonoBehaviour
 
 	void OnDebritDestroyed(DebritController controller)
 	{
+		if (debritdistancelist.Peek() == controller)
+		{
+			debritdistancelist.Dequeue();
+			while (debritdistancelist.Peek() == null && debritdistancelist.count > 0)
+				debritdistancelist.Dequeue();
+			Vector2.Distance(transform.position, debritdistancelist.Peek().position);
+		}
 		debrits.Remove(controller);
 	}
 
