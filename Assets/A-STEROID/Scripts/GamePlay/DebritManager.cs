@@ -16,8 +16,10 @@ public class DebritManager : MonoBehaviour
 	public int				debritCount;
 	bool					needsIntegrityCheck;
 	DebritController		controller;
-	Queue<DebritController>	debritdistancelist;
-	Queue<float>			DistanceMaxOfAglo = new Queue<float>();
+	Queue<DebritController>	debritdistancelist = new Queue<DebritController>();
+
+	[HideInInspector]
+	public float			DistanceMaxOfAglo = 0;
 
 	int integrity = 0;
 
@@ -40,13 +42,19 @@ public class DebritManager : MonoBehaviour
 		}
 	}
 	
+	public void resizeCamera()
+	{
+
+	}
+	
 	public void AgglomerateDebrit(DebritController debrit)
 	{
 		float tmp;
-		if (tmp = Vector2.Distance(transform.position, other.position) > 0)
+		if ((tmp = Vector2.Distance(transform.position, debrit.transform.position)) > DistanceMaxOfAglo)
 		{
 			debritdistancelist.Enqueue(debrit);
 			DistanceMaxOfAglo = tmp;
+			resizeCamera();
 		}
 		debrits.Add(debrit);
 		debrit.Agglomerate(integrity);
@@ -98,18 +106,23 @@ public class DebritManager : MonoBehaviour
 
 	void OnDebritDestroyed(DebritController controller)
 	{
-		if (debritdistancelist.Peek() == controller)
+		if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
 		{
+			Debug.Log("GFUSGFYTSE");
 			debritdistancelist.Dequeue();
-			while (debritdistancelist.Peek() == null && debritdistancelist.count > 0)
+			while (debritdistancelist.Count > 0 && debritdistancelist.Peek() == null)
 				debritdistancelist.Dequeue();
-			Vector2.Distance(transform.position, debritdistancelist.Peek().position);
+			DistanceMaxOfAglo = (debritdistancelist.Count > 0) ?
+				Vector2.Distance(transform.position, debritdistancelist.Peek().transform.position) : 0;
+			resizeCamera();
+
 		}
 		debrits.Remove(controller);
 	}
 
 	private void Update()
 	{
+		Debug.Log(DistanceMaxOfAglo);
 		if (needsIntegrityCheck)
 			IntegrityCheck(controller);
 	}
