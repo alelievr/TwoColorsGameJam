@@ -7,6 +7,7 @@ public class EnemyEntity : MonoBehaviour
 {
 	public bool instanfind = false;
 	public GameObject cible = null;
+	Transform cibleTransform = null;
 	public float speed = 30;
 	public float maxspeed = 20;
 	public float rotationspeed = 30;
@@ -22,15 +23,18 @@ public class EnemyEntity : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody2D>();
 		if (instanfind == true)
+		{
 			cible = GameManager.instance.player;
+			cibleTransform = GameManager.instance.playerTransform;
+		}
 	}
 
 	protected void BaseFixedUpdate ()
 	{
-		if (cible == null || Vector2.Distance(transform.position, cible.transform.position) > agroDistance)
+		if (cible == null || Vector2.Distance(transform.position, cibleTransform.position) > agroDistance)
 			return ;
-		Vector2 idealpostmp = transform.position + (cible.transform.position - transform.position).normalized * idealdistancetocible;
-		rb.AddForce(((Vector2)cible.transform.position - idealpostmp).normalized * speed, ForceMode2D.Force);
+		Vector2 idealpostmp = transform.position + (cibleTransform.position - transform.position).normalized * idealdistancetocible;
+		rb.AddForce(((Vector2)cibleTransform.position - idealpostmp).normalized * speed, ForceMode2D.Force);
 		if (Mathf.Abs(rb.velocity.magnitude) > maxspeed)
 		{
 			Vector2 tmp = new Vector2(rb.velocity.x, rb.velocity.y);
@@ -39,7 +43,7 @@ public class EnemyEntity : MonoBehaviour
 		}
 		int sideToTurnTo = 0;
        
-        Vector3 angleToSpotRelativeToMe = cible.transform.position - transform.position;
+        Vector3 angleToSpotRelativeToMe = cibleTransform.position - transform.position;
        
         // get its cross product, which is the axis of rotation to
         // get from one vector to the other

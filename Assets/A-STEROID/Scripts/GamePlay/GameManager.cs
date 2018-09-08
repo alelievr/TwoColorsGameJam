@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
 	public static GameManager instance;
 	public GameObject player;
+
+	[HideInInspector] public Transform playerTransform;
 	public float	playerSize;
 
 	private	Vector3		baseCamPosition;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
 	{
 		instance = this;
 		baseCamPosition = mainCamera.transform.position;
+		playerTransform = player.transform;
 	}
 
 	private void Start()
