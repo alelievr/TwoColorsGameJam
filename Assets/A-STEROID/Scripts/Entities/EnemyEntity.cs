@@ -12,6 +12,7 @@ public class EnemyEntity : MonoBehaviour
 	public float rotationspeed = 30;
 	public float maxrotationspeed = 20;
 	public float idealdistancetocible = 10;
+	public float agroDistance = Mathf.Infinity;
 	public	Animator anim;
 	// Use this for initialization
 
@@ -26,7 +27,7 @@ public class EnemyEntity : MonoBehaviour
 
 	protected void BaseFixedUpdate ()
 	{
-		if (cible == null)
+		if (cible == null || Vector2.Distance(transform.position, cible.transform.position) > agroDistance)
 			return ;
 		Vector2 idealpostmp = transform.position + (cible.transform.position - transform.position).normalized * idealdistancetocible;
 		rb.AddForce(((Vector2)cible.transform.position - idealpostmp).normalized * speed, ForceMode2D.Force);
