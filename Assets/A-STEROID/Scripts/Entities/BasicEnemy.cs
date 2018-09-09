@@ -19,7 +19,7 @@ public class BasicEnemy : EnemyEntity
 	private void Update()
 	{
 		if (GameManager.instance.player != null)
-			if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) > destroyRange)
+			if (Vector3.Distance(transform.position, GameManager.instance.playerTransform.position) > destroyRange)
 				Destroy(gameObject);
 	}
 
