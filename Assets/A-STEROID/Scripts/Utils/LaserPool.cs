@@ -21,7 +21,7 @@ public class LaserPool : GameObjectPool
 		laserPool.Enqueue(go.GetComponent<LaserBehaviour>());
 	}
 
-	public LaserBehaviour NewLaser(Vector3 pos, Quaternion rotation)
+	public LaserBehaviour NewLaser(Vector3 pos, Quaternion rotation, LaserBehaviourType behaviorType)
 	{
 		base.GetGameObject();
 
@@ -29,6 +29,7 @@ public class LaserPool : GameObjectPool
 
 		laser.transform.position = pos;
 		laser.transform.rotation = rotation;
+		laser.type = behaviorType;
 		
 		Benchmark.instance.maxSimultaneousLasers = allocatedObjectCount;
 		

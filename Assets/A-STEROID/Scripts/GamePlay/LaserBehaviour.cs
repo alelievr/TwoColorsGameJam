@@ -25,7 +25,6 @@ public class LaserBehaviour : Projectile
 	Vector3		startPosition;
 
 	Dictionary<LaserBehaviourType, Action>	behaviourUpdates;
-
 	protected override void Start()
 	{
 		behaviourUpdates = new Dictionary<LaserBehaviourType, Action>
@@ -55,7 +54,7 @@ public class LaserBehaviour : Projectile
 
 	void CircularLaserUpdate()
 	{
-		Vector2 circlePos = new Vector2(Mathf.Sin(currentTime * rotationSpeed), Mathf.Cos(currentTime * rotationSpeed));
+		Vector2 circlePos = new Vector2(Mathf.Sin(currentTime * rotationSpeed), Mathf.Cos(currentTime * rotationSpeed)) * radius;
 		transform.position = startPosition + transform.right * currentTime * speed + (Vector3)circlePos;
 	}
 

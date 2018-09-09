@@ -30,7 +30,7 @@ public class turret : MonoBehaviour
 		delay = 10 / nbshootfor10s + Random.Range(-deregulatorvalue, deregulatorvalue);
 		for (int i = 0; i < nbofshotbyburst; i++)
 		{
-			LaserPool.instance.NewLaser(transform.position, transform.rotation * Quaternion.Euler(Vector3.forward * 90));
+			LaserPool.instance.NewLaser(transform.position, transform.rotation * Quaternion.Euler(Vector3.forward * 90), las.type);
 		}
 	}
 }
