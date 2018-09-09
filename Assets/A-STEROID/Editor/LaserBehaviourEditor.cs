@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-// [CustomEditor(typeof(LaserBehaviour))]
+[CustomEditor(typeof(LaserBehaviour))]
 public class LaserBehaviourEditor : Editor
 {
 	LaserBehaviour	laserBehaviour;
@@ -21,12 +21,26 @@ public class LaserBehaviourEditor : Editor
 
 	public override void OnInspectorGUI()
 	{
+		DrawDefaultInspector();
 		laserBehaviourInspectors[laserBehaviour.type]();
+		if (GUILayout.Button("Sync with sprite"))
+		{
+			var spriteRenderer = laserBehaviour.GetComponent<SpriteRenderer>();
+			var boxCollider = laserBehaviour.GetComponent<BoxCollider2D>();
+			var circleCollider = laserBehaviour.GetComponent<CircleCollider2D>();
+			laserBehaviour.laserSprite = spriteRenderer.sprite;
+			laserBehaviour.laserColor = spriteRenderer.color;
+			laserBehaviour.spawnScale = laserBehaviour.transform.localScale;
+			laserBehaviour.useCircleCollider = circleCollider != null && circleCollider.enabled;
+			laserBehaviour.circleColliderOffset = circleCollider.offset;
+			laserBehaviour.boxColliderOffset = boxCollider.offset;
+			laserBehaviour.colliderSize = boxCollider.size;
+			laserBehaviour.colliderRadius = circleCollider.radius;
+		}
 	}
 
 	void CircularLaserInspector()
 	{
-		// EditorGUILayout.
 	}
 
 	void StraightInspector()

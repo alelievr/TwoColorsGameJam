@@ -642,8 +642,11 @@ MonoBehaviour:
     - aggressiveProjectileInfoList:
       - projectile: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
           type: 2}
-        spawnRatio: 1
+        spawnRatio: 0.2
       - projectile: {fileID: 114686182576643318, guid: 742703fcb98a44b76a9646b421e3542d,
+          type: 2}
+        spawnRatio: 0.07
+      - projectile: {fileID: 114610699254256670, guid: 1dc0729a0b6c94b639900aa5c9cb2779,
           type: 2}
         spawnRatio: 0.07
     - aggressiveProjectileInfoList:
@@ -661,7 +664,7 @@ MonoBehaviour:
     type: 2}
   target: {fileID: 1500432766737952}
   distance: 100
-  frequancy: 0.5
+  frequancy: 0.2
 --- !u!114 &114129702051092032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -724,11 +727,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec43507b19620407c86577e7a4c9fd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementController: {fileID: 0}
   speed: 2000
   maxSpeed: 50
-  movementController: {fileID: 0}
-  rotationController: {fileID: 0}
-  rotationSpeed: 60
+  rotationSpeed: 5
 --- !u!114 &114843282434689640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -743,6 +745,7 @@ MonoBehaviour:
   innerRadius: 0
   outerRadius: 0
   debritCount: 10
+  DistanceMaxOfAglo: 0
 --- !u!114 &114896778171563958
 MonoBehaviour:
   m_ObjectHideFlags: 1

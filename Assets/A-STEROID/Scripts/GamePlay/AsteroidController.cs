@@ -7,22 +7,23 @@ using UnityEngine.SceneManagement;
 
 public class AsteroidController : MonoBehaviour
 {
+	public SimpleTouchController movementController;
 
 	public float speed = 100;
 	public float maxSpeed = 100;
-	Vector2 dir;
-	Rigidbody2D rb;
-
-	public SimpleTouchController movementController;
-	public SimpleTouchController rotationController;
-
 	public float rotationSpeed = 60;
 
+	Vector2 		dir;
+	Rigidbody2D		rb;
 	AsteroidDeath	deathController;
+	Gyroscope		gyro;
 
 	// Use this for initialization
 	void Start ()
 	{
+		gyro = Input.gyro;
+		gyro.enabled = true;
+		Debug.Log("gyro enabled: " + SystemInfo.supportsGyroscope);
 		rb = GetComponent<Rigidbody2D>();
 		deathController = GetComponentInChildren< AsteroidDeath >();
 	}
@@ -38,8 +39,14 @@ public class AsteroidController : MonoBehaviour
 			return ;
 		
 		dir = Directionator();
-		// TODO: change the direction handle here
-		float r = rotationController.GetTouchPosition().x;
+
+		float r = 0;
+		if (gyro != null)
+		{
+			r = gyro.rotationRate.z * rotationSpeed;
+			Debug.Log("gyro rotation: " + gyro.rotationRate);
+		}
+		
 		transform.Rotate(transform.forward, r * Time.deltaTime * rotationSpeed);
 	}
 	

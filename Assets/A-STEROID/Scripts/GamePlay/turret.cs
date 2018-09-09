@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class turret : MonoBehaviour
+public class Turret : MonoBehaviour
 {
 	public LaserBehaviour las;
 	public float angleprecision = 10;
@@ -30,7 +30,7 @@ public class turret : MonoBehaviour
 		delay = 10 / nbshootfor10s + Random.Range(-deregulatorvalue, deregulatorvalue);
 		for (int i = 0; i < nbofshotbyburst; i++)
 		{
-			LaserPool.instance.NewLaser(transform.position, transform.rotation * Quaternion.Euler(Vector3.forward * 90), las.type);
+			LaserPool.instance.NewLaser(transform.position, transform.rotation * Quaternion.Euler(Vector3.forward * 90), las);
 		}
 	}
 }

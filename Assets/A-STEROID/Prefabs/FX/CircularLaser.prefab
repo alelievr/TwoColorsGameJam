@@ -21,15 +21,16 @@ GameObject:
   - component: {fileID: 4939779107814226}
   - component: {fileID: 212572153718150470}
   - component: {fileID: 50271291686988932}
-  - component: {fileID: 61802838841615522}
   - component: {fileID: 114881721702672242}
+  - component: {fileID: 58842843606369248}
+  - component: {fileID: 61436205495156680}
   m_Layer: 0
-  m_Name: LaserPoolTemplate
+  m_Name: CircularLaser
   m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4939779107814226
 Transform:
   m_ObjectHideFlags: 1
@@ -37,8 +38,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484787948666350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.157631, y: -1.2811755, z: 0}
-  m_LocalScale: {x: 0.8036628, y: 0.2437338, z: 0.65874}
+  m_LocalPosition: {x: -0.9601774, y: -15.711729, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -50,7 +51,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1484787948666350}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -62,9 +63,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &61802838841615522
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!58 &58842843606369248
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -72,7 +73,22 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.029520988}
+  serializedVersion: 2
+  m_Radius: 1.9105537
+--- !u!61 &61436205495156680
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1484787948666350}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -86,7 +102,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.82, y: 2.48}
+  m_Size: {x: 5.12, y: 5.12}
   m_EdgeRadius: 0
 --- !u!114 &114881721702672242
 MonoBehaviour:
@@ -99,10 +115,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb8ea80380eab4dcb81e13c979abfd5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  radius: 0
-  rotationSpeed: 0
-  speed: 100
+  type: 1
+  laserSprite: {fileID: 21300000, guid: a96c3d94761b640fea28099b563af12d, type: 3}
+  laserColor: {r: 1, g: 0, b: 0.0947485, a: 1}
+  spawnScale: {x: 0.4, y: 0.4, z: 0.4}
+  useCircleCollider: 1
+  circleColliderOffset: {x: 0, y: 0.029520988}
+  boxColliderOffset: {x: 0, y: 0}
+  colliderSize: {x: 5.12, y: 5.12}
+  colliderRadius: 1.9105537
+  radius: 0.2
+  rotationSpeed: 15
+  speed: 50
+  wobwob: 0.1
+  wobwobSpeed: 10
   startTime: 0
 --- !u!212 &212572153718150470
 SpriteRenderer:
@@ -139,8 +165,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eedfaae0b89394d769c6c21d77cd50fe, type: 3}
-  m_Color: {r: 0.3584906, g: 0, b: 0.013894478, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a96c3d94761b640fea28099b563af12d, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.0947485, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

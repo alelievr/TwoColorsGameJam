@@ -108,7 +108,6 @@ public class DebritManager : MonoBehaviour
 	{
 		if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
 		{
-			Debug.Log("GFUSGFYTSE");
 			debritdistancelist.Dequeue();
 			while (debritdistancelist.Count > 0 && debritdistancelist.Peek() == null)
 				debritdistancelist.Dequeue();
@@ -122,7 +121,6 @@ public class DebritManager : MonoBehaviour
 
 	private void Update()
 	{
-		Debug.Log(DistanceMaxOfAglo);
 		if (needsIntegrityCheck)
 			IntegrityCheck(controller);
 	}
