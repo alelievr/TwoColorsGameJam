@@ -22,7 +22,7 @@ public class NoColDebritController : MonoBehaviour
 	CircleCollider2D	circleCollider;
 	Collider2D[]		results = new Collider2D[16];
 	NoColDebritManager		manager;
-	bool				agglomerationEnabled;
+	public bool				agglomerationEnabled;
 
 	public int			integrity = 0;
 
@@ -63,6 +63,28 @@ public class NoColDebritController : MonoBehaviour
 		agglomerationEnabled = true;
 	}
 
+	private void FixedUpdate()
+	{
+		GameObject tmp;
+		if (tag == "debrit")
+		{
+			if ((transform.position - manager.transform.position).magnitude < GameManager.instance.playerSize + 3f)
+			{
+			//	Debug.Log("CHECK COLL DEB CONT");
+				//Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.green, 0.1f);
+			
+				if ((tmp = manager.DebritCollisionCheck(gameObject)) != null)
+					ToDoOnCol(tmp);
+			}
+		}
+	}
+
+	void Update()
+	{
+		// if (agglomerationEnabled)
+				// Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.blue, Time.deltaTime);
+	}
+
 	public void CheckIntegryty(int newIntegrity)
 	{
 		if (newIntegrity == integrity)
@@ -78,31 +100,51 @@ public class NoColDebritController : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D other)
+	private void ToDoOnCol(GameObject Collided)
 	{
-		if (!agglomerationEnabled)
+	//	Debug.Log("ON A TOUCHER UN TRUC deb cont = " + Collided.tag);
+		if (agglomerationEnabled)
 			return ;
+		//Debug.Log("AGGLO PASSED");
+		// if (Collided.tag == "debrit")
+		// {
+		// 	Debug.Log("debrit COLLIDED deb cont");
+		// 	var otherDebrit = Collided.GetComponent<NoColDebritController>();
+		// 	manager.AgglomerateDebrit(otherDebrit);
+		// 	touchingDebrits.Add(otherDebrit);
+		// }
+		if (Collided.tag == "Player")
+		{
+	//		Debug.Log("PLAYER COLLIDED  deb cont");
+			manager.AgglomerateDebrit(GetComponent< NoColDebritController >());
+		}
+	}
+
+	// private void OnCollisionEnter2D(Collision2D other)
+	// {
+	// 	if (!agglomerationEnabled)
+	// 		return ;
 		
-		if (other.gameObject.tag == "debrit")
-		{
-			var otherDebrit = other.gameObject.GetComponent<NoColDebritController>();
-			manager.AgglomerateDebrit(otherDebrit);
-			touchingDebrits.Add(otherDebrit);
-		}
-	}
+	// 	if (other.gameObject.tag == "debrit")
+	// 	{
+	// 		var otherDebrit = other.gameObject.GetComponent<NoColDebritController>();
+	// 		manager.AgglomerateDebrit(otherDebrit);
+	// 		touchingDebrits.Add(otherDebrit);
+	// 	}
+	// }
 
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.tag == "Laser")
-		{
-			if (agglomerationEnabled && onLaserReceived != null)
-				onLaserReceived(this);
-			OnWillBeDestroyed();
-			NoColDebrisPool.instance.FreeDebris(this);
-			LaserPool.instance.FreeLaser(other.GetComponent<LaserBehaviour>());
+	// private void OnTriggerEnter2D(Collider2D other)
+	// {
+	// 	if (other.tag == "Laser")
+	// 	{
+	// 		if (agglomerationEnabled && onLaserReceived != null)
+	// 			onLaserReceived(this);
+	// 		OnWillBeDestroyed();
+	// 		NoColDebrisPool.instance.FreeDebris(this);
+	// 		LaserPool.instance.FreeLaser(other.GetComponent<LaserBehaviour>());
 
-		}
-	}
+	// 	}
+	// }
 
 	IEnumerator Killme()
 	{

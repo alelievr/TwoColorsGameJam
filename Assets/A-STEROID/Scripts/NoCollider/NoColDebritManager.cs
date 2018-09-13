@@ -32,16 +32,36 @@ public class NoColDebritManager : MonoBehaviour
 	private void Start()
 	{
 		circleCollider = GetComponent< CircleCollider2D >();
+		UpdatePlayerSize();
 	}
 
-	private void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.tag == "debrit")
-		{
-			AgglomerateDebrit(other.gameObject.GetComponent< NoColDebritController >());
-		}
-	}
+	// private void OnCollisionEnter2D(Collision2D other)
+	// {
+	// 	if (other.gameObject.tag == "debrit")
+	// 	{
+	// 		AgglomerateDebrit(other.gameObject.GetComponent< NoColDebritController >());
+	// 	}
+	// }
 	
+	public GameObject DebritCollisionCheck(GameObject colTarget)
+	{
+		foreach (var debrit in debrits)
+		{
+			if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 5f)
+			{
+				//AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
+				// Debug.Log("debritcoll check return debrit");
+				return debrit.gameObject;
+			}
+		}
+		if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14)
+		{
+			// Debug.Log("debritcoll check return ASTEROID");
+			return gameObject;
+		}
+		return null;
+	}
+
 	public void resizeCamera()
 	{
 
@@ -100,7 +120,8 @@ public class NoColDebritManager : MonoBehaviour
 		{
 			size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
 		}
-
+		if (size < 2.5f)
+			size = 2.5f;
 		GameManager.instance.playerSize = size;
 	}
 
@@ -123,5 +144,11 @@ public class NoColDebritManager : MonoBehaviour
 	{
 		if (needsIntegrityCheck)
 			IntegrityCheck(controller);
+		// Debug.Log("player size = " + GameManager.instance.playerSize);
+		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);
+		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 2, transform.position.y-1 , transform.position.z), Color.yellow , Time.deltaTime);
+		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 3, transform.position.y, transform.position.z), Color.yellow , Time.deltaTime);
+		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 4, transform.position.y + 1, transform.position.z), Color.yellow , Time.deltaTime);
+		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 5, transform.position.y + 2, transform.position.z), Color.yellow , Time.deltaTime);
 	}
 }

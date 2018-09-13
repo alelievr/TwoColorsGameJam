@@ -44,7 +44,7 @@ public class AsteroidController : MonoBehaviour
 		if (gyro != null)
 		{
 			r = gyro.rotationRate.z * rotationSpeed;
-			Debug.Log("gyro rotation: " + gyro.rotationRate);
+			//Debug.Log("gyro rotation: " + gyro.rotationRate);
 		}
 		
 		transform.Rotate(transform.forward, r * Time.deltaTime * rotationSpeed);
