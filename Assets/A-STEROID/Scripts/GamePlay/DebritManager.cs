@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 public class DebritManager : MonoBehaviour
 {
 	public static DebritManager instance;
@@ -99,7 +100,7 @@ public class DebritManager : MonoBehaviour
 			size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
 		}
 
-		GameManager.instance.playerSize = size;
+		GameManager.instance.playerSizeSqr = size;
 	}
 
 	void OnDebritDestroyed(DebritController controller)

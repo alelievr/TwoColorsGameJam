@@ -108,9 +108,10 @@ public class LaserBehaviour : Projectile
 
     void FixedUpdate()
     {
-        GameObject tmp;
-        if ((transform.position - NoColDebritManager.instance.transform.position).magnitude < GameManager.instance.playerSize + 3f)
-        {
+       
+        if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 9f)
+        { 
+            GameObject tmp;
             if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(gameObject)) != null)
                 tmp.GetComponent<NoColDebritController>().ToDoWhenLaserHit(this);
         }

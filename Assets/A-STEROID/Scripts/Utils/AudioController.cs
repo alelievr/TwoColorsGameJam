@@ -35,6 +35,10 @@ public class AudioController : MonoBehaviour
 
 	public static AudioController	instance;
 
+	[Space,Header("Random Background Music List")]
+	public List<AudioClip> randomBackgroundLoop;
+	public List<AudioClip> randomBackgroundStart;
+
 	const string			backgroundVolume = "BackgroundVolume";
 	string[]				bossVolumes;
 	BossZone				currentBoss;
@@ -44,8 +48,11 @@ public class AudioController : MonoBehaviour
 
 	bool					firstFrame = true;
 
+
 	private void Awake()
 	{
+		backgroundLoop.clip = randomBackgroundLoop[Random.Range(0, randomBackgroundLoop.Count)];
+		backgroundStart.clip = randomBackgroundStart[Random.Range(0, randomBackgroundStart.Count)];
 		instance = this;
 
 		oneShotPlaySources = Enumerable.Range(0, maxSimultaneousSound).Select(i => gameObject.AddComponent<AudioSource>()).ToList();

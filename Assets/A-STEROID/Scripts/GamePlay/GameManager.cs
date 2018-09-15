@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 	public int		gameState;
 	public bool 	isBossFight;
 	public	GameObject	mainCamera;
-	public	CinemachineBrain cinemachineBrain;
-	public	CinemachineVirtualCamera originalvcam;
+	[HideInInspector] public	CinemachineBrain cinemachineBrain;
+	[HideInInspector] public	CinemachineVirtualCamera originalvcam;
 	public	GameObject[]	bossFightCamera;
 	public	GameObject[]	bossZones;
 
@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
 	public GameObject player;
 
 	[HideInInspector] public Transform playerTransform;
-	public float	playerSize;
+	public float	playerSizeSqr;
+	public Vector3	playerPos;
 
 	private	Vector3		baseCamPosition;
 	int currentboss = -1;
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
-		mainCamera.transform.position = new Vector3(baseCamPosition.x, baseCamPosition.y, baseCamPosition.z + playerSize);
+		mainCamera.transform.position = new Vector3(baseCamPosition.x, baseCamPosition.y, baseCamPosition.z + playerSizeSqr);
 	}
 
 	public void DefeatBoss()
@@ -81,4 +82,10 @@ public class GameManager : MonoBehaviour
 		foreach (var enemy in GameManager.FindObjectsOfType< BasicEnemy >())
 			Destroy(enemy.gameObject);
 	}
+
+	private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(playerSizeSqr));
+    }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+// using static Unity.Mathematics;
 public class NoColDebritManager : MonoBehaviour
 {
     public static NoColDebritManager instance;
@@ -34,7 +34,7 @@ public class NoColDebritManager : MonoBehaviour
     private void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        UpdatePlayerSize();
+        UpdatePlayerSizeSqr();
     }
 
     // private void OnCollisionEnter2D(Collision2D other)
@@ -49,11 +49,11 @@ public class NoColDebritManager : MonoBehaviour
     {
         foreach (Squadronleader leader in squadArray)
         {
-            if ((colTarget.transform.position - leader.transform.position).sqrMagnitude <= 205)
+            if ((colTarget.transform.position - leader.transform.position).sqrMagnitude <= 205f)
             {
                 foreach (var debrit in leader.debritList)
                 {
-                    if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 5f)
+                    if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 10f)
                     {
                         //AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
                         // Debug.Log("debritcoll check return debrit");
@@ -62,7 +62,7 @@ public class NoColDebritManager : MonoBehaviour
                }
            }
         }
-        if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14)
+        if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14f)
         {
             // Debug.Log("debritcoll check return ASTEROID");
             return gameObject;
@@ -79,7 +79,7 @@ public class NoColDebritManager : MonoBehaviour
     {
         foreach (Squadronleader leader in squadArray)
         {
-            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 205)
+            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 205f)
             {
                 leader.debritList.Add(debrit);
             }
@@ -102,7 +102,7 @@ public class NoColDebritManager : MonoBehaviour
         debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
         debrit.transform.SetParent(transform, true);
 
-        UpdatePlayerSize();
+        UpdatePlayerSizeSqr();
     }
 
     void IntegrityCheck(NoColDebritController controller)
@@ -130,19 +130,19 @@ public class NoColDebritManager : MonoBehaviour
             }
 
         needsIntegrityCheck = false;
-        UpdatePlayerSize();
+        UpdatePlayerSizeSqr();
     }
 
-    void UpdatePlayerSize()
+    void UpdatePlayerSizeSqr()
     {
         float size = 0;
         foreach (var debrit in debrits)
         {
-            size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
+            size = Mathf.Max(size, (debrit.transform.position - transform.position).sqrMagnitude/*Vector3.Distance(debrit.transform.position, transform.position)*/);
         }
-        if (size < 2.5f)
-            size = 2.5f;
-        GameManager.instance.playerSize = size;
+        if (size < 6.25f)
+            size = 6.25f;
+        GameManager.instance.playerSizeSqr = size;
     }
 
     void OnDebritDestroyed(NoColDebritController controller)
@@ -164,6 +164,7 @@ public class NoColDebritManager : MonoBehaviour
     {
         if (needsIntegrityCheck)
             IntegrityCheck(controller);
+        GameManager.instance.playerPos = transform.position;
         // Debug.Log("player size = " + GameManager.instance.playerSize);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 2, transform.position.y-1 , transform.position.z), Color.yellow , Time.deltaTime);
