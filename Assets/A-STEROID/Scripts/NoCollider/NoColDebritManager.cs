@@ -3,152 +3,172 @@ using System.Collections.Generic;
 
 public class NoColDebritManager : MonoBehaviour
 {
-	public static NoColDebritManager instance;
-	public float innerRadius = 3;
-	public float outerRadius = 5;
+    public static NoColDebritManager instance;
+    public float innerRadius = 3;
+    public float outerRadius = 5;
 
-	CircleCollider2D	circleCollider;
-	
-	Collider2D[]		results = new Collider2D[16];
+    CircleCollider2D circleCollider;
 
-	List< NoColDebritController > debrits = new List< NoColDebritController >();
+    Collider2D[] results = new Collider2D[16];
 
-	public int				debritCount;
-	bool					needsIntegrityCheck;
-	NoColDebritController		controller;
-	Queue<NoColDebritController>	debritdistancelist = new Queue<NoColDebritController>();
+    List<NoColDebritController> debrits = new List<NoColDebritController>();
 
-	[HideInInspector]
-	public float			DistanceMaxOfAglo = 0;
+    public Squadronleader[] squadArray;
 
-	int integrity = 0;
+    public int debritCount;
+    bool needsIntegrityCheck;
+    NoColDebritController controller;
+    Queue<NoColDebritController> debritdistancelist = new Queue<NoColDebritController>();
 
-	private void Awake()
-	{
-		instance = this;
-		debritCount = 0;
-	}
+    [HideInInspector]
+    public float DistanceMaxOfAglo = 0;
 
-	private void Start()
-	{
-		circleCollider = GetComponent< CircleCollider2D >();
-		UpdatePlayerSize();
-	}
+    int integrity = 0;
 
-	// private void OnCollisionEnter2D(Collision2D other)
-	// {
-	// 	if (other.gameObject.tag == "debrit")
-	// 	{
-	// 		AgglomerateDebrit(other.gameObject.GetComponent< NoColDebritController >());
-	// 	}
-	// }
-	
-	public GameObject DebritCollisionCheck(GameObject colTarget)
-	{
-		foreach (var debrit in debrits)
-		{
-			if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 5f)
-			{
-				//AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
-				// Debug.Log("debritcoll check return debrit");
-				return debrit.gameObject;
-			}
-		}
-		if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14)
-		{
-			// Debug.Log("debritcoll check return ASTEROID");
-			return gameObject;
-		}
-		return null;
-	}
+    private void Awake()
+    {
+        instance = this;
+        debritCount = 0;
+    }
 
-	public void resizeCamera()
-	{
+    private void Start()
+    {
+        circleCollider = GetComponent<CircleCollider2D>();
+        UpdatePlayerSize();
+    }
 
-	}
-	
-	public void AgglomerateDebrit(NoColDebritController debrit)
-	{
-		float tmp;
-		if ((tmp = Vector2.Distance(transform.position, debrit.transform.position)) > DistanceMaxOfAglo)
-		{
-			debritdistancelist.Enqueue(debrit);
-			DistanceMaxOfAglo = tmp;
-			resizeCamera();
-		}
-		debrits.Add(debrit);
-		debrit.Agglomerate(integrity);
-		debrit.onDestroyed += OnDebritDestroyed;
-		debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
-		debrit.transform.SetParent(transform, true);
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    // 	if (other.gameObject.tag == "debrit")
+    // 	{
+    // 		AgglomerateDebrit(other.gameObject.GetComponent< NoColDebritController >());
+    // 	}
+    // }
 
-		UpdatePlayerSize();
-	}
+    public GameObject DebritCollisionCheck(GameObject colTarget)
+    {
+        foreach (Squadronleader leader in squadArray)
+        {
+            if ((colTarget.transform.position - leader.transform.position).sqrMagnitude <= 205)
+            {
+                foreach (var debrit in leader.debritList)
+                {
+                    if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 5f)
+                    {
+                        //AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
+                        // Debug.Log("debritcoll check return debrit");
+                        return debrit.gameObject;
+                    }
+               }
+           }
+        }
+        if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14)
+        {
+            // Debug.Log("debritcoll check return ASTEROID");
+            return gameObject;
+        }
+        return null;
+    }
 
-	void IntegrityCheck(NoColDebritController controller)
-	{
-		int count = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius + 0.1f, results);
+    public void resizeCamera()
+    {
 
-		integrity++;
+    }
 
-		for (int i = 0; i < count; i++)
-		{
-			var debrit = results[i].GetComponent<NoColDebritController>();
+    void AssignSquadron(NoColDebritController debrit)
+    {
+        foreach (Squadronleader leader in squadArray)
+        {
+            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 205)
+            {
+                leader.debritList.Add(debrit);
+            }
+        }
+    }
 
-			if (debrit == null)
-				continue ;
+    public void AgglomerateDebrit(NoColDebritController debrit)
+    {
+        float tmp;
+        if ((tmp = Vector2.Distance(transform.position, debrit.transform.position)) > DistanceMaxOfAglo)
+        {
+            debritdistancelist.Enqueue(debrit);
+            DistanceMaxOfAglo = tmp;
+            resizeCamera();
+        }
+       AssignSquadron(debrit);
+        debrits.Add(debrit);
+        debrit.Agglomerate(integrity);
+        debrit.onDestroyed += OnDebritDestroyed;
+        debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
+        debrit.transform.SetParent(transform, true);
 
-			debrit.CheckIntegryty(integrity);
-		}
-		
-		// Iterate over each debrits
-		foreach (var debrit in debrits)
-			if (debrit.integrity != integrity)
-			{
-				debrit.OnWillBeDestroyed();
-				Destroy(debrit.gameObject);
-			}
-			
-		needsIntegrityCheck = false;
-		UpdatePlayerSize();
-	}
+        UpdatePlayerSize();
+    }
 
-	void UpdatePlayerSize()
-	{
-		float size = 0;
-		foreach (var debrit in debrits)
-		{
-			size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
-		}
-		if (size < 2.5f)
-			size = 2.5f;
-		GameManager.instance.playerSize = size;
-	}
+    void IntegrityCheck(NoColDebritController controller)
+    {
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius + 0.1f, results);
 
-	void OnDebritDestroyed(NoColDebritController controller)
-	{
-		if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
-		{
-			debritdistancelist.Dequeue();
-			while (debritdistancelist.Count > 0 && debritdistancelist.Peek() == null)
-				debritdistancelist.Dequeue();
-			DistanceMaxOfAglo = (debritdistancelist.Count > 0) ?
-				Vector2.Distance(transform.position, debritdistancelist.Peek().transform.position) : 0;
-			resizeCamera();
+        integrity++;
 
-		}
-		debrits.Remove(controller);
-	}
+        for (int i = 0; i < count; i++)
+        {
+            var debrit = results[i].GetComponent<NoColDebritController>();
 
-	private void Update()
-	{
-		if (needsIntegrityCheck)
-			IntegrityCheck(controller);
-		// Debug.Log("player size = " + GameManager.instance.playerSize);
-		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);
-		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 2, transform.position.y-1 , transform.position.z), Color.yellow , Time.deltaTime);
-		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 3, transform.position.y, transform.position.z), Color.yellow , Time.deltaTime);
-		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 4, transform.position.y + 1, transform.position.z), Color.yellow , Time.deltaTime);
-		// Debug.DrawLine(transform.position,new Vector3(transform.position.x + 5, transform.position.y + 2, transform.position.z), Color.yellow , Time.deltaTime);
-	}
+            if (debrit == null)
+                continue;
+
+            debrit.CheckIntegryty(integrity);
+        }
+
+        // Iterate over each debrits
+        foreach (var debrit in debrits)
+            if (debrit.integrity != integrity)
+            {
+                debrit.OnWillBeDestroyed();
+                Destroy(debrit.gameObject);
+            }
+
+        needsIntegrityCheck = false;
+        UpdatePlayerSize();
+    }
+
+    void UpdatePlayerSize()
+    {
+        float size = 0;
+        foreach (var debrit in debrits)
+        {
+            size = Mathf.Max(size, Vector3.Distance(debrit.transform.position, transform.position));
+        }
+        if (size < 2.5f)
+            size = 2.5f;
+        GameManager.instance.playerSize = size;
+    }
+
+    void OnDebritDestroyed(NoColDebritController controller)
+    {
+        if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
+        {
+            debritdistancelist.Dequeue();
+            while (debritdistancelist.Count > 0 && debritdistancelist.Peek() == null)
+                debritdistancelist.Dequeue();
+            DistanceMaxOfAglo = (debritdistancelist.Count > 0) ?
+                Vector2.Distance(transform.position, debritdistancelist.Peek().transform.position) : 0;
+            resizeCamera();
+
+        }
+        debrits.Remove(controller);
+    }
+
+    private void Update()
+    {
+        if (needsIntegrityCheck)
+            IntegrityCheck(controller);
+        // Debug.Log("player size = " + GameManager.instance.playerSize);
+        // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);
+        // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 2, transform.position.y-1 , transform.position.z), Color.yellow , Time.deltaTime);
+        // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 3, transform.position.y, transform.position.z), Color.yellow , Time.deltaTime);
+        // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 4, transform.position.y + 1, transform.position.z), Color.yellow , Time.deltaTime);
+        // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 5, transform.position.y + 2, transform.position.z), Color.yellow , Time.deltaTime);
+    }
 }
