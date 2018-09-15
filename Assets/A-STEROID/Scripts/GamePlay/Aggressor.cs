@@ -41,7 +41,7 @@ public class Aggressor : MonoBehaviour {
 	}
 
 	public	float			size {
-		get { return GameManager.instance.playerSize; }
+		get { return GameManager.instance.playerSizeSqr; }
 	}
 
 
