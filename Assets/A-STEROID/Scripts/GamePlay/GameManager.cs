@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
 	public int		gameState;
 	public bool 	isBossFight;
 	public	GameObject	mainCamera;
+	[HideInInspector] public	CinemachineBrain cinemachineBrain;
+	[HideInInspector] public	CinemachineVirtualCamera originalvcam;
 	public	GameObject[]	bossFightCamera;
 	public	GameObject[]	bossZones;
 
@@ -25,9 +28,11 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
+		cinemachineBrain = Camera.main.GetComponent<CinemachineBrain>();
 		instance = this;
 		baseCamPosition = mainCamera.transform.position;
 		playerTransform = player.transform;
+		originalvcam = mainCamera.GetComponent<CinemachineVirtualCamera>();
 	}
 
 	private void Start()

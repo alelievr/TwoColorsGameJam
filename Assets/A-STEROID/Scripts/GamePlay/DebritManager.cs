@@ -19,10 +19,9 @@ public class DebritManager : MonoBehaviour
 	DebritController		controller;
 	Queue<DebritController>	debritdistancelist = new Queue<DebritController>();
 
-	[HideInInspector]
-	public float			DistanceMaxOfAglo = 0;
-
 	int integrity = 0;
+
+	float sizeInitOfCam;
 
 	private void Awake()
 	{
@@ -33,6 +32,7 @@ public class DebritManager : MonoBehaviour
 	private void Start()
 	{
 		circleCollider = GetComponent< CircleCollider2D >();
+		sizeInitOfCam = Camera.main.orthographicSize;
 	}
 
 	private void OnCollisionEnter2D(Collision2D other)
@@ -43,25 +43,23 @@ public class DebritManager : MonoBehaviour
 		}
 	}
 	
+	float oldsize = -1;
+
 	public void resizeCamera()
 	{
-
+		if (GameManager.instance.playerSize != oldsize)
+			GameManager.instance.originalvcam.m_Lens.OrthographicSize = sizeInitOfCam + GameManager.instance.playerSize; // not sure about that
+		oldsize = GameManager.instance.playerSize;
 	}
 	
 	public void AgglomerateDebrit(DebritController debrit)
 	{
-		float tmp;
-		if ((tmp = Vector2.Distance(transform.position, debrit.transform.position)) > DistanceMaxOfAglo)
-		{
-			debritdistancelist.Enqueue(debrit);
-			DistanceMaxOfAglo = tmp;
-			resizeCamera();
-		}
 		debrits.Add(debrit);
 		debrit.Agglomerate(integrity);
 		debrit.onDestroyed += OnDebritDestroyed;
 		debrit.onLaserReceived += (a) => { needsIntegrityCheck = true; controller = a; };
 		debrit.transform.SetParent(transform, true);
+		resizeCamera();
 
 		UpdatePlayerSize();
 	}
@@ -107,16 +105,7 @@ public class DebritManager : MonoBehaviour
 
 	void OnDebritDestroyed(DebritController controller)
 	{
-		if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
-		{
-			debritdistancelist.Dequeue();
-			while (debritdistancelist.Count > 0 && debritdistancelist.Peek() == null)
-				debritdistancelist.Dequeue();
-			DistanceMaxOfAglo = (debritdistancelist.Count > 0) ?
-				Vector2.Distance(transform.position, debritdistancelist.Peek().transform.position) : 0;
-			resizeCamera();
-
-		}
+		resizeCamera();
 		debrits.Remove(controller);
 	}
 

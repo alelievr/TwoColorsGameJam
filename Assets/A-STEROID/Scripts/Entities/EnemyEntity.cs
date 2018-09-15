@@ -14,7 +14,8 @@ public class EnemyEntity : MonoBehaviour
 	public float maxrotationspeed = 20;
 	public float idealdistancetocible = 10;
 	public float agroDistance = Mathf.Infinity;
-	public	Animator anim;
+	public enum TypeOfMouvement {mouche};
+	public TypeOfMouvement typeOfMouvement = TypeOfMouvement.mouche;
 	// Use this for initialization
 
 	protected Rigidbody2D rb;
@@ -29,7 +30,7 @@ public class EnemyEntity : MonoBehaviour
 		}
 	}
 
-	protected void BaseFixedUpdate ()
+	void MoucheMouvement()
 	{
 		if (cible == null || Vector2.Distance(transform.position, cibleTransform.position) > agroDistance)
 			return ;
@@ -57,5 +58,11 @@ public class EnemyEntity : MonoBehaviour
         }
 		rb.AddTorque(rotationspeed * sideToTurnTo, ForceMode2D.Impulse);
 		rb.angularVelocity = Mathf.Clamp(rb.angularVelocity, -maxrotationspeed, maxrotationspeed);
+	}
+
+	protected void BaseFixedUpdate ()
+	{
+		if (typeOfMouvement == TypeOfMouvement.mouche)
+			MoucheMouvement();
 	}
 }

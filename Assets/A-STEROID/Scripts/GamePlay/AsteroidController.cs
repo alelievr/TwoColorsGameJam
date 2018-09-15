@@ -50,13 +50,16 @@ public class AsteroidController : MonoBehaviour
 		transform.Rotate(transform.forward, r * Time.deltaTime * rotationSpeed);
 	}
 	
+	public float AugmentationInertia = 50;
+	public float minForceSpeed = 50;
+
 	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		if (deathController.dead)
 			return ;
 		
-		rb.AddForce(dir * speed, ForceMode2D.Force);
+		rb.AddForce(dir * (speed - Mathf.Max(GameManager.instance.playerSize * AugmentationInertia, minForceSpeed)), ForceMode2D.Force);
 
 		if (Mathf.Abs(rb.velocity.magnitude) > maxSpeed)
 		{
