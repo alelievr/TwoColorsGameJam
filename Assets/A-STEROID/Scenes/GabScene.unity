@@ -1311,6 +1311,16 @@ Prefab:
       propertyPath: bigList.list.Array.data[0].aggressiveProjectileInfoList.Array.data[1].spawnRatio
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114765088154750426, guid: c3aff91962f25406faa920f334c4037f,
+        type: 2}
+      propertyPath: reducAugmentationInertia
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114765088154750426, guid: c3aff91962f25406faa920f334c4037f,
+        type: 2}
+      propertyPath: AugmentationInertia
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114896778171563958, guid: c3aff91962f25406faa920f334c4037f, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c3aff91962f25406faa920f334c4037f, type: 2}
