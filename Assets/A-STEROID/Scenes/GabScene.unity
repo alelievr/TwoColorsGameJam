@@ -251,6 +251,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &21400099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1228890878425656, guid: c3aff91962f25406faa920f334c4037f,
+    type: 2}
+  m_PrefabInternal: {fileID: 522334057}
+--- !u!114 &21400100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 21400099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0048920d940fd4b84b2c459081a18d97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomMusicLoop:
+  - {fileID: 0}
 --- !u!4 &29107358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4357523799556784, guid: 3d302dc92545b479fa94dd59c4193d77,
@@ -1320,6 +1338,11 @@ Prefab:
         type: 2}
       propertyPath: AugmentationInertia
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 82241911627579680, guid: c3aff91962f25406faa920f334c4037f,
+        type: 2}
+      propertyPath: BypassListenerEffects
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114896778171563958, guid: c3aff91962f25406faa920f334c4037f, type: 2}
@@ -2412,6 +2435,14 @@ Prefab:
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 519325093}
+    - target: {fileID: 4957885513042442, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -30.835527
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518868553342148, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -30.835527
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9fe1ad5ce2254b34810a737df5e9f95, type: 2}
   m_IsPrefabAsset: 0

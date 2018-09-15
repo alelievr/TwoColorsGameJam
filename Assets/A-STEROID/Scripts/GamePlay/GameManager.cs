@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 	public int		gameState;
 	public bool 	isBossFight;
 	public	GameObject	mainCamera;
-	public	CinemachineBrain cinemachineBrain;
-	public	CinemachineVirtualCamera originalvcam;
+	[HideInInspector] public	CinemachineBrain cinemachineBrain;
+	[HideInInspector] public	CinemachineVirtualCamera originalvcam;
 	public	GameObject[]	bossFightCamera;
 	public	GameObject[]	bossZones;
 
