@@ -130,14 +130,15 @@ public class NoColKaboom : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		GameObject tmp;
+		
 		if (tag == "Proj" || tag == "Xenon")
 		{
-			if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 30f)
+			if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 25f)
 			{
+				GameObject tmp;
 			//	Debug.Log("KABOOM dist to asteroid = " + (transform.position - NoColDebritManager.instance.transform.position).magnitude);
 			//	Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.red, 0.1f);
-				if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(gameObject)) != null)
+				if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(transform.position)) != null)
 					ToDoOnCol(tmp);
 			//	else
 			//		Debug.Log("DEBRIT NULL");

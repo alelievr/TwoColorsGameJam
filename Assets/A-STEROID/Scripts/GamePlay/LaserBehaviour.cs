@@ -112,7 +112,7 @@ public class LaserBehaviour : Projectile
         if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 9f)
         { 
             GameObject tmp;
-            if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(gameObject)) != null)
+            if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(transform.position)) != null)
                 tmp.GetComponent<NoColDebritController>().ToDoWhenLaserHit(this);
         }
         currentTime = Time.time - startTime;

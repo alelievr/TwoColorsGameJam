@@ -40,15 +40,15 @@ public class Squadronleader : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = colorDictionary[elColor];
-        Gizmos.DrawWireSphere(transform.position, squadSize);
+        Gizmos.DrawWireSphere(transform.position, 14.2f);
     }
 
     private void Update()
     {
-        foreach(var i in debritList)
-        {
-            Debug.DrawLine(transform.position, i.transform.position, Color.red, Time.deltaTime);
-        }
+        // foreach(var i in debritList)
+        // {
+        //     Debug.DrawLine(transform.position, i.transform.position, Color.red, Time.deltaTime);
+        // }
 
     }
 }

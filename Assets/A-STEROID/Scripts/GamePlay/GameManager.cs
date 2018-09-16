@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
 	[HideInInspector] public Transform playerTransform;
 	public float	playerSizeSqr;
+	public float	playerSize;
+
 	public Vector3	playerPos;
 
 	private	Vector3		baseCamPosition;
@@ -83,9 +85,4 @@ public class GameManager : MonoBehaviour
 			Destroy(enemy.gameObject);
 	}
 
-	private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(playerSizeSqr));
-    }
 }

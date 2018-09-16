@@ -35,6 +35,17 @@ public class NoColDebritManager : MonoBehaviour
     {
         circleCollider = GetComponent<CircleCollider2D>();
         UpdatePlayerSizeSqr();
+        // Debug.Log("test 20 = " + my_abs(20));
+        // Debug.Log("test -20 = " + my_abs(-20));
+        // Debug.Log("test 0 = " + my_abs(0));
+        // Debug.Log("test -0 = " + my_abs(-0));
+        // Debug.Log("test 800.4545f = " + my_abs(800.4545f));
+        // Debug.Log("test -800.4545f = " + my_abs(-800.4545f));
+        // Debug.Log("test 4557.4545f = " + my_abs(45742157.4545f));
+        // Debug.Log("test -4557.4545f = " + my_abs(-45742157.4545f));
+        // Debug.Log("test 1.1f = " + my_abs(1.1f));
+        // Debug.Log("test -1.1f = " + my_abs(-1.1f));
+
     }
 
     // private void OnCollisionEnter2D(Collision2D other)
@@ -45,24 +56,32 @@ public class NoColDebritManager : MonoBehaviour
     // 	}
     // }
 
-    public GameObject DebritCollisionCheck(GameObject colTarget)
+    //     float my_abs(float x)
+    // {
+    //     // return ((float)((int)x & 0x7FFFFFFF));
+    //     int i = *(int*)&x;
+    //     i = i & 0x7FFFFFFF;
+    //     return ((float)i);
+    // }
+
+    public GameObject DebritCollisionCheck(Vector3 pos)
     {
         foreach (Squadronleader leader in squadArray)
         {
-            if ((colTarget.transform.position - leader.transform.position).sqrMagnitude <= 205f)
+            if ((pos - leader.transform.position).sqrMagnitude <= 202f)
             {
                 foreach (var debrit in leader.debritList)
                 {
-                    if ((colTarget.transform.position - debrit.transform.position).sqrMagnitude < 10f)
+                    if ((pos - debrit.transform.position).sqrMagnitude < 5f)
                     {
                         //AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
                         // Debug.Log("debritcoll check return debrit");
                         return debrit.gameObject;
                     }
-               }
-           }
+                }
+            }
         }
-        if ((colTarget.transform.position - transform.position).sqrMagnitude <= 14f)
+        if ((pos - transform.position).sqrMagnitude <= 12f)
         {
             // Debug.Log("debritcoll check return ASTEROID");
             return gameObject;
@@ -79,7 +98,7 @@ public class NoColDebritManager : MonoBehaviour
     {
         foreach (Squadronleader leader in squadArray)
         {
-            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 205f)
+            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 202f)
             {
                 leader.debritList.Add(debrit);
             }
@@ -95,7 +114,7 @@ public class NoColDebritManager : MonoBehaviour
             DistanceMaxOfAglo = tmp;
             resizeCamera();
         }
-       AssignSquadron(debrit);
+        AssignSquadron(debrit);
         debrits.Add(debrit);
         debrit.Agglomerate(integrity);
         debrit.onDestroyed += OnDebritDestroyed;
@@ -138,11 +157,13 @@ public class NoColDebritManager : MonoBehaviour
         float size = 0;
         foreach (var debrit in debrits)
         {
-            size = Mathf.Max(size, (debrit.transform.position - transform.position).sqrMagnitude/*Vector3.Distance(debrit.transform.position, transform.position)*/);
+            size = Mathf.Max(size, (debrit.transform.position - transform.position).magnitude/*Vector3.Distance(debrit.transform.position, transform.position)*/);
         }
         if (size < 6.25f)
             size = 6.25f;
-        GameManager.instance.playerSizeSqr = size;
+        GameManager.instance.playerSize = size;
+        GameManager.instance.playerSizeSqr = size * size;
+
     }
 
     void OnDebritDestroyed(NoColDebritController controller)
@@ -165,11 +186,19 @@ public class NoColDebritManager : MonoBehaviour
         if (needsIntegrityCheck)
             IntegrityCheck(controller);
         GameManager.instance.playerPos = transform.position;
+        // UpdatePlayerSizeSqr();
         // Debug.Log("player size = " + GameManager.instance.playerSize);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 2, transform.position.y-1 , transform.position.z), Color.yellow , Time.deltaTime);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 3, transform.position.y, transform.position.z), Color.yellow , Time.deltaTime);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 4, transform.position.y + 1, transform.position.z), Color.yellow , Time.deltaTime);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 5, transform.position.y + 2, transform.position.z), Color.yellow , Time.deltaTime);
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(GameManager.instance.playerSizeSqr));
     }
 }

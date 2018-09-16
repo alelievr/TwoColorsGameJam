@@ -71,10 +71,10 @@ public class NoColDebritController : MonoBehaviour
         {
             if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 50f)
             {
-                	Debug.Log("UNDER THE INFLUENCE");
+//                	Debug.Log("UNDER THE INFLUENCE");
                 //Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.green, 0.1f);
                 GameObject tmp;
-                if ((tmp = manager.DebritCollisionCheck(gameObject)) != null)
+                if ((tmp = manager.DebritCollisionCheck(transform.position)) != null)
                     ToDoOnCol(tmp);
             }
         }
@@ -116,7 +116,7 @@ public class NoColDebritController : MonoBehaviour
         // }
         if (Collided.tag == "Player")
         {
-            Debug.Log("PLAYER COLLIDED  deb cont");
+      //      Debug.Log("PLAYER COLLIDED  deb cont");
             var otherDebrit = Collided.GetComponent<NoColDebritController>();
             manager.AgglomerateDebrit(this);
             if (otherDebrit != null)
