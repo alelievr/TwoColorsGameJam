@@ -59,7 +59,7 @@ public class AsteroidController : MonoBehaviour
 		if (deathController.dead)
 			return ;
 		
-		rb.AddForce(dir * (speed - Mathf.Max(GameManager.instance.playerSize * AugmentationInertia, minForceSpeed)), ForceMode2D.Force);
+		rb.AddForce(dir * (speed - Mathf.Max(Mathf.Sqrt(GameManager.instance.playerSizeSqr) * AugmentationInertia, minForceSpeed)), ForceMode2D.Force); // a optimiser
 
 		if (Mathf.Abs(rb.velocity.magnitude) > maxSpeed)
 		{

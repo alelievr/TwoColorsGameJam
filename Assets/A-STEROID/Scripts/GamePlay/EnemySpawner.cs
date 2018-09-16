@@ -64,7 +64,7 @@ public class EnemySpawner : MonoBehaviour
 
 	void SpawnEnemy(GameObject prefab)
 	{
-		Vector3 pos = (Vector2)GameManager.instance.playerTransform.position + Random.insideUnitCircle.normalized * GameManager.instance.playerSize * 2;
+		Vector3 pos = (Vector2)GameManager.instance.playerTransform.position + Random.insideUnitCircle.normalized * Mathf.Sqrt(GameManager.instance.playerSizeSqr) * 2;
 		GameObject.Instantiate(prefab, pos, Quaternion.identity);
 	}
 }

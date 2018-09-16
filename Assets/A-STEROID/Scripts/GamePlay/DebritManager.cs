@@ -47,9 +47,9 @@ public class DebritManager : MonoBehaviour
 
 	public void resizeCamera()
 	{
-		if (GameManager.instance.playerSize != oldsize)
-			GameManager.instance.originalvcam.m_Lens.OrthographicSize = sizeInitOfCam + GameManager.instance.playerSize; // not sure about that
-		oldsize = GameManager.instance.playerSize;
+		if (GameManager.instance.playerSizeSqr != oldsize)
+			GameManager.instance.originalvcam.m_Lens.OrthographicSize = sizeInitOfCam + Mathf.Sqrt(GameManager.instance.playerSizeSqr); // not sure about that
+		oldsize = GameManager.instance.playerSizeSqr;
 	}
 	
 	public void AgglomerateDebrit(DebritController debrit)
