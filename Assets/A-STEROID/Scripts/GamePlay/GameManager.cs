@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
 	private	Vector3		baseCamPosition;
 	int currentboss = -1;
 	public int enemylimit = 10;
+	[HideInInspector] public float pts = 0;
 
 	private void Awake()
 	{
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
 	private void Update()
 	{
 		mainCamera.transform.position = new Vector3(baseCamPosition.x, baseCamPosition.y, baseCamPosition.z + playerSizeSqr);
+		pts += Time.deltaTime; // a discuter
 	}
 
 	public void DefeatBoss()

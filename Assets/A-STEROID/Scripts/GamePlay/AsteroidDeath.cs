@@ -13,6 +13,7 @@ public class AsteroidDeath : MonoBehaviour
 	public AudioClip		deathClip;
 	public GameObject		playerHit;
 	public GameObject		deathScreen;
+	public GameObject		leaderBoard;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -30,7 +31,27 @@ public class AsteroidDeath : MonoBehaviour
 	{
 		deathScreen.SetActive(true);
 		dead = true;
-		AudioController.instance.PlayOneShotOnPlayer(deathClip, null);
+		if (deathClip)
+			AudioController.instance.PlayOneShotOnPlayer(deathClip, null);
+		StartCoroutine(WaitAndLeaderBoard());
+	}
+
+	bool OnLeaderBoard = false;
+
+	IEnumerator WaitAndLeaderBoard()
+	{
+		float time = 0;
+		while (time < 1)
+		{
+			time += Time.deltaTime;
+			if (Input.anyKey)
+				break ;
+			yield return new WaitForEndOfFrame();
+		}
+		OnLeaderBoard = true;
+		deathScreen.SetActive(false);
+		leaderBoard.SetActive(true);
+		
 	}
 
 	private void Update()
