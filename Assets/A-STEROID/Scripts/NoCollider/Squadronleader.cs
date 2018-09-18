@@ -5,7 +5,7 @@ using UnityEngine;
 public class Squadronleader : MonoBehaviour
 {
 
-    float squadSize = 10f;
+    float squadSize = 5f;
 
     public List<NoColDebritController> debritList = new List<NoColDebritController>();
 
@@ -40,7 +40,7 @@ public class Squadronleader : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = colorDictionary[elColor];
-        Gizmos.DrawWireSphere(transform.position, 14.2f);
+        Gizmos.DrawWireSphere(transform.position, 7f);
     }
 
     private void Update()

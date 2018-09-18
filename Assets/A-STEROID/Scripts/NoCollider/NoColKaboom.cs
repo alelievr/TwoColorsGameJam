@@ -76,11 +76,11 @@ public class NoColKaboom : MonoBehaviour
 
 	IEnumerator HitSound()
 	{
-		AudioController.instance.PlayDamageAtPosition(transform.position);
+		// AudioController.instance.PlayDamageAtPosition(transform.position);
 		yield return new WaitForSeconds(0.2f);
-		AudioController.instance.PlayDamageAtPosition(transform.position);
+		// AudioController.instance.PlayDamageAtPosition(transform.position);
 		yield return new WaitForSeconds(0.2f);
-		AudioController.instance.PlayDamageAtPosition(transform.position);
+		// AudioController.instance.PlayDamageAtPosition(transform.position);
 	}	
 
 	void ToDoOnCol(GameObject collided)
@@ -133,11 +133,11 @@ public class NoColKaboom : MonoBehaviour
 		
 		if (tag == "Proj" || tag == "Xenon")
 		{
-			if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 25f)
+			if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 10f)
 			{
 				GameObject tmp;
 			//	Debug.Log("KABOOM dist to asteroid = " + (transform.position - NoColDebritManager.instance.transform.position).magnitude);
-			//	Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.red, 0.1f);
+				Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.red, Time.fixedDeltaTime);
 				if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(transform.position)) != null)
 					ToDoOnCol(tmp);
 			//	else

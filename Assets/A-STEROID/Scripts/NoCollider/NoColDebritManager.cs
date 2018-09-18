@@ -13,7 +13,8 @@ public class NoColDebritManager : MonoBehaviour
 
     List<NoColDebritController> debrits = new List<NoColDebritController>();
 
-    public Squadronleader[] squadArray;
+    // public Squadronleader[] squadArray;
+    // public List<Squadronleader> general.squadList;
 
     public int debritCount;
     bool needsIntegrityCheck;
@@ -24,6 +25,7 @@ public class NoColDebritManager : MonoBehaviour
     public float DistanceMaxOfAglo = 0;
 
     int integrity = 0;
+    public SquadGeneral general;
 
     private void Awake()
     {
@@ -31,10 +33,12 @@ public class NoColDebritManager : MonoBehaviour
         debritCount = 0;
     }
 
+  
     private void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
         UpdatePlayerSizeSqr();
+        
         // Debug.Log("test 20 = " + my_abs(20));
         // Debug.Log("test -20 = " + my_abs(-20));
         // Debug.Log("test 0 = " + my_abs(0));
@@ -66,9 +70,9 @@ public class NoColDebritManager : MonoBehaviour
 
     public GameObject DebritCollisionCheck(Vector3 pos)
     {
-        foreach (Squadronleader leader in squadArray)
+        foreach (Squadronleader leader in general.squadList)
         {
-            if ((pos - leader.transform.position).sqrMagnitude <= 202f)
+            if ((pos - leader.transform.position).sqrMagnitude <= 50f)
             {
                 foreach (var debrit in leader.debritList)
                 {
@@ -96,9 +100,9 @@ public class NoColDebritManager : MonoBehaviour
 
     void AssignSquadron(NoColDebritController debrit)
     {
-        foreach (Squadronleader leader in squadArray)
+        foreach (Squadronleader leader in general.squadList)
         {
-            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 202f)
+            if ((debrit.transform.position - leader.transform.position).sqrMagnitude <= 50f)
             {
                 leader.debritList.Add(debrit);
             }
@@ -152,9 +156,10 @@ public class NoColDebritManager : MonoBehaviour
         UpdatePlayerSizeSqr();
     }
 
+    float size = 0;
     void UpdatePlayerSizeSqr()
     {
-        float size = 0;
+        size = 0;
         foreach (var debrit in debrits)
         {
             size = Mathf.Max(size, (debrit.transform.position - transform.position).magnitude/*Vector3.Distance(debrit.transform.position, transform.position)*/);
@@ -199,6 +204,6 @@ public class NoColDebritManager : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(GameManager.instance.playerSizeSqr));
+        Gizmos.DrawWireSphere(transform.position, Mathf.Sqrt(size));
     }
 }

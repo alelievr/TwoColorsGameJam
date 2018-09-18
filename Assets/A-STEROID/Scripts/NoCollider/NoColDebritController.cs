@@ -45,7 +45,7 @@ public class NoColDebritController : MonoBehaviour
         if (agglomerationEnabled)
             return;
 		// Debug.Log("AGGLO PASS RETURN");
-        AudioController.instance.PlayAggregateOnPlayer();
+        // AudioController.instance.PlayAggregateOnPlayer();
 
         tag = "Player";
 
@@ -69,10 +69,10 @@ public class NoColDebritController : MonoBehaviour
         
         if (tag == "debrit")
         {
-            if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 50f)
+            if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 10f)
             {
 //                	Debug.Log("UNDER THE INFLUENCE");
-                //Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.green, 0.1f);
+                Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.green, Time.fixedDeltaTime);
                 GameObject tmp;
                 if ((tmp = manager.DebritCollisionCheck(transform.position)) != null)
                     ToDoOnCol(tmp);
@@ -173,7 +173,7 @@ public class NoColDebritController : MonoBehaviour
         dead = true;
         Instantiate(debritExplosionPrefab, transform.position, Quaternion.identity);
 
-        AudioController.instance.PlayExplosionAtPosition(transform.position);
+        // AudioController.instance.PlayExplosionAtPosition(transform.position);
     }
 
     private void OnDestroy()
