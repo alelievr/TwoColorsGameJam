@@ -2,9 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 
 
-public class DebritManager : MonoBehaviour
+public class DebrisManager : MonoBehaviour
 {
-	public static DebritManager instance;
+	public static DebrisManager instance;
 	public float innerRadius = 3;
 	public float outerRadius = 5;
 
@@ -12,12 +12,12 @@ public class DebritManager : MonoBehaviour
 	
 	Collider2D[]		results = new Collider2D[16];
 
-	List< DebritController > debrits = new List< DebritController >();
+	List< DebrisController > debrits = new List< DebrisController >();
 
 	public int				debritCount;
 	bool					needsIntegrityCheck;
-	DebritController		controller;
-	Queue<DebritController>	debritdistancelist = new Queue<DebritController>();
+	DebrisController		controller;
+	Queue<DebrisController>	debritdistancelist = new Queue<DebrisController>();
 
 	int integrity = 0;
 
@@ -39,7 +39,7 @@ public class DebritManager : MonoBehaviour
 	{
 		if (other.gameObject.tag == "debrit")
 		{
-			AgglomerateDebrit(other.gameObject.GetComponent< DebritController >());
+			AgglomerateDebrit(other.gameObject.GetComponent< DebrisController >());
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class DebritManager : MonoBehaviour
 		oldsize = GameManager.instance.playerSizeSqr;
 	}
 	
-	public void AgglomerateDebrit(DebritController debrit)
+	public void AgglomerateDebrit(DebrisController debrit)
 	{
 		debrits.Add(debrit);
 		debrit.Agglomerate(integrity);
@@ -64,7 +64,7 @@ public class DebritManager : MonoBehaviour
 		UpdatePlayerSize();
 	}
 
-	void IntegrityCheck(DebritController controller)
+	void IntegrityCheck(DebrisController controller)
 	{
 		int count = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius + 0.1f, results);
 
@@ -72,7 +72,7 @@ public class DebritManager : MonoBehaviour
 
 		for (int i = 0; i < count; i++)
 		{
-			var debrit = results[i].GetComponent<DebritController>();
+			var debrit = results[i].GetComponent<DebrisController>();
 
 			if (debrit == null)
 				continue ;
@@ -103,7 +103,7 @@ public class DebritManager : MonoBehaviour
 		GameManager.instance.playerSizeSqr = size;
 	}
 
-	void OnDebritDestroyed(DebritController controller)
+	void OnDebritDestroyed(DebrisController controller)
 	{
 		resizeCamera();
 		debrits.Remove(controller);

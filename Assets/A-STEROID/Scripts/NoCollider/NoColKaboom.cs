@@ -136,9 +136,9 @@ public class NoColKaboom : MonoBehaviour
 			if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 10f)
 			{
 				GameObject tmp;
-			//	Debug.Log("KABOOM dist to asteroid = " + (transform.position - NoColDebritManager.instance.transform.position).magnitude);
-				Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.red, Time.fixedDeltaTime);
-				if ((tmp = NoColDebritManager.instance.DebritCollisionCheck(transform.position)) != null)
+			//	Debug.Log("KABOOM dist to asteroid = " + (transform.position - NoColDebrisManager.instance.transform.position).magnitude);
+				Debug.DrawLine(transform.position, NoColDebrisManager.instance.transform.position, Color.red, Time.fixedDeltaTime);
+				if ((tmp = NoColDebrisManager.instance.DebritCollisionCheck(transform.position)) != null)
 					ToDoOnCol(tmp);
 			//	else
 			//		Debug.Log("DEBRIT NULL");

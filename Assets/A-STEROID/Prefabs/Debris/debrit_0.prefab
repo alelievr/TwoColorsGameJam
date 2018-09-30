@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4357523799556784}
   - component: {fileID: 212939710908963634}
-  - component: {fileID: 114611715912133976}
   - component: {fileID: 50708407037199674}
   - component: {fileID: 58003414614989496}
+  - component: {fileID: 114957335403521242}
   m_Layer: 0
   m_Name: debrit_0
   m_TagString: debrit
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: -0.11770146, y: -0.04279716}
   serializedVersion: 2
   m_Radius: 1.1182972
---- !u!114 &114611715912133976
+--- !u!114 &114957335403521242
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,12 +86,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1488218167206338}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16e2debe8e0446b093ccdfaf6f61a13, type: 3}
+  m_Script: {fileID: 11500000, guid: ae6f3070a50154d24a79175a2411c596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   toVel: 2.5
-  maxVel: 30
+  maxVel: 15
   maxForce: 40
   gain: 5
   debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,

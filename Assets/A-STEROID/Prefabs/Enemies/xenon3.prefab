@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 114391829480526856}
   - component: {fileID: 58798962333005372}
   - component: {fileID: 114941558330319172}
-  - component: {fileID: 114610699254256670}
   m_Layer: 0
   m_Name: xenon3
   m_TagString: Untagged
@@ -133,20 +132,6 @@ MonoBehaviour:
   debrit: {fileID: 1488218167206338, guid: 3d302dc92545b479fa94dd59c4193d77, type: 2}
   recupTime: 0
   recup: 0
---- !u!114 &114610699254256670
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1808026768432460}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f5adcde37334555bb9852cb36aaf9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  prec: 10
-  speed: 10
 --- !u!114 &114916192897117160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,7 +170,7 @@ MonoBehaviour:
   maxrotationspeed: 60
   idealdistancetocible: 30
   agroDistance: Infinity
-  anim: {fileID: 0}
+  typeOfMouvement: 0
   destroyRange: 250
 --- !u!212 &212046526994421692
 SpriteRenderer:

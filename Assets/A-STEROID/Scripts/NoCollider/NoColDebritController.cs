@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class NoColDebritController : MonoBehaviour
+public class NoColDebrisController : MonoBehaviour
 {
     public GameObject player;
 
@@ -13,28 +13,28 @@ public class NoColDebritController : MonoBehaviour
     public float maxForce = 40.0f;
     public float gain = 5f;
 
-    public event Action<NoColDebritController> onLaserReceived;
-    public event Action<NoColDebritController> onDestroyed;
+    public event Action<NoColDebrisController> onLaserReceived;
+    public event Action<NoColDebrisController> onDestroyed;
 
     public GameObject debritExplosionPrefab;
 
     Rigidbody2D rb;
     CircleCollider2D circleCollider;
     Collider2D[] results = new Collider2D[16];
-    NoColDebritManager manager;
+    NoColDebrisManager manager;
     public bool agglomerationEnabled;
 
     public int integrity = 0;
 
     bool dead = false;
 
-    List<NoColDebritController> touchingDebrits = new List<NoColDebritController>();
+    List<NoColDebrisController> touchingDebrits = new List<NoColDebrisController>();
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         circleCollider = GetComponent<CircleCollider2D>();
-        manager = NoColDebritManager.instance;
+        manager = NoColDebrisManager.instance;
 
         StartCoroutine("Killme");
     }
@@ -57,7 +57,7 @@ public class NoColDebritController : MonoBehaviour
         int count = circleCollider.OverlapCollider(filter, results);
 
         for (int i = 0; i < count; i++)
-            touchingDebrits.Add(results[i].GetComponent<NoColDebritController>());
+            touchingDebrits.Add(results[i].GetComponent<NoColDebrisController>());
 
         integrity = 0;
         StopCoroutine("Killme");
@@ -72,7 +72,7 @@ public class NoColDebritController : MonoBehaviour
             if ((transform.position - GameManager.instance.playerPos).sqrMagnitude < GameManager.instance.playerSizeSqr + 10f)
             {
 //                	Debug.Log("UNDER THE INFLUENCE");
-                Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.green, Time.fixedDeltaTime);
+                Debug.DrawLine(transform.position, NoColDebrisManager.instance.transform.position, Color.green, Time.fixedDeltaTime);
                 GameObject tmp;
                 if ((tmp = manager.DebritCollisionCheck(transform.position)) != null)
                     ToDoOnCol(tmp);
@@ -83,7 +83,7 @@ public class NoColDebritController : MonoBehaviour
     void Update()
     {
         // if (agglomerationEnabled)
-        // Debug.DrawLine(transform.position, NoColDebritManager.instance.transform.position, Color.blue, Time.deltaTime);
+        // Debug.DrawLine(transform.position, NoColDebrisManager.instance.transform.position, Color.blue, Time.deltaTime);
     }
 
     public void CheckIntegryty(int newIntegrity)
@@ -110,14 +110,14 @@ public class NoColDebritController : MonoBehaviour
         // if (Collided.tag == "debrit")
         // {
         // 	Debug.Log("debrit COLLIDED deb cont");
-        // 	var otherDebrit = Collided.GetComponent<NoColDebritController>();
+        // 	var otherDebrit = Collided.GetComponent<NoColDebrisController>();
         // 	manager.AgglomerateDebrit(otherDebrit);
         // 	touchingDebrits.Add(otherDebrit);
         // }
         if (Collided.tag == "Player")
         {
       //      Debug.Log("PLAYER COLLIDED  deb cont");
-            var otherDebrit = Collided.GetComponent<NoColDebritController>();
+            var otherDebrit = Collided.GetComponent<NoColDebrisController>();
             manager.AgglomerateDebrit(this);
             if (otherDebrit != null)
 				otherDebrit.touchingDebrits.Add(this);
@@ -131,7 +131,7 @@ public class NoColDebritController : MonoBehaviour
 
     // 	if (other.gameObject.tag == "debrit")
     // 	{
-    // 		var otherDebrit = other.gameObject.GetComponent<NoColDebritController>();
+    // 		var otherDebrit = other.gameObject.GetComponent<NoColDebrisController>();
     // 		manager.AgglomerateDebrit(otherDebrit);
     // 		touchingDebrits.Add(otherDebrit);
     // 	}

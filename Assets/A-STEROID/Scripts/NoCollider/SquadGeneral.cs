@@ -11,7 +11,7 @@ public class SquadGeneral : MonoBehaviour
 
     float circle = 0;
     float circleSize = 0;
-    public NoColDebritManager debritManagerScript;
+    public NoColDebrisManager DebrisManagerScript;
 	public int length;
     public List<Squadronleader> squadList;
 

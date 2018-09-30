@@ -7,7 +7,7 @@ public class Squadronleader : MonoBehaviour
 
     float squadSize = 5f;
 
-    public List<NoColDebritController> debritList = new List<NoColDebritController>();
+    public List<NoColDebrisController> debritList = new List<NoColDebrisController>();
 
     public enum colorEnum
     {

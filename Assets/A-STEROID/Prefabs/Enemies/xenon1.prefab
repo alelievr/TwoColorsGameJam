@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 114610808878047816}
   - component: {fileID: 61489220214547638}
   - component: {fileID: 114626885894416686}
-  - component: {fileID: 114112572120340400}
   m_Layer: 0
   m_Name: xenon1
   m_TagString: Untagged
@@ -120,20 +119,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.2336426, y: 7.7178345}
   m_EdgeRadius: 1.08
---- !u!114 &114112572120340400
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1667449836847868}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f5adcde37334555bb9852cb36aaf9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  prec: 10
-  speed: 10
 --- !u!114 &114610808878047816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,14 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d344a79bbbcfa45ad8c8905d6d13c7ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanfind: 0
+  instanfind: 1
   cible: {fileID: 0}
   speed: 20
   maxspeed: 30
   rotationspeed: 50
   maxrotationspeed: 30
   idealdistancetocible: 10
-  anim: {fileID: 0}
+  agroDistance: Infinity
+  typeOfMouvement: 0
   destroyRange: 500
 --- !u!114 &114759377355910984
 MonoBehaviour:

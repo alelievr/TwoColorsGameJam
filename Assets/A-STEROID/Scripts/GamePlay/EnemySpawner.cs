@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
 	[Space, Header("Spawn settings")]
 	public float	spawnDelay = 5;
 	public float	spawnDelayVariation = 2f;
+	public float	radius = 5;
 
 	public float traveledDistance
 	{
@@ -59,12 +60,15 @@ public class EnemySpawner : MonoBehaviour
 					break ;
 				}
 			}
+			
+			yield return new WaitForEndOfFrame();
 		}
 	}
 
 	void SpawnEnemy(GameObject prefab)
 	{
-		Vector3 pos = (Vector2)GameManager.instance.playerTransform.position + Random.insideUnitCircle.normalized * Mathf.Sqrt(GameManager.instance.playerSizeSqr) * 2;
+		Vector2 randomDirection = Random.insideUnitCircle.normalized;
+		Vector3 pos = (Vector2)GameManager.instance.playerPos + randomDirection * Mathf.Sqrt(GameManager.instance.playerSizeSqr) + randomDirection * radius;
 		GameObject.Instantiate(prefab, pos, Quaternion.identity);
 	}
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 // using static Unity.Mathematics;
-public class NoColDebritManager : MonoBehaviour
+public class NoColDebrisManager : MonoBehaviour
 {
-    public static NoColDebritManager instance;
+    public static NoColDebrisManager instance;
     public float innerRadius = 3;
     public float outerRadius = 5;
 
@@ -11,15 +11,15 @@ public class NoColDebritManager : MonoBehaviour
 
     Collider2D[] results = new Collider2D[16];
 
-    List<NoColDebritController> debrits = new List<NoColDebritController>();
+    List<NoColDebrisController> debrits = new List<NoColDebrisController>();
 
     // public Squadronleader[] squadArray;
     // public List<Squadronleader> general.squadList;
 
     public int debritCount;
     bool needsIntegrityCheck;
-    NoColDebritController controller;
-    Queue<NoColDebritController> debritdistancelist = new Queue<NoColDebritController>();
+    NoColDebrisController controller;
+    Queue<NoColDebrisController> debritdistancelist = new Queue<NoColDebrisController>();
 
     [HideInInspector]
     public float DistanceMaxOfAglo = 0;
@@ -56,7 +56,7 @@ public class NoColDebritManager : MonoBehaviour
     // {
     // 	if (other.gameObject.tag == "debrit")
     // 	{
-    // 		AgglomerateDebrit(other.gameObject.GetComponent< NoColDebritController >());
+    // 		AgglomerateDebrit(other.gameObject.GetComponent< NoColDebrisController >());
     // 	}
     // }
 
@@ -78,7 +78,7 @@ public class NoColDebritManager : MonoBehaviour
                 {
                     if ((pos - debrit.transform.position).sqrMagnitude < 5f)
                     {
-                        //AgglomerateDebrit(colTarget.GetComponent< NoColDebritController >());
+                        //AgglomerateDebrit(colTarget.GetComponent< NoColDebrisController >());
                         // Debug.Log("debritcoll check return debrit");
                         return debrit.gameObject;
                     }
@@ -98,7 +98,7 @@ public class NoColDebritManager : MonoBehaviour
 
     }
 
-    void AssignSquadron(NoColDebritController debrit)
+    void AssignSquadron(NoColDebrisController debrit)
     {
         foreach (Squadronleader leader in general.squadList)
         {
@@ -109,7 +109,7 @@ public class NoColDebritManager : MonoBehaviour
         }
     }
 
-    public void AgglomerateDebrit(NoColDebritController debrit)
+    public void AgglomerateDebrit(NoColDebrisController debrit)
     {
         float tmp;
         if ((tmp = Vector2.Distance(transform.position, debrit.transform.position)) > DistanceMaxOfAglo)
@@ -128,7 +128,7 @@ public class NoColDebritManager : MonoBehaviour
         UpdatePlayerSizeSqr();
     }
 
-    void IntegrityCheck(NoColDebritController controller)
+    void IntegrityCheck(NoColDebrisController controller)
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, circleCollider.radius + 0.1f, results);
 
@@ -136,7 +136,7 @@ public class NoColDebritManager : MonoBehaviour
 
         for (int i = 0; i < count; i++)
         {
-            var debrit = results[i].GetComponent<NoColDebritController>();
+            var debrit = results[i].GetComponent<NoColDebrisController>();
 
             if (debrit == null)
                 continue;
@@ -171,7 +171,7 @@ public class NoColDebritManager : MonoBehaviour
 
     }
 
-    void OnDebritDestroyed(NoColDebritController controller)
+    void OnDebritDestroyed(NoColDebrisController controller)
     {
         if (debritdistancelist.Count > 0 && debritdistancelist.Peek() == controller)
         {

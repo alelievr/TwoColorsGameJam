@@ -3,40 +3,50 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class DebritController : MonoBehaviour
+public class DebrisController : MonoBehaviour
 {
 	public GameObject	player;
 
 	[Header("Target reach settings")]
-	public float toVel = 2.5f;
-	public float maxVel = 15.0f;
-	public float maxForce = 40.0f;
-	public float gain = 5f;
+	public float	toVel = 2.5f;
+	public float	maxVel = 15.0f;
+	public float	maxForce = 40.0f;
+	public float	gain = 5f;
+	public bool		destroyIfInvisible = false;
 
-	public event Action< DebritController >	onLaserReceived;
-	public event Action< DebritController >	onDestroyed;
+	public event Action< DebrisController >	onLaserReceived;
+	public event Action< DebrisController >	onDestroyed;
 
 	public GameObject	debritExplosionPrefab;
 
 	Rigidbody2D			rb;
 	CircleCollider2D	circleCollider;
 	Collider2D[]		results = new Collider2D[16];
-	DebritManager		manager;
+	DebrisManager		manager;
 	bool				agglomerationEnabled;
 
 	public int			integrity = 0;
 
 	bool dead = false;
 
-	List<DebritController>	touchingDebrits = new List<DebritController>();
+	List<DebrisController>	touchingDebrits = new List<DebrisController>();
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
 		circleCollider = GetComponent< CircleCollider2D >();
-		manager = DebritManager.instance;
+		manager = DebrisManager.instance;
 
-		StartCoroutine("Killme");
+		if (destroyIfInvisible)
+			StartCoroutine("Killme");
+	}
+
+	public void ApplyForce(Vector3 force)
+	{
+		// At this point Start() may not be called yet as the GameObject might be activated for the first time in the same frame :(
+		if (rb == null)
+			rb = GetComponent<Rigidbody2D>();
+		rb.AddForce(force, ForceMode2D.Impulse);
 	}
 
 	public void Agglomerate(int integrity)
@@ -56,7 +66,7 @@ public class DebritController : MonoBehaviour
 		int count = circleCollider.OverlapCollider(filter, results);
 
 		for (int i = 0; i < count; i++)
-			touchingDebrits.Add(results[i].GetComponent<DebritController>());
+			touchingDebrits.Add(results[i].GetComponent<DebrisController>());
 
 		integrity = 0;
 		StopCoroutine("Killme");
@@ -85,7 +95,7 @@ public class DebritController : MonoBehaviour
 		
 		if (other.gameObject.tag == "debrit")
 		{
-			var otherDebrit = other.gameObject.GetComponent<DebritController>();
+			var otherDebrit = other.gameObject.GetComponent<DebrisController>();
 			manager.AgglomerateDebrit(otherDebrit);
 			touchingDebrits.Add(otherDebrit);
 		}

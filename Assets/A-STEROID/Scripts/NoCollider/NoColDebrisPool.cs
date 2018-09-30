@@ -6,26 +6,26 @@ public class NoColDebrisPool : GameObjectPool
 {
 	public static NoColDebrisPool instance;
 
-	protected Queue<NoColDebritController> debrisPool = null;
+	protected Queue<NoColDebrisController> debrisPool = null;
 
 	protected override void Awake()
 	{
 		base.Awake();
-		debrisPool = new Queue<NoColDebritController>();
+		debrisPool = new Queue<NoColDebrisController>();
 		instance = this;
 		AllocPool();
 	}
 
 	protected override void OnNewObjectReserved(GameObject go)
 	{
-		debrisPool.Enqueue(go.GetComponent<NoColDebritController>());
+		debrisPool.Enqueue(go.GetComponent<NoColDebrisController>());
 	}
 
-	public NoColDebritController NewDebris(Vector3 pos)
+	public NoColDebrisController NewDebris(Vector3 pos)
 	{
 		base.GetGameObject();
 
-		NoColDebritController Debris = debrisPool.Dequeue();
+		NoColDebrisController Debris = debrisPool.Dequeue();
 
 		Debris.transform.position = pos;
 		
@@ -34,7 +34,7 @@ public class NoColDebrisPool : GameObjectPool
 		return Debris;
 	}
 
-	public void FreeDebris(NoColDebritController o)
+	public void FreeDebris(NoColDebrisController o)
 	{
 		FreeGameObject(o.gameObject);
 		debrisPool.Enqueue(o);
