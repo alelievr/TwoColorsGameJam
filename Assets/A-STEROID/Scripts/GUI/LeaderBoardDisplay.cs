@@ -5,9 +5,6 @@ using System;
 
 public class LeaderBoardDisplay : MonoBehaviour
 {
-	public GameObject		loadingBar;
-	public GameObject		leaderBoardTable;
-
 	string dreamloWebserviceURL = "http://dreamlo.com/lb/";
 
 	string leaderboardCode = "5b9e930ecb934a0e10a89a20";
@@ -26,10 +23,8 @@ public class LeaderBoardDisplay : MonoBehaviour
 		StartCoroutine(GetScores());
 	}
 	
-	IEnumerator GetScores()
+	public IEnumerator GetScores()
 	{
-		// loadingBar.SetActive(true);
-
 		highScores = "";
 		WWW www = new WWW(dreamloWebserviceURL +  leaderboardCode  + "/pipe");
 		yield return www;

@@ -8,6 +8,7 @@ public class LeaderBoard : MonoBehaviour
 	public InputField	username;
 
 	GameManager			gameManager;
+	public LeaderBoardDisplay	leaderBoardDisplay;
 
 	string privateCode = "tBcJoWI-0USUZw_CuQKgPQlfUyON_K4k-EMiRnG7S9uw";
 
@@ -34,6 +35,7 @@ public class LeaderBoard : MonoBehaviour
 		
 		WWW www = new WWW(dreamloWebserviceURL + privateCode+ "/add-pipe/" + WWW.EscapeURL(playerName) + "/" + totalScore.ToString());
 		yield return www;
+		StartCoroutine(leaderBoardDisplay.GetScores());
 		// highScores = www.text;
 	}
 
