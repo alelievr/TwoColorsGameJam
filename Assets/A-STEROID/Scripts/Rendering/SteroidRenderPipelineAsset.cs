@@ -66,48 +66,42 @@ public class SteroidRenderPipeline : RenderPipeline
 
         foreach (var camera in cameras)
         {
-            if (!SteroidRenderCamera(context, camera))
-                continue ;
+            SteroidRenderCamera(context, camera);
 
+            context.Submit();
             cmd.Clear();
         }
 	}
 
-    bool SteroidRenderCamera(ScriptableRenderContext context, Camera camera)
+    void SteroidRenderCamera(ScriptableRenderContext context, Camera camera)
     {
         ScriptableCullingParameters scp;
 
-        cmd.ClearRenderTarget(false, true, camera.backgroundColor);
-
-        if (!CullResults.GetCullingParameters(camera, out scp))
-            return false;
+        if (!CullResults.GetCullingParameters(camera, false, out scp))
+            return;
         
-        var cullResults = CullResults.Cull(ref scp, context);
+        context.SetupCameraProperties(camera);
 
-        var sprites = new FilterRenderersSettings
+        var cullResults = CullResults.Cull(ref scp, context);
+        
+        cmd.ClearRenderTarget(false, true, camera.backgroundColor);
+        context.ExecuteCommandBuffer(cmd);
+
+        var sprites = new FilterRenderersSettings(true)
         {
-            renderQueueRange = new RenderQueueRange
-            {
-                min = (int)RenderQueue.GeometryLast,
-                max = (int)RenderQueue.Transparent,
-            },
+            renderQueueRange = RenderQueueRange.transparent,
             layerMask = asset.visibleLayers.value
         };
 
-        var drs = new DrawRendererSettings(camera, new ShaderPassName("Transparent"))
+        var drs = new DrawRendererSettings(camera, new ShaderPassName("Steroid"))
         {
             flags = DrawRendererFlags.EnableDynamicBatching,
             rendererConfiguration = RendererConfiguration.None,
         };
 
-        drs.sorting.flags = SortFlags.SortingLayer;
+        drs.sorting.flags = SortFlags.CommonTransparent;
 
         context.DrawRenderers(cullResults.visibleRenderers, ref drs, sprites);
-        
-        context.ExecuteCommandBuffer(cmd);
-        context.Submit();
-
-        return true;
     }
 
 }

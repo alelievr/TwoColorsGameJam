@@ -11,3 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15eb6478010c14bef8192769aed06fb6, type: 3}
   m_Name: SteroidRenderPipeline
   m_EditorClassIdentifier: 
+  visibleLayers:
+    serializedVersion: 2
+    m_Bits: 35

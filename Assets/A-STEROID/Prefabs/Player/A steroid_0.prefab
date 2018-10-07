@@ -79,9 +79,8 @@ GameObject:
   - component: {fileID: 50374687650887276}
   - component: {fileID: 58944698020339084}
   - component: {fileID: 114003666854274606}
-  - component: {fileID: 114843282434689640}
-  - component: {fileID: 114081963311458972}
   - component: {fileID: 81255169863345334}
+  - component: {fileID: 114263165566773272}
   m_Layer: 0
   m_Name: A steroid_0
   m_TagString: Player
@@ -625,45 +624,6 @@ MonoBehaviour:
   debrit: {fileID: 0}
   recupTime: 0
   recup: 0
---- !u!114 &114081963311458972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1500432766737952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b9170c04b53948beb7c704c8c782856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bigList:
-    list:
-    - aggressiveProjectileInfoList:
-      - projectile: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
-          type: 2}
-        spawnRatio: 0.2
-      - projectile: {fileID: 114686182576643318, guid: 742703fcb98a44b76a9646b421e3542d,
-          type: 2}
-        spawnRatio: 0
-      - projectile: {fileID: 114610699254256670, guid: 1dc0729a0b6c94b639900aa5c9cb2779,
-          type: 2}
-        spawnRatio: 0.07
-    - aggressiveProjectileInfoList:
-      - projectile: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
-          type: 2}
-        spawnRatio: 1
-      - projectile: {fileID: 114112572120340400, guid: 6bc2fc339982e4d67b14030581fdabec,
-          type: 2}
-        spawnRatio: 0.1
-      - projectile: {fileID: 114686182576643318, guid: 742703fcb98a44b76a9646b421e3542d,
-          type: 2}
-        spawnRatio: 0.2
-    - aggressiveProjectileInfoList: []
-  projectilePrefab: {fileID: 114195176548454736, guid: 6d9e1dc5952e84915b60105a25ac7495,
-    type: 2}
-  target: {fileID: 1500432766737952}
-  distance: 100
-  frequancy: 0.2
 --- !u!114 &114129702051092032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -703,6 +663,20 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a7f2726b235ee4922872c14d63a2eec5, type: 3}
   randomBackgroundStart:
   - {fileID: 8300000, guid: cb9d2d2a3fa934e079c115ad18a9b0b5, type: 3}
+--- !u!114 &114263165566773272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1500432766737952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2a258082fbec423d9dec6f69a3bf876, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  innerRadius: 3
+  outerRadius: 5
+  debritCount: 0
 --- !u!114 &114327533076770588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -716,9 +690,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dead: 0
   life: 3
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: bddbf9001b09d4b9fa16b49ffd9a7012, type: 3}
   playerHit: {fileID: 1531576162476744, guid: d78300e75de5847328fff7ab4494e870, type: 2}
   deathScreen: {fileID: 0}
+  leaderBoard: {fileID: 0}
 --- !u!114 &114765088154750426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -736,20 +711,6 @@ MonoBehaviour:
   rotationSpeed: 5
   AugmentationInertia: 50
   minForceSpeed: 50
---- !u!114 &114843282434689640
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1500432766737952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 667cc926e40ba46cebff4538d03ee5ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  innerRadius: 0
-  outerRadius: 0
-  debritCount: 10
 --- !u!198 &198431433662449278
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -5299,7 +5260,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 788dac1899c534c1c9f584f624017a51, type: 2}
+  - {fileID: 2100000, guid: e604ef5f77f6440ba88021dcb9ac3d3c, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -5355,7 +5316,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7b8d3dd8ccf054d9eb00d642936faea3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

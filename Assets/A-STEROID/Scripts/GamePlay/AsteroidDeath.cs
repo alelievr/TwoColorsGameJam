@@ -50,7 +50,8 @@ public class AsteroidDeath : MonoBehaviour
 		}
 		OnLeaderBoard = true;
 		deathScreen.SetActive(false);
-		leaderBoard?.SetActive(true);
+		if (leaderBoard != null)
+			leaderBoard.SetActive(true);
 	}
 
 	private void Update()

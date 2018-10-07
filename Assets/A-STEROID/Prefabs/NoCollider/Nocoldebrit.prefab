@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4602737726578884}
   - component: {fileID: 212491573018039098}
   - component: {fileID: 114363777119148944}
-  - component: {fileID: 114518661198939134}
   - component: {fileID: 50613798486843052}
   - component: {fileID: 58899206191576394}
   m_Layer: 0
@@ -98,25 +97,6 @@ MonoBehaviour:
   debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,
     type: 2}
   integrity: 0
---- !u!114 &114518661198939134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1806647240790032}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f16e2debe8e0446b093ccdfaf6f61a13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  toVel: 2.5
-  maxVel: 30
-  maxForce: 40
-  gain: 5
-  debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,
-    type: 2}
-  integrity: 0
 --- !u!212 &212491573018039098
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -132,7 +112,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16f67e1d0ef0b4bfc91e9270f1d85a24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

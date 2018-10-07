@@ -94,6 +94,7 @@ MonoBehaviour:
   maxVel: 15
   maxForce: 40
   gain: 5
+  destroyIfInvisible: 0
   debritExplosionPrefab: {fileID: 1270068923259804, guid: 551dd4fde65c34156b393caa091c5a46,
     type: 2}
   integrity: 0
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 16f67e1d0ef0b4bfc91e9270f1d85a24, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
