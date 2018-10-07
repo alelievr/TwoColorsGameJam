@@ -36,7 +36,7 @@ public class NoColKaboom : MonoBehaviour
 	
     IEnumerator Destroyation()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 		Destroy(gameObject);
     }
 
@@ -93,7 +93,7 @@ public class NoColKaboom : MonoBehaviour
 			
 			if (collided.tag == "Player")//lol
 			{
-			// Debug.Log("PLAYER COLLIDED KABOOM");
+			Debug.Log("PLAYER COLLIDED KABOOM");
 
 				StartCoroutine(Flicker());
 				StartCoroutine(Recup());

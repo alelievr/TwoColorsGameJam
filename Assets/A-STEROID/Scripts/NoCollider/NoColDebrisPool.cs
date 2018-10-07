@@ -25,13 +25,14 @@ public class NoColDebrisPool : GameObjectPool
 	{
 		base.GetGameObject();
 
-		NoColDebrisController Debris = debrisPool.Dequeue();
+		NoColDebrisController debris = debrisPool.Dequeue();
 
-		Debris.transform.position = pos;
+		if (debris)
+			debris.transform.position = pos;
 		
 		Benchmark.instance.maxSimultaneousDebriss = allocatedObjectCount;
 
-		return Debris;
+		return debris;
 	}
 
 	public void FreeDebris(NoColDebrisController o)
