@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
 	private void Update()
 	{
+        playerPos = playerTransform.position;
 		mainCamera.transform.position = new Vector3(baseCamPosition.x, baseCamPosition.y, baseCamPosition.z + playerSizeSqr);
 		pts += Time.deltaTime; // a discuter
 	}

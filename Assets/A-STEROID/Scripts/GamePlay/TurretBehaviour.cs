@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class TurretBehaviour : MonoBehaviour
 {
 	public LaserBehaviour las;
 	public float angleprecision = 10;

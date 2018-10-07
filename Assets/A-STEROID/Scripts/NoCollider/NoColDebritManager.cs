@@ -190,7 +190,6 @@ public class NoColDebrisManager : MonoBehaviour
     {
         if (needsIntegrityCheck)
             IntegrityCheck(controller);
-        GameManager.instance.playerPos = transform.position;
         // UpdatePlayerSizeSqr();
         // Debug.Log("player size = " + GameManager.instance.playerSize);
         // Debug.DrawLine(transform.position,new Vector3(transform.position.x + 1, transform.position.y-2, transform.position.z), Color.yellow , Time.deltaTime);

@@ -51,6 +51,7 @@ public class DebrisSpawner : MonoBehaviour
 			yield return new WaitForSeconds(1f / spawnPerSeconds);
 
 			Vector3 pos = GameManager.instance.playerPos + (Vector3)Random.insideUnitCircle.normalized * radius;
+			Debug.Log("playerPos: " + GameManager.instance.playerPos);
 			var debris = DebrisPool.instance.NewDebris(pos);
 			Vector3 force = (GameManager.instance.playerPos + (Vector3)Random.insideUnitCircle * jitterDirection) - pos;
 			debris.ApplyForce(force * Random.Range(speedMultiplierRange.x, speedMultiplierRange.y));
