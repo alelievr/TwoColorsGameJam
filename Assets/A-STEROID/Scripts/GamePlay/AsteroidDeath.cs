@@ -59,10 +59,8 @@ public class AsteroidDeath : MonoBehaviour
 		if (!dead)
 			return ;
 
-		if (Input.GetKeyDown(KeyCode.Return)
-			|| Input.GetKeyDown(KeyCode.Space)
-			|| Input.GetKeyDown(KeyCode.KeypadEnter)
-			|| Input.GetMouseButtonDown(0))
+		if (Input.GetKeyDown(KeyCode.Space)
+			|| Input.GetKeyDown(KeyCode.KeypadEnter))
 			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
