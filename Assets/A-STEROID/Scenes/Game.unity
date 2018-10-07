@@ -1705,6 +1705,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114840496470454932, guid: f1bededa5f39b406cbf33358f0fb45dc,
+        type: 2}
+      propertyPath: chunkUnloadDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1bededa5f39b406cbf33358f0fb45dc, type: 2}
   m_IsPrefabAsset: 0
