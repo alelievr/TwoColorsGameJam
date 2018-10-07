@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class DebrisSpawner : MonoBehaviour
 {
@@ -51,7 +52,6 @@ public class DebrisSpawner : MonoBehaviour
 			yield return new WaitForSeconds(1f / spawnPerSeconds);
 
 			Vector3 pos = GameManager.instance.playerPos + (Vector3)Random.insideUnitCircle.normalized * radius;
-			Debug.Log("playerPos: " + GameManager.instance.playerPos);
 			var debris = DebrisPool.instance.NewDebris(pos);
 			Vector3 force = (GameManager.instance.playerPos + (Vector3)Random.insideUnitCircle * jitterDirection) - pos;
 			debris.ApplyForce(force * Random.Range(speedMultiplierRange.x, speedMultiplierRange.y));
@@ -74,11 +74,17 @@ public class DebrisSpawner : MonoBehaviour
 			}
 		}
 
+		List<Vector2Int> keysToRemove = new List<Vector2Int>();
 		foreach (var loadedChunkPosition in loadedChunks)
 		{
 			if (Vector2Int.Distance(loadedChunkPosition.Key, playerChunkPos) > chunkUnloadDistance)
+			{
 				UnloadChunk(loadedChunkPosition.Key);
+				keysToRemove.Add(loadedChunkPosition.Key);
+			}
 		}
+		foreach (var key in keysToRemove)
+			loadedChunks.Remove(key);
 	}
 
 	void LoadChunk(Vector2Int chunkPos)
@@ -107,7 +113,6 @@ public class DebrisSpawner : MonoBehaviour
 	{
 		foreach (var debris in loadedChunks[chunkPos])
 			DebrisPool.instance.FreeDebris(debris);
-		loadedChunks.Remove(chunkPos);
 	}
 
 	private void OnDrawGizmos()
